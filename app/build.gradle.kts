@@ -101,27 +101,27 @@ dependencies {
     // Coil
     implementation("io.coil-kt:coil-compose:2.4.0")
 
-     // Horizontal Pager and Indicators - Accompanist
-     implementation("com.google.accompanist:accompanist-pager:0.33.2-alpha")
-     implementation("com.google.accompanist:accompanist-pager-indicators:0.33.2-alpha")
+    // Horizontal Pager and Indicators - Accompanist
+    implementation("com.google.accompanist:accompanist-pager:0.33.2-alpha")
+    implementation("com.google.accompanist:accompanist-pager-indicators:0.33.2-alpha")
 
-     // Swipe to Refresh - Accompanist
-     implementation("com.google.accompanist:accompanist-swiperefresh:0.33.2-alpha")
+    // Swipe to Refresh - Accompanist
+    implementation("com.google.accompanist:accompanist-swiperefresh:0.33.2-alpha")
 
-     // System UI Controller - Accompanist
-     implementation("com.google.accompanist:accompanist-systemuicontroller:0.33.2-alpha")
+    // System UI Controller - Accompanist
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.33.2-alpha")
 
-     // Palette API
-     implementation("androidx.palette:palette-ktx:1.0.0")
+    // Palette API
+    implementation("androidx.palette:palette-ktx:1.0.0")
 
-     // Testing
-     androidTestImplementation("androidx.test:runner:1.5.2")
-     androidTestImplementation("androidx.test:rules:1.5.0")
-     androidTestImplementation("androidx.test.ext:junit:1.1.5")
-     androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.5.4")
-     debugImplementation("androidx.compose.ui:ui-test-manifest:1.5.4")
+    // Testing
+    androidTestImplementation("androidx.test:runner:1.5.2")
+    androidTestImplementation("androidx.test:rules:1.5.0")
+    androidTestImplementation("androidx.test.ext:junit:1.1.5")
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.5.4")
+    debugImplementation("androidx.compose.ui:ui-test-manifest:1.5.4")
 
-     testImplementation("junit:junit:4.13.2")
-     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:1.9.20")
-     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.1")
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("org.jetbrains.kotlin:kotlin-test-junit:1.9.20")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.1")
 }
