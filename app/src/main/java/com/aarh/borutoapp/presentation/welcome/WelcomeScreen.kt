@@ -6,41 +6,40 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
-import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
-import com.aarh.borutoapp.domain.model.OnBoardingPage
+import androidx.navigation.compose.rememberNavController
 import com.aarh.borutoapp.ui.theme.welcomeScreenBackground
+import com.aarh.borutoapp.util.Constants.WELCOME_PAGES_DATA
 
 @ExperimentalFoundationApi
 @Composable
 fun WelcomeScreen(
     navController: NavHostController,
 ) {
-    val pages = listOf(
-        OnBoardingPage.FirstPage,
-        OnBoardingPage.SecondPage,
-        OnBoardingPage.ThirdPage,
-    )
-
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(color = MaterialTheme.colors.welcomeScreenBackground),
+            .background(color = welcomeScreenBackground),
     ) {
-        val pagerState = rememberPagerState(pageCount = { pages.size })
+        val pagerState = rememberPagerState(pageCount = { WELCOME_PAGES_DATA.size })
 
         HorizontalPager(
             state = pagerState,
             verticalAlignment = Alignment.Top,
-        ) { page ->
-            PagerScreen(onBoardingPage = pages[page])
+        ) { position ->
+            PagerScreen(onBoardingPage = WELCOME_PAGES_DATA[position])
         }
     }
 }
 
+@ExperimentalFoundationApi
 @Composable
-fun PagerScreen(onBoardingPage: OnBoardingPage) {
+@Preview
+fun WelcomeScreenPreview() {
+    val navController = rememberNavController()
+    WelcomeScreen(navController = navController)
 }
