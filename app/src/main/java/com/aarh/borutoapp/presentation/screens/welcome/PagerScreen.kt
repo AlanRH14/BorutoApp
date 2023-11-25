@@ -1,4 +1,4 @@
-package com.aarh.borutoapp.presentation.welcome
+package com.aarh.borutoapp.presentation.screens.welcome
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
@@ -20,10 +20,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import com.aarh.borutoapp.R
 import com.aarh.borutoapp.domain.model.OnBoardingPage
+import com.aarh.borutoapp.ui.theme.DescriptionColor
 import com.aarh.borutoapp.ui.theme.EXTRA_LARGE_PADDING
 import com.aarh.borutoapp.ui.theme.SMALL_PADDING
-import com.aarh.borutoapp.ui.theme.descriptionColor
-import com.aarh.borutoapp.ui.theme.titleColor
+import com.aarh.borutoapp.ui.theme.TitleColor
 
 @Composable
 fun PagerScreen(onBoardingPage: OnBoardingPage) {
@@ -44,7 +44,7 @@ fun PagerScreen(onBoardingPage: OnBoardingPage) {
         )
         Text(
             text = onBoardingPage.title,
-            color = titleColor,
+            color = TitleColor,
             fontSize = MaterialTheme.typography.h4.fontSize,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,
@@ -57,7 +57,7 @@ fun PagerScreen(onBoardingPage: OnBoardingPage) {
                 .padding(horizontal = EXTRA_LARGE_PADDING)
                 .padding(top = SMALL_PADDING),
             text = onBoardingPage.description,
-            color = descriptionColor,
+            color = DescriptionColor,
             fontSize = MaterialTheme.typography.subtitle1.fontSize,
             fontWeight = FontWeight.Medium,
             textAlign = TextAlign.Center,

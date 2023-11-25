@@ -8,7 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.aarh.borutoapp.presentation.screens.splash.SplashScreen
-import com.aarh.borutoapp.presentation.welcome.WelcomeScreen
+import com.aarh.borutoapp.presentation.screens.welcome.WelcomeScreen
 import com.aarh.borutoapp.util.Constants.DETAILS_ARGUMENT_KEY
 
 @ExperimentalFoundationApi

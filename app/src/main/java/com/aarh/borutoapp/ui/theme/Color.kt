@@ -16,16 +16,22 @@ val Purple700 = Color(0xFF3700B3)
 val BrushLight = listOf(Purple700, Purple500)
 val LightGray = Color(0xFFD8D8D8)
 val DarkGray = Color(0xFF2A2A2A)
-val welcomeScreenBackground
+val WelcomeScreenBackground
     @Composable
     get() = if (isSystemInDarkTheme()) Color.Black else Color.White
-val titleColor
+val TitleColor
     @Composable
     get() = if (isSystemInDarkTheme()) LightGray else DarkGray
-val descriptionColor
+val DescriptionColor
     @Composable
     get() = if (isSystemInDarkTheme()) {
         LightGray.copy(alpha = 0.5F)
     } else {
         DarkGray.copy(alpha = 0.5F)
     }
+val PurpleUIModeColor
+    @Composable
+    get() = if (isSystemInDarkTheme()) Purple700 else Purple500
+val InactiveIndicatorColor
+    @Composable
+    get() = if (isSystemInDarkTheme()) DarkGray else LightGray
