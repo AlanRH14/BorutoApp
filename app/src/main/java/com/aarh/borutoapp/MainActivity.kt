@@ -3,12 +3,14 @@ package com.aarh.borutoapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.aarh.borutoapp.navigation.SetupNavGraph
 import com.aarh.borutoapp.ui.theme.BorutoAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
+@ExperimentalFoundationApi
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     private lateinit var navController: NavHostController

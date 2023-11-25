@@ -21,7 +21,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import com.aarh.borutoapp.R
-import com.aarh.borutoapp.ui.theme.brushLightColor
+import com.aarh.borutoapp.ui.theme.BrushLight
 
 @Composable
 fun SplashScreen(
@@ -59,7 +59,7 @@ fun Splash(degrees: Float = 0F) {
     } else {
         Box(
             modifier = Modifier
-                .background(Brush.verticalGradient(brushLightColor))
+                .background(Brush.verticalGradient(BrushLight))
                 .fillMaxSize(),
             contentAlignment = Alignment.Center,
         ) {

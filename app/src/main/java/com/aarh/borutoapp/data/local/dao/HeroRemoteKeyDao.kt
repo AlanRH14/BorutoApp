@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.aarh.borutoapp.domain.model.HeroRemoteKey
+import com.aarh.borutoapp.domain.entity.HeroRemoteKey
 
 @Dao
 interface HeroRemoteKeyDao {
