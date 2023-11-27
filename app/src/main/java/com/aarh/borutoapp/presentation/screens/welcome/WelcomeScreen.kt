@@ -8,9 +8,12 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
+import com.aarh.borutoapp.navigation.Screen
+import com.aarh.borutoapp.presentation.screens.welcome.components.FinisButton
+import com.aarh.borutoapp.presentation.screens.welcome.components.HorizontalPagerIndicator
+import com.aarh.borutoapp.presentation.screens.welcome.components.PagerScreen
 import com.aarh.borutoapp.ui.theme.WelcomeScreenBackground
 import com.aarh.borutoapp.util.Constants.WELCOME_PAGES_DATA
 
@@ -18,6 +21,7 @@ import com.aarh.borutoapp.util.Constants.WELCOME_PAGES_DATA
 @Composable
 fun WelcomeScreen(
     navController: NavHostController,
+    welcomeViewModel: WelcomeViewModel = hiltViewModel(),
 ) {
     Column(
         modifier = Modifier
@@ -45,14 +49,10 @@ fun WelcomeScreen(
             modifier = Modifier
                 .weight(1F),
             pagerState = pagerState,
-        ) {}
+        ) {
+            navController.popBackStack()
+            navController.navigate(Screen.Home.route)
+            welcomeViewModel.saveOnBoardingState(completed = true)
+        }
     }
-}
-
-@ExperimentalFoundationApi
-@Composable
-@Preview
-fun WelcomeScreenPreview() {
-    val navController = rememberNavController()
-    WelcomeScreen(navController = navController)
 }

@@ -1,4 +1,4 @@
-package com.aarh.borutoapp.presentation.screens.welcome
+package com.aarh.borutoapp.presentation.screens.welcome.components
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.ExperimentalFoundationApi
