@@ -3,6 +3,12 @@ package com.aarh.borutoapp.util
 import com.aarh.borutoapp.domain.model.OnBoardingPage
 
 object Constants {
+    const val SPLASH_SCREEN_ROUTE = "splash_screen"
+    const val WELCOME_SCREEN_ROUTE = "welcome_screen"
+    const val HOME_SCREEN_ROUTE = "home_screen"
+    const val DETAILS_SCREEN_ROUTE = "details_screen"
+    const val SEARCH_SCREEN_ROUTE = "search_screen"
+
     const val DETAILS_ARGUMENT_KEY = "heroId"
     const val BORUTO_DATABASE = "boruto_database"
     const val HERO_DATABASE_TABLE = "hero_table"

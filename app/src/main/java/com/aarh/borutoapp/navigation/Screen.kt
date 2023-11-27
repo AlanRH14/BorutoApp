@@ -1,12 +1,18 @@
 package com.aarh.borutoapp.navigation
 
+import com.aarh.borutoapp.util.Constants.DETAILS_SCREEN_ROUTE
+import com.aarh.borutoapp.util.Constants.HOME_SCREEN_ROUTE
+import com.aarh.borutoapp.util.Constants.SEARCH_SCREEN_ROUTE
+import com.aarh.borutoapp.util.Constants.SPLASH_SCREEN_ROUTE
+import com.aarh.borutoapp.util.Constants.WELCOME_SCREEN_ROUTE
+
 sealed class Screen(val route: String) {
-    object Splash : Screen("splash_screen")
-    object Welcome : Screen("welcome_screen")
-    object Home : Screen("home_screen")
-    object Details : Screen("details_screen/{heroId}") {
-        fun passHeroId(heroId: Int) = "details_screen/$heroId"
+    object Splash : Screen(route = SPLASH_SCREEN_ROUTE)
+    object Welcome : Screen(route = WELCOME_SCREEN_ROUTE)
+    object Home : Screen(route = HOME_SCREEN_ROUTE)
+    object Details : Screen(route = "$DETAILS_SCREEN_ROUTE/{heroId}") {
+        fun passHeroId(heroId: Int) = "$DETAILS_SCREEN_ROUTE/$heroId"
     }
 
-    object Search : Screen("search_screen")
+    object Search : Screen(route = SEARCH_SCREEN_ROUTE)
 }

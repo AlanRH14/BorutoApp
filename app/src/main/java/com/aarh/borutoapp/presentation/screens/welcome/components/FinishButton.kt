@@ -1,4 +1,4 @@
-package com.aarh.borutoapp.presentation.screens.welcome
+package com.aarh.borutoapp.presentation.screens.welcome.components
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.ExperimentalFoundationApi
