@@ -22,4 +22,6 @@ object Constants {
 
     const val PREFERENCES_NAME = "boruto_preferences"
     const val PREFERENCES_KEY = "on_boarding_completed"
+
+    const val BASE_URL = "http://0.0.0.0:8080"
 }
