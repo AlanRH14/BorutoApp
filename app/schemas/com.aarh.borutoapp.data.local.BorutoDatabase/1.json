@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "e2e9b3f5bd6e4893db2e29c98ca5d9a3",
+    "identityHash": "57265b6405440efa353e63c41431b285",
     "entities": [
       {
         "tableName": "hero_table",
@@ -85,7 +85,7 @@
         "foreignKeys": []
       },
       {
-        "tableName": "hero_remote_key_table",
+        "tableName": "hero_remote_keys_table",
         "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `prevPage` INTEGER, `nextPage` INTEGER, PRIMARY KEY(`id`))",
         "fields": [
           {
@@ -120,7 +120,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'e2e9b3f5bd6e4893db2e29c98ca5d9a3')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '57265b6405440efa353e63c41431b285')"
     ]
   }
 }
