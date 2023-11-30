@@ -9,8 +9,8 @@ import com.aarh.borutoapp.domain.entity.HeroRemoteKeys
 @Dao
 interface HeroRemoteKeysDao {
 
-    @Query("SELECT * FROM hero_remote_keys_table WHERE id = :id")
-    suspend fun getRemoteKeys(id: Int): HeroRemoteKeys?
+    @Query("SELECT * FROM hero_remote_keys_table WHERE id = :heroId")
+    suspend fun getRemoteKeys(heroId: Int): HeroRemoteKeys?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addAllRemoteKeys(heroesRemoteKeys: List<HeroRemoteKeys>)
