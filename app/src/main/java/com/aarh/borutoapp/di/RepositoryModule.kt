@@ -5,6 +5,7 @@ import com.aarh.borutoapp.data.repository.DataStoreOperationsImpl
 import com.aarh.borutoapp.data.repository.Repository
 import com.aarh.borutoapp.domain.repository.DataStoreOperations
 import com.aarh.borutoapp.domain.use_case.UseCases
+import com.aarh.borutoapp.domain.use_case.get_all_heroes.GetAllHeroesUseCase
 import com.aarh.borutoapp.domain.use_case.read_onboarding.ReadOnBoardingUseCase
 import com.aarh.borutoapp.domain.use_case.save_onboarding.SaveOnBoardingUseCase
 import dagger.Module
@@ -32,6 +33,7 @@ object RepositoryModule {
         return UseCases(
             saveOnBoardingUseCase = SaveOnBoardingUseCase(repository),
             readOnBoardingUseCase = ReadOnBoardingUseCase(repository),
+            getAllHeroesUseCase = GetAllHeroesUseCase(repository),
         )
     }
 }
