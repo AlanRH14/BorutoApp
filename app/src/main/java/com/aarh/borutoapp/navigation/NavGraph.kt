@@ -1,6 +1,7 @@
 package com.aarh.borutoapp.navigation
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
@@ -12,6 +13,7 @@ import com.aarh.borutoapp.presentation.screens.splash.SplashScreen
 import com.aarh.borutoapp.presentation.screens.welcome.WelcomeScreen
 import com.aarh.borutoapp.util.Constants.DETAILS_ARGUMENT_KEY
 
+@ExperimentalMaterial3Api
 @ExperimentalFoundationApi
 @Composable
 fun SetupNavGraph(navController: NavHostController) {
