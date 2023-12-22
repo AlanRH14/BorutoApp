@@ -1,8 +1,9 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">BorutoApp</string>
     <string name="app_logo">App Logo</string>
     <string name="on_boarding_image">On Boarding Image</string>
     <string name="btn_finish">Finish</string>
     <string name="search_icon">Search Icon</string>
     <string name="explorer_title">Explorer</string>
+    <string name="star_path" tools:ignore="TypographyDashes">M14,21.288,21.416,26l-1.968-8.88L26,11.145l-8.628-.771L14,2l-3.372,8.375L2,11.145,8.552,17.12,6.584,26Z</string>
 </resources>

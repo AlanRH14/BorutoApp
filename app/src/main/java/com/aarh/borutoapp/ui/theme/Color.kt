@@ -16,6 +16,7 @@ val Purple700 = Color(0xFF3700B3)
 val BrushLight = listOf(Purple700, Purple500)
 val LightGray = Color(0xFFD8D8D8)
 val DarkGray = Color(0xFF2A2A2A)
+val StarColor = Color(0xFFFFC94D)
 
 val WelcomeScreenBackground
     @Composable
