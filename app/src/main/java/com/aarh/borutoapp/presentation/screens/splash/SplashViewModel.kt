@@ -16,7 +16,7 @@ class SplashViewModel @Inject constructor(
     private val useCases: UseCases,
 ) : ViewModel() {
 
-    private val _onBoardingCompleted = MutableStateFlow<Boolean>(false)
+    private val _onBoardingCompleted = MutableStateFlow(false)
     val onBoardingCompleted: StateFlow<Boolean> = _onBoardingCompleted
 
     init {

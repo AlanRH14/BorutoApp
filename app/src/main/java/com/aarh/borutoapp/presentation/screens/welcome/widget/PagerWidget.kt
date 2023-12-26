@@ -1,4 +1,4 @@
-package com.aarh.borutoapp.presentation.screens.welcome.components
+package com.aarh.borutoapp.presentation.screens.welcome.widget
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
