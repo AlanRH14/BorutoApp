@@ -3,8 +3,6 @@ package com.aarh.borutoapp.ui.theme
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import com.aarh.borutoapp.util.NumberType
-import com.aarh.borutoapp.util.isNumberType
 
 val PurpleGrey80 = Color(0xFFCCC2DC)
 val Pink80 = Color(0xFFEFB8C8)
@@ -19,6 +17,7 @@ val BrushLight = listOf(Purple700, Purple500)
 val LightGray = Color(0xFFD8D8D8)
 val DarkGray = Color(0xFF2A2A2A)
 val StarColor = Color(0xFFFFC94D)
+val EmptyStar = LightGray.copy(alpha = 0.5F)
 
 val WelcomeScreenBackground
     @Composable
