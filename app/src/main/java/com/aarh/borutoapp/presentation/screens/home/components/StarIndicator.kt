@@ -27,7 +27,7 @@ fun StarIndicator(
         modifier = Modifier
             .size(24.dp),
     ) {
-        val canvasSize = this.size
+        val canvasSize = size
         val colorPath = if (rating == 0.0) {
             EmptyStar
         } else {
