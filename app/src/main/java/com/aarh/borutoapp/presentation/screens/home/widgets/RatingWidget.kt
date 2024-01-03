@@ -1,4 +1,4 @@
-package com.aarh.borutoapp.presentation.screens.home.widget
+package com.aarh.borutoapp.presentation.screens.home.widgets
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
