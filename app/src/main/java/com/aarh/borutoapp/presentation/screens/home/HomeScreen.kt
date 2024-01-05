@@ -31,7 +31,7 @@ fun HomeScreen(
             ) {
                 HeroesListContent(
                     navController = navController,
-                    heroes = allHeroes
+                    heroes = allHeroes,
                 )
             }
         },
