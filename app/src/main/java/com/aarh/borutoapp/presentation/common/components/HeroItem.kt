@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ContentAlpha
 import androidx.compose.material.MaterialTheme.typography
-import androidx.compose.material.Shapes
 import androidx.compose.material.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -29,14 +28,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import coil.compose.AsyncImage
-import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import com.aarh.borutoapp.R
 import com.aarh.borutoapp.domain.entity.Hero
 import com.aarh.borutoapp.presentation.screens.home.widgets.RatingWidget
 import com.aarh.borutoapp.ui.theme.HERO_ITEM_HEIGHT
+import com.aarh.borutoapp.ui.theme.LARGE_PADDING
 import com.aarh.borutoapp.ui.theme.MEDIUM_PADDING
-import com.aarh.borutoapp.ui.theme.MIN_LARGE_PADDING
+import com.aarh.borutoapp.ui.theme.MIN_PADDING
 import com.aarh.borutoapp.ui.theme.SMALL_PADDING
 import com.aarh.borutoapp.ui.theme.TopBarContentColor
 import com.aarh.borutoapp.util.Constants.BASE_URL
@@ -46,22 +45,22 @@ fun HeroItem(
     navController: NavHostController,
     hero: Hero,
 ) {
-    val painter = rememberAsyncImagePainter("$BASE_URL${hero.image}")
     val mContext = LocalContext.current
+
     Box(
         modifier = Modifier
             .height(HERO_ITEM_HEIGHT),
         contentAlignment = Alignment.BottomStart,
     ) {
         Surface(
-            shape = Shapes().large,
+            shape = RoundedCornerShape(size = LARGE_PADDING),
         ) {
             AsyncImage(
                 modifier = Modifier
                     .fillMaxSize(),
                 model = ImageRequest
                     .Builder(mContext)
-                    .data("")
+                    .data("$BASE_URL${hero.image}")
                     .error(R.drawable.ic_placeholder)
                     .placeholder(R.drawable.ic_placeholder)
                     .build(),
@@ -76,8 +75,8 @@ fun HeroItem(
                 .fillMaxWidth(),
             color = Color.Black.copy(alpha = ContentAlpha.medium),
             shape = RoundedCornerShape(
-                bottomStart = MIN_LARGE_PADDING,
-                bottomEnd = MIN_LARGE_PADDING,
+                bottomStart = LARGE_PADDING,
+                bottomEnd = LARGE_PADDING,
             ),
         ) {
             Column(
@@ -95,6 +94,8 @@ fun HeroItem(
                 )
 
                 Text(
+                    modifier = Modifier
+                        .padding(vertical = MIN_PADDING),
                     text = hero.about,
                     color = Color.White.copy(alpha = ContentAlpha.medium),
                     fontSize = typography.subtitle1.fontSize,
@@ -104,7 +105,7 @@ fun HeroItem(
 
                 Row(
                     modifier = Modifier
-                        .padding(top = SMALL_PADDING),
+                        .padding(end = SMALL_PADDING),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
                     RatingWidget(
@@ -133,7 +134,7 @@ fun HeroItemPreview() {
             id = 1,
             name = "Sasuke",
             image = "",
-            about = "Some random text. Some random text. Some random text. Some random text. Some random text. Some random text. Some random text. Some random text. Some random text. Some random text.",
+            about = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos, optio ad suscipit dicta facere ea rerum doloribus accusamus beatae ut cumque tenetur molestiae eaque, unde quos dolorem, eum odio perspiciatis...",
             rating = 4.9,
             power = 100,
             month = "Dec",
@@ -145,9 +146,7 @@ fun HeroItemPreview() {
     )
 }
 
-@Preview(
-    uiMode = UI_MODE_NIGHT_YES,
-)
+@Preview(uiMode = UI_MODE_NIGHT_YES)
 @Composable
 fun HeroItemDarkPreview() {
     HeroItem(
@@ -156,7 +155,7 @@ fun HeroItemDarkPreview() {
             id = 1,
             name = "Sasuke",
             image = "",
-            about = "Some random text. Some random text. Some random text. Some random text. Some random text. Some random text. Some random text. Some random text. Some random text. Some random text.",
+            about = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos, optio ad suscipit dicta facere ea rerum doloribus accusamus beatae ut cumque tenetur molestiae eaque, unde quos dolorem, eum odio perspiciatis...",
             rating = 4.9,
             power = 100,
             month = "Dec",

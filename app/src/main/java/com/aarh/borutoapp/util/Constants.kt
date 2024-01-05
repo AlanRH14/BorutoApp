@@ -23,7 +23,7 @@ object Constants {
     const val PREFERENCES_NAME = "boruto_preferences"
     const val PREFERENCES_KEY = "on_boarding_completed"
 
-    const val BASE_URL = "http://0.0.0.0:8080"
+    const val BASE_URL = "http://192.168.100.127:8080"
 
     const val ITEMS_PER_PAGE = 3
 
