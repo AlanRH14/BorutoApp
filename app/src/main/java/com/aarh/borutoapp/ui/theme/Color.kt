@@ -28,7 +28,6 @@ val LinearLightGradientColors = listOf(
     ShimmerMediumGray,
     LightGray,
 )
-
 val LinearDarkGradientColors = listOf(
     DarkGray,
     ShimmerDarkGray,

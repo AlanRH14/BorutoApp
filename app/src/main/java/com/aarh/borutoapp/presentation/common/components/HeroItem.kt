@@ -31,6 +31,8 @@ import androidx.navigation.compose.rememberNavController
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.aarh.borutoapp.R
+import com.aarh.borutoapp.data.mockdata.HeroProvider
+import com.aarh.borutoapp.data.mockdata.HeroProvider.hero1
 import com.aarh.borutoapp.domain.entity.Hero
 import com.aarh.borutoapp.presentation.screens.home.widgets.RatingWidget
 import com.aarh.borutoapp.ui.theme.HERO_ITEM_HEIGHT
@@ -131,19 +133,7 @@ fun HeroItem(
 fun HeroItemPreview() {
     HeroItem(
         navController = rememberNavController(),
-        hero = Hero(
-            id = 1,
-            name = "Sasuke",
-            image = "",
-            about = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos, optio ad suscipit dicta facere ea rerum doloribus accusamus beatae ut cumque tenetur molestiae eaque, unde quos dolorem, eum odio perspiciatis...",
-            rating = 4.9,
-            power = 100,
-            month = "Dec",
-            day = "14",
-            family = listOf("Uchiha"),
-            abilities = emptyList(),
-            natureTypes = emptyList(),
-        ),
+        hero = hero1,
     )
 }
 
@@ -152,18 +142,6 @@ fun HeroItemPreview() {
 fun HeroItemDarkPreview() {
     HeroItem(
         navController = rememberNavController(),
-        hero = Hero(
-            id = 1,
-            name = "Sasuke",
-            image = "",
-            about = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos, optio ad suscipit dicta facere ea rerum doloribus accusamus beatae ut cumque tenetur molestiae eaque, unde quos dolorem, eum odio perspiciatis...",
-            rating = 4.9,
-            power = 100,
-            month = "Dec",
-            day = "14",
-            family = listOf("Uchiha"),
-            abilities = emptyList(),
-            natureTypes = emptyList(),
-        ),
+        hero = hero1,
     )
 }

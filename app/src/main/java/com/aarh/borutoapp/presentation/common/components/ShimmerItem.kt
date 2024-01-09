@@ -1,6 +1,6 @@
 package com.aarh.borutoapp.presentation.common.components
 
-import android.content.res.Configuration.UI_MODE_NIGHT_YES
+import android.content.res.Configuration
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -28,10 +28,6 @@ import com.aarh.borutoapp.ui.theme.ShimmerItemGradientBackgroundColor
 import com.aarh.borutoapp.util.animatedShimmerItem
 
 @Composable
-fun ShimmerEffect() {
-}
-
-@Composable
 fun ShimmerItem() {
     Surface(
         modifier = Modifier
@@ -50,7 +46,7 @@ fun ShimmerItem() {
                     .fillMaxWidth(0.5F)
                     .height(NAME_PLACEHOLDER_HEIGHT)
                     .clip(RoundedCornerShape(size = SMALL_PADDING))
-                    .animatedShimmerItem(1000, ShimmerItemGradientBackgroundColor),
+                    .animatedShimmerItem(gradientColors = ShimmerItemGradientBackgroundColor),
             ) {}
 
             Spacer(modifier = Modifier.padding(all = SMALL_PADDING))
@@ -61,7 +57,7 @@ fun ShimmerItem() {
                         .fillMaxWidth()
                         .height(ABOUT_PLACEHOLDER_HEIGHT)
                         .clip(RoundedCornerShape(size = SMALL_PADDING))
-                        .animatedShimmerItem(1000, ShimmerItemGradientBackgroundColor),
+                        .animatedShimmerItem(gradientColors = ShimmerItemGradientBackgroundColor),
                 ) {}
                 Spacer(modifier = Modifier.padding(all = SMALL_PADDING))
             }
@@ -72,7 +68,7 @@ fun ShimmerItem() {
                         modifier = Modifier
                             .size(RATING_PLACEHOLDER_HEIGHT)
                             .clip(RoundedCornerShape(size = SMALL_PADDING))
-                            .animatedShimmerItem(1000, ShimmerItemGradientBackgroundColor),
+                            .animatedShimmerItem(gradientColors = ShimmerItemGradientBackgroundColor),
                     ) {}
                     Spacer(modifier = Modifier.padding(all = SMALL_PADDING))
                 }
@@ -88,7 +84,7 @@ fun ShimmerItemPreview() {
 }
 
 @Composable
-@Preview(uiMode = UI_MODE_NIGHT_YES)
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 fun ShimmerItemDarkPreview() {
     ShimmerItem()
 }
