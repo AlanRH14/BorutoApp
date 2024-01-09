@@ -20,7 +20,7 @@ import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.unit.IntSize
 
 fun Modifier.animatedShimmerItem(
-    durationMillis: Int = 500,
+    durationMillis: Int = 1500,
     gradientColors: List<Color>,
 ): Modifier = composed {
     var size by remember { mutableStateOf(IntSize.Zero) }
@@ -31,7 +31,7 @@ fun Modifier.animatedShimmerItem(
         animationSpec = infiniteRepeatable(
             animation = tween(
                 durationMillis = durationMillis,
-                delayMillis = 250,
+                delayMillis = 100,
                 easing = FastOutLinearInEasing,
             ),
             repeatMode = RepeatMode.Reverse,
