@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "57265b6405440efa353e63c41431b285",
+    "identityHash": "a9c52dff3913a5ae423ae457b28ab0ed",
     "entities": [
       {
         "tableName": "hero_table",
@@ -86,7 +86,7 @@
       },
       {
         "tableName": "hero_remote_keys_table",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `prevPage` INTEGER, `nextPage` INTEGER, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `prevPage` INTEGER, `nextPage` INTEGER, `lastUpdated` INTEGER, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -105,6 +105,12 @@
             "columnName": "nextPage",
             "affinity": "INTEGER",
             "notNull": false
+          },
+          {
+            "fieldPath": "lastUpdated",
+            "columnName": "lastUpdated",
+            "affinity": "INTEGER",
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -120,7 +126,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '57265b6405440efa353e63c41431b285')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a9c52dff3913a5ae423ae457b28ab0ed')"
     ]
   }
 }
