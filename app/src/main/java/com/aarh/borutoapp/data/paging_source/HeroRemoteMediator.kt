@@ -9,6 +9,7 @@ import com.aarh.borutoapp.data.local.BorutoDatabase
 import com.aarh.borutoapp.data.remote.BorutoApi
 import com.aarh.borutoapp.domain.entity.Hero
 import com.aarh.borutoapp.domain.entity.HeroRemoteKeys
+import com.aarh.borutoapp.util.getInitialRefreshData
 import javax.inject.Inject
 
 @ExperimentalPagingApi
@@ -19,6 +20,17 @@ class HeroRemoteMediator @Inject constructor(
 
     private val heroDao = borutoDatabase.heroDao()
     private val heroRemoteKeysDao = borutoDatabase.heroRemoteKeysDao()
+
+    override suspend fun initialize(): InitializeAction {
+        return if (getInitialRefreshData(
+                lastUpdated = heroRemoteKeysDao.getRemoteKeys(heroId = 1)?.lastUpdated ?: 0L,
+            )
+        ) {
+            InitializeAction.SKIP_INITIAL_REFRESH
+        } else {
+            InitializeAction.LAUNCH_INITIAL_REFRESH
+        }
+    }
 
     override suspend fun load(loadType: LoadType, state: PagingState<Int, Hero>): MediatorResult {
         return try {
@@ -59,6 +71,7 @@ class HeroRemoteMediator @Inject constructor(
                             id = hero.id,
                             prevPage = prevPage,
                             nextPage = nextPage,
+                            lastUpdated = response.lastUpdated,
                         )
                     }
 
