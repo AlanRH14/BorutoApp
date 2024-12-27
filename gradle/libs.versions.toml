@@ -7,7 +7,7 @@ junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.8.7"
 activityCompose = "1.9.3"
-composeBom = "2024.04.01"
+composeBom = "2024.12.01"
 kspVersion = "2.0.0-1.0.21"
 hiltAndroidxNavigationCompose = "1.2.0"
 hiltVersion = "2.49"
@@ -19,7 +19,7 @@ paletteVersion = "1.0.0"
 kotlinxSerialization = "1.7.3"
 pagingVersion = "3.3.5"
 dataStoreVersion = "1.1.1"
-horizontalPager = "0.33.2-alpha"
+horizontalPager = "0.36.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
