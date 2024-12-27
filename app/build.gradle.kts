@@ -81,5 +81,4 @@ dependencies {
     implementation(libs.paging)
     implementation(libs.data.store)
     implementation(libs.horizontal.pager)
-    implementation(libs.glide.compose)
 }

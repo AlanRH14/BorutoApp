@@ -20,7 +20,6 @@ kotlinxSerialization = "1.7.3"
 pagingVersion = "3.3.5"
 dataStoreVersion = "1.1.1"
 horizontalPager = "0.36.0"
-glide-version = "1.0.0-beta01"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -55,7 +54,6 @@ androidx-palette-ktx = { group = "androidx.palette", name = "palette-ktx", versi
 paging = { module = "androidx.paging:paging-compose", name = "paging", version.ref = "pagingVersion" }
 data-store = { module = "androidx.datastore:datastore-preferences", name = "data-store", version.ref = "dataStoreVersion" }
 horizontal-pager = { module = "com.google.accompanist:accompanist-pager-indicators", name = "horizontal-pager", version.ref = "horizontalPager" }
-glide-compose = { module = "com.github.bumptech.glide:compose", version.ref = "glide-version" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
