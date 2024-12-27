@@ -8,8 +8,8 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -45,7 +45,7 @@ fun PagerScreen(onBoardingPage: OnBoardingPage) {
         Text(
             text = onBoardingPage.title,
             color = TitleColor,
-            fontSize = MaterialTheme.typography.h4.fontSize,
+            fontSize = MaterialTheme.typography.headlineLarge.fontSize,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,
             modifier = Modifier
@@ -58,7 +58,7 @@ fun PagerScreen(onBoardingPage: OnBoardingPage) {
                 .padding(top = SMALL_PADDING),
             text = onBoardingPage.description,
             color = DescriptionColor,
-            fontSize = MaterialTheme.typography.subtitle1.fontSize,
+            fontSize = MaterialTheme.typography.titleMedium.fontSize,
             fontWeight = FontWeight.Medium,
             textAlign = TextAlign.Center,
         )
