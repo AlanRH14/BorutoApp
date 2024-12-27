@@ -27,7 +27,6 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import coil3.compose.AsyncImage
 import coil3.compose.SubcomposeAsyncImage
 import coil3.request.ImageRequest
 import coil3.request.error
@@ -43,10 +42,7 @@ import com.aarh.borutoapp.ui.theme.MIN_PADDING
 import com.aarh.borutoapp.ui.theme.SMALL_PADDING
 import com.aarh.borutoapp.ui.theme.TopBarContentColor
 import com.aarh.borutoapp.util.Constants.BASE_URL
-import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
-import com.bumptech.glide.integration.compose.GlideImage
 
-@OptIn(ExperimentalGlideComposeApi::class)
 @Composable
 fun HeroItem(
     navController: NavHostController,
