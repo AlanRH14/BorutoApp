@@ -1,6 +1,7 @@
 package com.aarh.borutoapp.presentation.common.components
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
+import android.util.Log
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -26,7 +27,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import coil3.compose.AsyncImage
+import coil3.compose.SubcomposeAsyncImage
 import coil3.request.ImageRequest
 import coil3.request.error
 import coil3.request.placeholder
@@ -57,7 +58,7 @@ fun HeroItem(
         Surface(
             shape = RoundedCornerShape(size = LARGE_PADDING),
         ) {
-            AsyncImage(
+            SubcomposeAsyncImage(
                 modifier = Modifier
                     .fillMaxSize(),
                 model = ImageRequest
@@ -66,6 +67,7 @@ fun HeroItem(
                     .error(R.drawable.ic_placeholder)
                     .placeholder(R.drawable.ic_placeholder)
                     .build(),
+                error = { Log.d("LordMiau", "Error = ${it.result}")},
                 contentDescription = stringResource(R.string.hero_image_content_description),
                 contentScale = ContentScale.Crop,
             )

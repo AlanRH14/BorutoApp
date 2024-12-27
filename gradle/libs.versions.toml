@@ -48,6 +48,8 @@ kotlin-serialization = { module = "org.jetbrains.kotlin:kotlin-serialization", v
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
 retrofit-converter-kotlinx-serialization = { module = "com.squareup.retrofit2:converter-kotlinx-serialization", version.ref = "retrofitVersion" }
 coil-compose = { module = "io.coil-kt.coil3:coil-compose", name = "coil-compose", version.ref = "coilVersion" }
+coil-network-okhttp = { module = "io.coil-kt.coil3:coil-network-okhttp", name = "coil-compose", version.ref = "coilVersion" }
+coil-network-ktor = { module = "io.coil-kt.coil3:coil-network-ktor3", name = "coil-compose", version.ref = "coilVersion" }
 androidx-palette-ktx = { group = "androidx.palette", name = "palette-ktx", version.ref = "paletteVersion" }
 paging = { module = "androidx.paging:paging-compose", name = "paging", version.ref = "pagingVersion" }
 data-store = { module = "androidx.datastore:datastore-preferences", name = "data-store", version.ref = "dataStoreVersion" }
