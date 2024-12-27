@@ -9,11 +9,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.ContentAlpha
-import androidx.compose.material.MaterialTheme.typography
-import androidx.compose.material.Surface
+import androidx.compose.material3.MaterialTheme.typography
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -28,10 +26,11 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import coil.compose.AsyncImage
-import coil.request.ImageRequest
+import coil3.compose.AsyncImage
+import coil3.request.ImageRequest
+import coil3.request.error
+import coil3.request.placeholder
 import com.aarh.borutoapp.R
-import com.aarh.borutoapp.data.mockdata.HeroProvider
 import com.aarh.borutoapp.data.mockdata.HeroProvider.hero1
 import com.aarh.borutoapp.domain.entity.Hero
 import com.aarh.borutoapp.presentation.screens.home.widgets.RatingWidget
@@ -76,7 +75,7 @@ fun HeroItem(
             modifier = Modifier
                 .fillMaxHeight(0.4F)
                 .fillMaxWidth(),
-            color = Color.Black.copy(alpha = ContentAlpha.medium),
+            color = Color.Black.copy(alpha = 0.70F),
             shape = RoundedCornerShape(
                 bottomStart = LARGE_PADDING,
                 bottomEnd = LARGE_PADDING,
@@ -90,7 +89,7 @@ fun HeroItem(
                 Text(
                     text = hero.name,
                     color = TopBarContentColor,
-                    fontSize = typography.h4.fontSize,
+                    fontSize = typography.titleMedium.fontSize,
                     fontWeight = FontWeight.Bold,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
@@ -100,8 +99,8 @@ fun HeroItem(
                     modifier = Modifier
                         .padding(vertical = MIN_PADDING),
                     text = hero.about,
-                    color = Color.White.copy(alpha = ContentAlpha.medium),
-                    fontSize = typography.subtitle1.fontSize,
+                    color = Color.White.copy(alpha = 0.70F),
+                    fontSize = typography.bodyMedium.fontSize,
                     maxLines = 3,
                     overflow = TextOverflow.Ellipsis,
                 )
@@ -120,7 +119,7 @@ fun HeroItem(
                     Text(
                         text = "(${hero.rating})",
                         textAlign = TextAlign.Center,
-                        color = Color.White.copy(alpha = ContentAlpha.medium),
+                        color = Color.White.copy(alpha = 0.70F),
                     )
                 }
             }
