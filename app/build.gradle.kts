@@ -75,8 +75,11 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.retrofit.converter.kotlinx.serialization)
     implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
+    implementation(libs.coil.network.ktor)
     implementation(libs.androidx.palette.ktx)
     implementation(libs.paging)
     implementation(libs.data.store)
     implementation(libs.horizontal.pager)
+    implementation(libs.glide.compose)
 }
