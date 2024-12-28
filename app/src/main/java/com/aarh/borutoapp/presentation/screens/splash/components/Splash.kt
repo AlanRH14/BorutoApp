@@ -20,11 +20,12 @@ import com.aarh.borutoapp.ui.theme.BrushLight
 
 @Composable
 fun Splash(
+    modifier: Modifier = Modifier,
     degrees: Float = 0F,
 ) {
     if (isSystemInDarkTheme()) {
         Box(
-            modifier = Modifier
+            modifier = modifier
                 .background(Color.Black)
                 .fillMaxSize(),
             contentAlignment = Alignment.Center,
@@ -37,7 +38,7 @@ fun Splash(
         }
     } else {
         Box(
-            modifier = Modifier
+            modifier = modifier
                 .background(Brush.verticalGradient(BrushLight))
                 .fillMaxSize(),
             contentAlignment = Alignment.Center,
