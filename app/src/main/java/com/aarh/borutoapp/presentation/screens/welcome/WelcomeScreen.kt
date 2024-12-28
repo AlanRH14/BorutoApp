@@ -20,11 +20,12 @@ import com.aarh.borutoapp.util.Constants.WELCOME_PAGES_DATA
 @ExperimentalFoundationApi
 @Composable
 fun WelcomeScreen(
+    modifier: Modifier = Modifier,
     navController: NavHostController,
     welcomeViewModel: WelcomeViewModel = hiltViewModel(),
 ) {
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .background(color = WelcomeScreenBackground),
     ) {
