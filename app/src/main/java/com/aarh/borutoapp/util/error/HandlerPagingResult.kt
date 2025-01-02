@@ -25,6 +25,7 @@ fun handlerPagingResult(
             }
 
             error != null -> {
+                EmptyScreen(error = error)
                 false
             }
 

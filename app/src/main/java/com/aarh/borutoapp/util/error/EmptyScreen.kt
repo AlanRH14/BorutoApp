@@ -65,6 +65,6 @@ fun EmptyScreen(
 
 @Composable
 @Preview(showBackground = true)
-fun EmptyScreenPreview() {
+private fun EmptyScreenPreview() {
     EmptyScreen(error = LoadState.Error(SocketTimeoutException()))
 }

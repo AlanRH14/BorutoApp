@@ -1,6 +1,6 @@
 package com.aarh.borutoapp.util
 
-import com.aarh.borutoapp.util.Constants.CONNECTION_EXCEPTION
+import com.aarh.borutoapp.util.Constants.CONNECT_EXCEPTION
 import com.aarh.borutoapp.util.Constants.INTERNET_UNAVAILABLE
 import com.aarh.borutoapp.util.Constants.SERVER_UNAVAILABLE
 import com.aarh.borutoapp.util.Constants.SOCKET_TIME_OUT_EXCEPTION
@@ -12,7 +12,7 @@ fun parseErrorMessage(message: String): String {
             SERVER_UNAVAILABLE
         }
 
-        message.contains(CONNECTION_EXCEPTION) -> {
+        message.contains(CONNECT_EXCEPTION) -> {
             INTERNET_UNAVAILABLE
         }
 

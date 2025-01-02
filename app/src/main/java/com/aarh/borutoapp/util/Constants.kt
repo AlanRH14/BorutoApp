@@ -32,7 +32,7 @@ object Constants {
     const val FILLED_STARS = "filled_stars"
 
     const val SOCKET_TIME_OUT_EXCEPTION = "SocketTimeoutException"
-    const val CONNECTION_EXCEPTION = "ConnectionException"
+    const val CONNECT_EXCEPTION = "ConnectException"
 
     const val SERVER_UNAVAILABLE = "Server Unavailable."
     const val INTERNET_UNAVAILABLE = "Internet Unavailable."
