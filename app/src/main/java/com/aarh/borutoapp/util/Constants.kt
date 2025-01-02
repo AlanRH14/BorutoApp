@@ -33,4 +33,8 @@ object Constants {
 
     const val SOCKET_TIME_OUT_EXCEPTION = "SocketTimeoutException"
     const val CONNECTION_EXCEPTION = "ConnectionException"
+
+    const val SERVER_UNAVAILABLE = "Server Unavailable."
+    const val INTERNET_UNAVAILABLE = "Internet Unavailable."
+    const val UNKNOWN_ERROR = "Unknown Error."
 }

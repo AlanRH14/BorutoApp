@@ -6,7 +6,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.paging.LoadState
 import com.aarh.borutoapp.util.Constants.CONNECTION_EXCEPTION
+import com.aarh.borutoapp.util.Constants.INTERNET_UNAVAILABLE
+import com.aarh.borutoapp.util.Constants.SERVER_UNAVAILABLE
 import com.aarh.borutoapp.util.Constants.SOCKET_TIME_OUT_EXCEPTION
+import com.aarh.borutoapp.util.Constants.UNKNOWN_ERROR
 
 @Composable
 fun EmptyScreen(
@@ -20,15 +23,15 @@ fun EmptyScreen(
 fun parseErrorMessage(message: String): String {
     return when {
         message.contains(SOCKET_TIME_OUT_EXCEPTION) -> {
-            "Server Unavailable."
+            SERVER_UNAVAILABLE
         }
 
         message.contains(CONNECTION_EXCEPTION) -> {
-            "Internet Unavailable."
+            INTERNET_UNAVAILABLE
         }
 
         else -> {
-            "Unknown Error."
+            UNKNOWN_ERROR
         }
     }
 }
