@@ -24,7 +24,7 @@ fun SplashScreen(
 
     LaunchedEffect(key1 = true) {
         degrees.animateTo(
-            targetValue = 369F,
+            targetValue = 360F,
             animationSpec = tween(
                 durationMillis = 1000,
                 delayMillis = 200,

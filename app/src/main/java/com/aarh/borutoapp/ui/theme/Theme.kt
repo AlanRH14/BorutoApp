@@ -17,25 +17,15 @@ import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Color.Black,
-    secondary = PurpleGrey80,
-    tertiary = Pink80,
+    primary = Purple200,
+    inversePrimary = Purple700,
+    secondary = Teal200,
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple700,
-    secondary = PurpleGrey40,
-    tertiary = Pink40,
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+    primary = Purple500,
+    inversePrimary = Purple700,
+    secondary = Teal200,
 )
 
 @Composable
@@ -52,8 +42,10 @@ fun BorutoAppTheme(
         }
 
         darkTheme -> DarkColorScheme
+
         else -> LightColorScheme
     }
+
     val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {
@@ -61,7 +53,7 @@ fun BorutoAppTheme(
             if (darkTheme) {
                 window.statusBarColor = Color.Black.toArgb()
             } else {
-                window.statusBarColor = Purple700.toArgb()
+                window.statusBarColor = Purple500.toArgb()
             }
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = false
         }
