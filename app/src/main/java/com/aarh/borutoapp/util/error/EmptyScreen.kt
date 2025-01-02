@@ -25,11 +25,7 @@ import com.aarh.borutoapp.R
 import com.aarh.borutoapp.ui.theme.GraySystemUIColor
 import com.aarh.borutoapp.ui.theme.NETWORK_ERROR_ICON_HEIGHT
 import com.aarh.borutoapp.ui.theme.SMALL_PADDING
-import com.aarh.borutoapp.util.Constants.CONNECTION_EXCEPTION
-import com.aarh.borutoapp.util.Constants.INTERNET_UNAVAILABLE
-import com.aarh.borutoapp.util.Constants.SERVER_UNAVAILABLE
-import com.aarh.borutoapp.util.Constants.SOCKET_TIME_OUT_EXCEPTION
-import com.aarh.borutoapp.util.Constants.UNKNOWN_ERROR
+import com.aarh.borutoapp.util.parseErrorMessage
 import io.ktor.client.network.sockets.SocketTimeoutException
 
 @Composable
@@ -71,20 +67,4 @@ fun EmptyScreen(
 @Preview(showBackground = true)
 fun EmptyScreenPreview() {
     EmptyScreen(error = LoadState.Error(SocketTimeoutException()))
-}
-
-fun parseErrorMessage(message: String): String {
-    return when {
-        message.contains(SOCKET_TIME_OUT_EXCEPTION) -> {
-            SERVER_UNAVAILABLE
-        }
-
-        message.contains(CONNECTION_EXCEPTION) -> {
-            INTERNET_UNAVAILABLE
-        }
-
-        else -> {
-            UNKNOWN_ERROR
-        }
-    }
 }
