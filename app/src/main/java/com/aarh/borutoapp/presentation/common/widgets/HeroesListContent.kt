@@ -1,12 +1,9 @@
 package com.aarh.borutoapp.presentation.common.widgets
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavHostController
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.itemKey
@@ -23,8 +20,6 @@ fun HeroesListContent(
     val result = handlerPagingResult(heroes = heroes)
     if (result) {
         LazyColumn(
-            modifier = Modifier
-                .background(Color.Black),
             contentPadding = PaddingValues(all = SMALL_PADDING),
             verticalArrangement = Arrangement.spacedBy(SMALL_PADDING),
         ) {
