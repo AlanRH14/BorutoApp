@@ -1,4 +1,4 @@
-package com.aarh.borutoapp.util.error
+package com.aarh.borutoapp.presentation.screens.error
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.animation.core.animateFloatAsState
@@ -38,7 +38,7 @@ fun EmptyScreen(
     error: LoadState.Error
 ) {
     val message by remember {
-        mutableStateOf(parseErrorMessage(error.toString()))
+        mutableStateOf(parseErrorMessage(error = error))
     }
     val icon by remember {
         mutableIntStateOf(R.drawable.ic_network_error)

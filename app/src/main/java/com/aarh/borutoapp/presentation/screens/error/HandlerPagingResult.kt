@@ -1,4 +1,4 @@
-package com.aarh.borutoapp.util.error
+package com.aarh.borutoapp.presentation.screens.error
 
 import androidx.compose.runtime.Composable
 import androidx.paging.LoadState

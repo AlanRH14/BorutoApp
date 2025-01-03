@@ -10,7 +10,7 @@ import androidx.paging.compose.itemKey
 import com.aarh.borutoapp.domain.entity.Hero
 import com.aarh.borutoapp.presentation.common.components.HeroItem
 import com.aarh.borutoapp.ui.theme.SMALL_PADDING
-import com.aarh.borutoapp.util.error.handlerPagingResult
+import com.aarh.borutoapp.presentation.screens.error.handlerPagingResult
 
 @Composable
 fun HeroesListContent(
