@@ -1,20 +1,26 @@
 package com.aarh.borutoapp.util.error
 
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material.ContentAlpha
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -38,6 +44,16 @@ fun EmptyScreen(
     val icon by remember {
         mutableIntStateOf(R.drawable.ic_network_error)
     }
+    var startAnimation by remember { mutableStateOf(false) }
+    val alphaAnimation by animateFloatAsState(
+        targetValue = if (startAnimation) ContentAlpha.disabled else 0F,
+        animationSpec = tween(durationMillis = 1000),
+        label = stringResource(R.string.alpha_animation_label)
+    )
+
+    LaunchedEffect(key1 = true) {
+        startAnimation = true
+    }
 
     Column(
         modifier = Modifier
@@ -46,14 +62,17 @@ fun EmptyScreen(
         verticalArrangement = Arrangement.Center
     ) {
         Icon(
-            modifier = Modifier.size(NETWORK_ERROR_ICON_HEIGHT),
+            modifier = Modifier
+                .size(NETWORK_ERROR_ICON_HEIGHT)
+                .alpha(alphaAnimation),
             painter = painterResource(icon),
             contentDescription = stringResource(R.string.network_error_icon),
             tint = GraySystemUIColor
         )
         Text(
             modifier = Modifier
-                .padding(top = SMALL_PADDING),
+                .padding(top = SMALL_PADDING)
+                .alpha(alphaAnimation),
             text = message,
             color = GraySystemUIColor,
             textAlign = TextAlign.Center,
