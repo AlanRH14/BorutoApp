@@ -7,12 +7,12 @@ import com.aarh.borutoapp.util.Constants.SPLASH_SCREEN_ROUTE
 import com.aarh.borutoapp.util.Constants.WELCOME_SCREEN_ROUTE
 
 sealed class Screen(val route: String) {
-    object Splash : Screen(route = SPLASH_SCREEN_ROUTE)
-    object Welcome : Screen(route = WELCOME_SCREEN_ROUTE)
-    object Home : Screen(route = HOME_SCREEN_ROUTE)
-    object Details : Screen(route = "$DETAILS_SCREEN_ROUTE/{heroId}") {
+    data object Splash : Screen(route = SPLASH_SCREEN_ROUTE)
+    data object Welcome : Screen(route = WELCOME_SCREEN_ROUTE)
+    data object Home : Screen(route = HOME_SCREEN_ROUTE)
+    data object Details : Screen(route = "$DETAILS_SCREEN_ROUTE/{heroId}") {
         fun passHeroId(heroId: Int) = "$DETAILS_SCREEN_ROUTE/$heroId"
     }
 
-    object Search : Screen(route = SEARCH_SCREEN_ROUTE)
+    data object Search : Screen(route = SEARCH_SCREEN_ROUTE)
 }
