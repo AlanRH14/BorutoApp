@@ -1,5 +1,6 @@
 package com.aarh.borutoapp.util.error
 
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Arrangement
@@ -7,7 +8,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.ContentAlpha
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -32,7 +32,6 @@ import com.aarh.borutoapp.ui.theme.GraySystemUIColor
 import com.aarh.borutoapp.ui.theme.NETWORK_ERROR_ICON_HEIGHT
 import com.aarh.borutoapp.ui.theme.SMALL_PADDING
 import com.aarh.borutoapp.util.parseErrorMessage
-import io.ktor.client.network.sockets.SocketTimeoutException
 
 @Composable
 fun EmptyScreen(
@@ -46,7 +45,7 @@ fun EmptyScreen(
     }
     var startAnimation by remember { mutableStateOf(false) }
     val alphaAnimation by animateFloatAsState(
-        targetValue = if (startAnimation) ContentAlpha.disabled else 0F,
+        targetValue = if (startAnimation) 0.38F else 0F,
         animationSpec = tween(durationMillis = 1000),
         label = stringResource(R.string.alpha_animation_label)
     )
@@ -83,7 +82,46 @@ fun EmptyScreen(
 }
 
 @Composable
+private fun EmptyScreenMockPreview() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        Icon(
+            modifier = Modifier
+                .size(NETWORK_ERROR_ICON_HEIGHT)
+                .alpha(0.38F),
+            painter = painterResource(R.drawable.ic_network_error),
+            contentDescription = stringResource(R.string.network_error_icon),
+            tint = GraySystemUIColor
+        )
+        Text(
+            modifier = Modifier
+                .padding(top = SMALL_PADDING)
+                .alpha(0.38F),
+            text = "Internet Unavailable",
+            color = GraySystemUIColor,
+            textAlign = TextAlign.Center,
+            fontWeight = FontWeight.Medium,
+            fontSize = MaterialTheme.typography.titleLarge.fontSize
+        )
+    }
+}
+
+@Composable
 @Preview(showBackground = true)
 private fun EmptyScreenPreview() {
-    EmptyScreen(error = LoadState.Error(SocketTimeoutException()))
+    EmptyScreenMockPreview()
+}
+
+@Composable
+@Preview(
+    uiMode = UI_MODE_NIGHT_YES,
+    showBackground = true,
+    backgroundColor = 0xFF000000
+)
+private fun EmptyScreenDarkUIPreview() {
+    EmptyScreenMockPreview()
 }
