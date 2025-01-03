@@ -10,4 +10,5 @@
     <string name="network_error_icon">Network Error Icon</string>
     <string name="alpha_animation_label">Alpha Animation</string>
     <string name="search_here">Search here…</string>
+    <string name="close_icon">Close Icon</string>
 </resources>
