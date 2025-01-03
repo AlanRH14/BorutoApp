@@ -23,7 +23,7 @@ import com.aarh.borutoapp.domain.model.OnBoardingPage
 import com.aarh.borutoapp.ui.theme.DescriptionColor
 import com.aarh.borutoapp.ui.theme.EXTRA_LARGE_PADDING
 import com.aarh.borutoapp.ui.theme.SMALL_PADDING
-import com.aarh.borutoapp.ui.theme.TitleColor
+import com.aarh.borutoapp.ui.theme.GraySystemUIColor
 
 @Composable
 fun PagerScreen(onBoardingPage: OnBoardingPage) {
@@ -44,7 +44,7 @@ fun PagerScreen(onBoardingPage: OnBoardingPage) {
         )
         Text(
             text = onBoardingPage.title,
-            color = TitleColor,
+            color = GraySystemUIColor,
             fontSize = MaterialTheme.typography.headlineLarge.fontSize,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,

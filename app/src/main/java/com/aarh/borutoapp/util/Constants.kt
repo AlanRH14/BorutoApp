@@ -30,4 +30,11 @@ object Constants {
     const val EMPTY_STARS = "empty_stars"
     const val HALF_FILLED_STARTS = "half_filled_starts"
     const val FILLED_STARS = "filled_stars"
+
+    const val SOCKET_TIME_OUT_EXCEPTION = "SocketTimeoutException"
+    const val CONNECT_EXCEPTION = "ConnectException"
+
+    const val SERVER_UNAVAILABLE = "Server Unavailable."
+    const val INTERNET_UNAVAILABLE = "Internet Unavailable."
+    const val UNKNOWN_ERROR = "Unknown Error."
 }

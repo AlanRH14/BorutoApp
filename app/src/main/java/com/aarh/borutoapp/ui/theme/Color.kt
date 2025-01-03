@@ -38,7 +38,7 @@ val SplashBackground
 val WelcomeScreenBackground
     @Composable
     get() = if (isSystemInDarkTheme()) Color.Black else Color.White
-val TitleColor
+val GraySystemUIColor
     @Composable
     get() = if (isSystemInDarkTheme()) LightGray else DarkGray
 val DescriptionColor
