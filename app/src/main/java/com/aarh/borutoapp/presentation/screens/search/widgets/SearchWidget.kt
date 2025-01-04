@@ -29,13 +29,14 @@ import com.aarh.borutoapp.ui.theme.TopBarContentColor
 
 @Composable
 fun SearchWidget(
+    modifier: Modifier = Modifier,
     text: String,
     onTextChange: (String) -> Unit,
     onSearchClicked: (String) -> Unit,
     onCloseClicked: () -> Unit
 ) {
     Surface(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .height(TOP_APP_BAR_HEIGHT),
         shadowElevation = 4.dp,
