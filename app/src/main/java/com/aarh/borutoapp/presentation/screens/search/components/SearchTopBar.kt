@@ -20,3 +20,4 @@ fun SearchTopBar(
         onCloseClicked = onClose
     )
 }
+
