@@ -95,7 +95,9 @@ fun SearchWidget(
                 }
             ),
             colors = TextFieldDefaults.colors(
-                cursorColor = TopBarContentColor
+                focusedContainerColor = Color.Transparent,
+                unfocusedContainerColor = Color.Transparent,
+                cursorColor = TopBarContentColor,
             )
         )
     }
