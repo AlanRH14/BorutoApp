@@ -29,7 +29,7 @@ class SearchHeroesSource @Inject constructor(
                 )
             }
         } catch (e: Exception) {
-
+            LoadResult.Error(throwable = e)
         }
     }
 
