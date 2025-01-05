@@ -51,7 +51,7 @@ fun SetupNavGraph(
             ),
         ) {}
         composable(route = Screen.Search.route) {
-            SearchScreen(modifier = modifier)
+            SearchScreen(navController = navController)
         }
     }
 }

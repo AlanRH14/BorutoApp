@@ -1,32 +1,35 @@
 package com.aarh.borutoapp.presentation.screens.search
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
+import androidx.compose.runtime.getValue
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.navigation.NavHostController
 import com.aarh.borutoapp.presentation.screens.search.components.SearchTopBar
 
 @Composable
 fun SearchScreen(
-    modifier: Modifier = Modifier
+    navController: NavHostController,
+    searchViewModel: SearchViewModel = hiltViewModel()
 ) {
+    val searchQuery by searchViewModel.searchQuery.collectAsStateWithLifecycle()
+
     Scaffold(
         topBar = {
             SearchTopBar(
-                search = "",
-                onTextChange = {},
+                search = searchQuery,
+                onTextChange = {
+                    searchViewModel.updateSearchQuery(it)
+                },
                 onSearchClicked = {},
-                onClose = {}
+                onClose = {
+                    navController.popBackStack()
+                }
             )
         },
         content = { paddingValues ->
-            Column(
-                modifier = Modifier
-                    .padding(paddingValues)
-            ) {
 
-            }
         }
     )
 }
