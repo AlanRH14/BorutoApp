@@ -35,14 +35,20 @@ import com.aarh.borutoapp.util.parseErrorMessage
 
 @Composable
 fun EmptyScreen(
-    error: LoadState.Error
+    error: LoadState.Error? = null
 ) {
-    val message by remember {
-        mutableStateOf(parseErrorMessage(error = error))
+    var message by remember {
+        mutableStateOf("Find your Favorite Hero!")
     }
-    val icon by remember {
-        mutableIntStateOf(R.drawable.ic_network_error)
+    var icon by remember {
+        mutableIntStateOf(R.drawable.ic_search_document)
     }
+
+    if (error != null) {
+        message = parseErrorMessage(error = error)
+        icon = R.drawable.ic_network_error
+    }
+
     var startAnimation by remember { mutableStateOf(false) }
     val alphaAnimation by animateFloatAsState(
         targetValue = if (startAnimation) 0.38F else 0F,
