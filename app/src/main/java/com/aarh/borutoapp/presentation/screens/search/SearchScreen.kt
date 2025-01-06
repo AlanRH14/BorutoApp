@@ -6,6 +6,7 @@ import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
+import androidx.paging.compose.collectAsLazyPagingItems
 import com.aarh.borutoapp.presentation.screens.search.components.SearchTopBar
 
 @Composable
@@ -14,15 +15,18 @@ fun SearchScreen(
     searchViewModel: SearchViewModel = hiltViewModel()
 ) {
     val searchQuery by searchViewModel.searchQuery.collectAsStateWithLifecycle()
+    val heroes = searchViewModel.searchHeroes.collectAsLazyPagingItems()
 
     Scaffold(
         topBar = {
             SearchTopBar(
                 search = searchQuery,
                 onTextChange = {
-                    searchViewModel.updateSearchQuery(it)
+                    searchViewModel.updateSearchQuery(query = it)
                 },
-                onSearchClicked = {},
+                onSearchClicked = {
+                    searchViewModel.searchHeroes(query = it)
+                },
                 onClose = {
                     navController.popBackStack()
                 }
