@@ -34,4 +34,5 @@ object Constants {
     const val SERVER_UNAVAILABLE = "Server Unavailable."
     const val INTERNET_UNAVAILABLE = "Internet Unavailable."
     const val UNKNOWN_ERROR = "Unknown Error."
+    const val FIND_HERO = "Find your Favorite Hero!"
 }

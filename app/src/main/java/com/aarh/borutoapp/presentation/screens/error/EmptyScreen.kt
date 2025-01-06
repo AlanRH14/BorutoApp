@@ -31,6 +31,7 @@ import com.aarh.borutoapp.R
 import com.aarh.borutoapp.ui.theme.GraySystemUIColor
 import com.aarh.borutoapp.ui.theme.NETWORK_ERROR_ICON_HEIGHT
 import com.aarh.borutoapp.ui.theme.SMALL_PADDING
+import com.aarh.borutoapp.util.Constants.FIND_HERO
 import com.aarh.borutoapp.util.parseErrorMessage
 
 @Composable
@@ -38,7 +39,7 @@ fun EmptyScreen(
     error: LoadState.Error? = null
 ) {
     var message by remember {
-        mutableStateOf("Find your Favorite Hero!")
+        mutableStateOf(FIND_HERO)
     }
     var icon by remember {
         mutableIntStateOf(R.drawable.ic_search_document)
