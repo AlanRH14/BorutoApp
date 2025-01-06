@@ -1,12 +1,15 @@
 package com.aarh.borutoapp.presentation.screens.search
 
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import androidx.paging.compose.collectAsLazyPagingItems
+import com.aarh.borutoapp.presentation.common.widgets.HeroesListContent
 import com.aarh.borutoapp.presentation.screens.search.components.SearchTopBar
 
 @Composable
@@ -33,7 +36,11 @@ fun SearchScreen(
             )
         },
         content = { paddingValues ->
-
+            HeroesListContent(
+                modifier = Modifier.padding(paddingValues),
+                heroes = heroes,
+                navController = navController
+            )
         }
     )
 }
