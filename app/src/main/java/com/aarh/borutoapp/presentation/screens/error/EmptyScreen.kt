@@ -32,6 +32,7 @@ import com.aarh.borutoapp.ui.theme.GraySystemUIColor
 import com.aarh.borutoapp.ui.theme.NETWORK_ERROR_ICON_HEIGHT
 import com.aarh.borutoapp.ui.theme.SMALL_PADDING
 import com.aarh.borutoapp.util.Constants.FIND_HERO
+import com.aarh.borutoapp.util.Constants.INTERNET_UNAVAILABLE
 import com.aarh.borutoapp.util.parseErrorMessage
 
 @Composable
@@ -61,6 +62,19 @@ fun EmptyScreen(
         startAnimation = true
     }
 
+    EmptyContent(
+        alphaAnimation = alphaAnimation,
+        icon = icon,
+        message = message,
+    )
+}
+
+@Composable
+fun EmptyContent(
+    alphaAnimation: Float,
+    icon: Int,
+    message: String,
+) {
     Column(
         modifier = Modifier
             .fillMaxSize(),
@@ -90,31 +104,11 @@ fun EmptyScreen(
 
 @Composable
 private fun EmptyScreenMockPreview() {
-    Column(
-        modifier = Modifier
-            .fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        Icon(
-            modifier = Modifier
-                .size(NETWORK_ERROR_ICON_HEIGHT)
-                .alpha(0.38F),
-            painter = painterResource(R.drawable.ic_network_error),
-            contentDescription = stringResource(R.string.network_error_icon),
-            tint = GraySystemUIColor
-        )
-        Text(
-            modifier = Modifier
-                .padding(top = SMALL_PADDING)
-                .alpha(0.38F),
-            text = "Internet Unavailable",
-            color = GraySystemUIColor,
-            textAlign = TextAlign.Center,
-            fontWeight = FontWeight.Medium,
-            fontSize = MaterialTheme.typography.titleLarge.fontSize
-        )
-    }
+    EmptyContent(
+        alphaAnimation = 0.38F,
+        icon = R.drawable.ic_network_error,
+        message = INTERNET_UNAVAILABLE
+    )
 }
 
 @Composable
