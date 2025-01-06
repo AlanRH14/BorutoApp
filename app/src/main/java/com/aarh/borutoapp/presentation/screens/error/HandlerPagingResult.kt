@@ -1,4 +1,4 @@
-package com.aarh.borutoapp.util.error
+package com.aarh.borutoapp.presentation.screens.error
 
 import androidx.compose.runtime.Composable
 import androidx.paging.LoadState
@@ -25,7 +25,12 @@ fun handlerPagingResult(
             }
 
             error != null -> {
-                EmptyScreen(error = error)
+                EmptyScreen(error = error, heroes = heroes)
+                false
+            }
+
+            heroes.itemCount < 1 -> {
+                EmptyScreen()
                 false
             }
 
