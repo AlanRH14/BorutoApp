@@ -8,6 +8,7 @@ import androidx.compose.material3.rememberStandardBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 import com.aarh.borutoapp.domain.entity.Hero
+import com.aarh.borutoapp.ui.theme.MIN_SHEET_HEIGHT
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -20,7 +21,8 @@ fun DetailsContent(
     )
     BottomSheetScaffold(
         scaffoldState = scaffoldState,
-        sheetContent =,
+        sheetPeekHeight = MIN_SHEET_HEIGHT,
+        sheetContent = {},
         content = {}
     )
 }
