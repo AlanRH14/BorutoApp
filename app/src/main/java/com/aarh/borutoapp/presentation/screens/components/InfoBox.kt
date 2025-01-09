@@ -22,6 +22,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import com.aarh.borutoapp.R
 import com.aarh.borutoapp.ui.theme.GraySystemUIColor
+import com.aarh.borutoapp.ui.theme.ICON_SIZE
 import com.aarh.borutoapp.ui.theme.LARGE_PADDING
 import com.aarh.borutoapp.ui.theme.SMALL_PADDING
 
@@ -39,7 +40,7 @@ fun InfoBox(
     ) {
         Icon(
             modifier = Modifier
-                .size(LARGE_PADDING)
+                .size(ICON_SIZE)
                 .padding(end = SMALL_PADDING),
             painter = icon,
             contentDescription = stringResource(R.string.info_icon_description),
