@@ -2,6 +2,7 @@ package com.aarh.borutoapp.presentation.common.components
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.util.Log
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -34,6 +35,7 @@ import coil3.request.placeholder
 import com.aarh.borutoapp.R
 import com.aarh.borutoapp.data.mockdata.HeroProvider.hero1
 import com.aarh.borutoapp.domain.entity.Hero
+import com.aarh.borutoapp.navigation.Screen
 import com.aarh.borutoapp.presentation.screens.home.widgets.RatingWidget
 import com.aarh.borutoapp.ui.theme.HERO_ITEM_HEIGHT
 import com.aarh.borutoapp.ui.theme.LARGE_PADDING
@@ -52,7 +54,13 @@ fun HeroItem(
 
     Box(
         modifier = Modifier
-            .height(HERO_ITEM_HEIGHT),
+            .height(HERO_ITEM_HEIGHT)
+            .clickable {
+                navController
+                    .navigate(
+                        Screen.Details.passHeroId(heroId = hero.id)
+                    )
+            },
         contentAlignment = Alignment.BottomStart,
     ) {
         Surface(
@@ -67,7 +75,7 @@ fun HeroItem(
                     .error(R.drawable.ic_placeholder)
                     .placeholder(R.drawable.ic_placeholder)
                     .build(),
-                error = { Log.d("LordMiau", "Error = ${it.result}")},
+                error = { Log.d("LordMiau", "Error = ${it.result}") },
                 contentDescription = stringResource(R.string.hero_image_content_description),
                 contentScale = ContentScale.Crop,
             )
