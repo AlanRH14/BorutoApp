@@ -1,7 +1,5 @@
 package com.aarh.borutoapp.presentation.screens.detail
 
-import android.util.Log
-import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -27,7 +25,6 @@ class DetailsViewModel @Inject constructor(
         viewModelScope.launch(Dispatchers.IO) {
             val heroId = savedStateHandle.get<Int>(DETAILS_ARGUMENT_KEY)
             _selectedHero.value = heroId?.let { id ->  useCases.getSelectedHeroUseCase(heroId = id)}
-            _selectedHero.value?.name?.let { Log.d("Hero", it) }
         }
     }
 }
