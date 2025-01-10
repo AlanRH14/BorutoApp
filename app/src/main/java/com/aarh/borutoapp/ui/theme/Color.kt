@@ -34,7 +34,7 @@ val LinearDarkGradientColors = listOf(
 
 val SplashBackground
     @Composable
-    get() = if(isSystemInDarkTheme()) BrushDark else BrushLight
+    get() = if (isSystemInDarkTheme()) BrushDark else BrushLight
 val WelcomeScreenBackground
     @Composable
     get() = if (isSystemInDarkTheme()) Color.Black else Color.White

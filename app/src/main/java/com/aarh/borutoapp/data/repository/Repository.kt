@@ -23,7 +23,7 @@ class Repository @Inject constructor(
     }
 
     suspend fun getSelectedHero(heroId: Int): Hero {
-        return local.getSelected(heroId =  heroId)
+        return local.getSelected(heroId = heroId)
     }
 
     suspend fun saveOnBoardingState(completed: Boolean) {

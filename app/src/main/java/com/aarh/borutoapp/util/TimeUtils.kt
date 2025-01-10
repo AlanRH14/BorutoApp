@@ -9,12 +9,3 @@ fun getInitialRefreshData(
 
     return (diffInMinutes.toInt() <= cacheTimeout)
 }
-
-/*fun parseMillis(
-    millis: Long,
-): String {
-    val date = Date(millis)
-    val format = SimpleDateFormat("yyyy.MM.dd HH:mm", Locale.ROOT)
-
-    return format.format(date)
-}*/
