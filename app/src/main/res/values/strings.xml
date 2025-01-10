@@ -15,4 +15,6 @@
     <string name="power">Power</string>
     <string name="month">Month</string>
     <string name="birthday">Birthday</string>
+    <string name="about">About</string>
+    <string name="family">Family</string>
 </resources>

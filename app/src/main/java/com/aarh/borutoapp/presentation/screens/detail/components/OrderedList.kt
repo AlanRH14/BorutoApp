@@ -1,4 +1,4 @@
-package com.aarh.borutoapp.presentation.screens.components
+package com.aarh.borutoapp.presentation.screens.detail.components
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Column

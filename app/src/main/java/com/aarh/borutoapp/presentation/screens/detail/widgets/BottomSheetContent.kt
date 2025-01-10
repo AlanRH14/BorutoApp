@@ -12,6 +12,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -21,10 +22,12 @@ import com.aarh.borutoapp.R
 import com.aarh.borutoapp.data.mockdata.HeroProvider.hero2
 import com.aarh.borutoapp.domain.entity.Hero
 import com.aarh.borutoapp.presentation.screens.detail.components.InfoBox
+import com.aarh.borutoapp.presentation.screens.detail.components.OrderedList
 import com.aarh.borutoapp.ui.theme.GraySystemUIColor
 import com.aarh.borutoapp.ui.theme.ICON_SIZE
 import com.aarh.borutoapp.ui.theme.MEDIUM_PADDING
 import com.aarh.borutoapp.ui.theme.MIN_LARGE_PADDING
+import com.aarh.borutoapp.util.Constants.MAX_LINES_TEXT
 
 @Composable
 fun BottomSheetContent(
@@ -88,6 +91,34 @@ fun BottomSheetContent(
                 iconColor = infoBoxIconColor,
                 bigText = selectedHero.day,
                 smallText = stringResource(R.string.birthday),
+                textColor = contentColor,
+            )
+        }
+
+        Text(
+            modifier = Modifier.fillMaxWidth(),
+            text = stringResource(R.string.about),
+            color = contentColor,
+            fontSize = MaterialTheme.typography.titleLarge.fontSize,
+            fontWeight = FontWeight.Bold
+        )
+        Text(
+            modifier = Modifier
+                .padding(bottom = MEDIUM_PADDING)
+                .alpha(alpha = 0.74F),
+            text = selectedHero.about,
+            color = contentColor,
+            fontSize = MaterialTheme.typography.bodyLarge.fontSize,
+            maxLines = MAX_LINES_TEXT
+        )
+
+        Row(
+            modifier =  Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            OrderedList(
+                title = stringResource(R.string.family),
+                items = selectedHero.family,
                 textColor = contentColor,
             )
         }
