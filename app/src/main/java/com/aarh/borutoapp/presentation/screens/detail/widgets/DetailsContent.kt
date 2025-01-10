@@ -22,7 +22,9 @@ fun DetailsContent(
     BottomSheetScaffold(
         scaffoldState = scaffoldState,
         sheetPeekHeight = MIN_SHEET_HEIGHT,
-        sheetContent = {},
+        sheetContent = {
+            selectedHero?.let { hero -> BottomSheetContent(selectedHero = hero) }
+        },
         content = {}
     )
 }

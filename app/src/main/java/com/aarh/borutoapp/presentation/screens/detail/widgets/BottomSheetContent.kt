@@ -121,6 +121,16 @@ fun BottomSheetContent(
                 items = selectedHero.family,
                 textColor = contentColor,
             )
+            OrderedList(
+                title = stringResource(R.string.abilities),
+                items = selectedHero.abilities,
+                textColor = contentColor,
+            )
+            OrderedList(
+                title = stringResource(R.string.nature_types),
+                items = selectedHero.natureTypes,
+                textColor = contentColor,
+            )
         }
     }
 }
