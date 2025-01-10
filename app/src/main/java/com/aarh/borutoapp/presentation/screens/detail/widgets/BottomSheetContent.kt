@@ -1,5 +1,6 @@
 package com.aarh.borutoapp.presentation.screens.detail.widgets
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -34,13 +35,13 @@ fun BottomSheetContent(
 ) {
     Column(
         modifier = Modifier
-            .fillMaxWidth()
             .padding(all = MIN_LARGE_PADDING)
+            .fillMaxWidth()
     ) {
         Row(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(bottom = MIN_LARGE_PADDING),
+                .padding(bottom = MIN_LARGE_PADDING)
+                .fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Icon(
@@ -64,8 +65,9 @@ fun BottomSheetContent(
 
         Row(
             modifier = Modifier
-                .fillMaxWidth()
                 .padding(bottom = MEDIUM_PADDING)
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween
         ) {
             InfoBox(
                 icon = painterResource(id = R.drawable.ic_bolt),

@@ -35,11 +35,11 @@ fun FinisButton(
     ) {
         AnimatedVisibility(
             modifier = Modifier
-                .fillMaxWidth()
                 .padding(
                     horizontal = EXTRA_LARGE_PADDING,
                     vertical = SMALL_PADDING,
-                ),
+                )
+                .fillMaxWidth(),
             visible = pagerState.currentPage == pagerState.pageCount - 1,
         ) {
             Button(

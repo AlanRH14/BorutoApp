@@ -53,9 +53,12 @@ fun PagerScreen(onBoardingPage: OnBoardingPage) {
         )
         Text(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = EXTRA_LARGE_PADDING)
-                .padding(top = SMALL_PADDING),
+                .padding(
+                    top = SMALL_PADDING,
+                    start = EXTRA_LARGE_PADDING,
+                    end = EXTRA_LARGE_PADDING
+                )
+                .fillMaxWidth(),
             text = onBoardingPage.description,
             color = DescriptionColor,
             fontSize = MaterialTheme.typography.titleMedium.fontSize,

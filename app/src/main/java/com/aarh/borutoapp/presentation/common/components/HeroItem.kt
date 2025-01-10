@@ -93,8 +93,8 @@ fun HeroItem(
         ) {
             Column(
                 modifier = Modifier
-                    .fillMaxSize()
-                    .padding(all = MEDIUM_PADDING),
+                    .padding(all = MEDIUM_PADDING)
+                    .fillMaxSize(),
             ) {
                 Text(
                     text = hero.name,
