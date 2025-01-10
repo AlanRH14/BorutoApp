@@ -12,4 +12,7 @@
     <string name="search_here">Search here…</string>
     <string name="close_icon">Close Icon</string>
     <string name="info_icon_description">Info Icon</string>
+    <string name="power">Power</string>
+    <string name="month">Month</string>
+    <string name="birthday">Birthday</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.aarh.borutoapp.presentation.screens.components
+package com.aarh.borutoapp.presentation.screens.detail.components
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Arrangement
@@ -23,7 +23,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.aarh.borutoapp.R
 import com.aarh.borutoapp.ui.theme.GraySystemUIColor
 import com.aarh.borutoapp.ui.theme.ICON_SIZE
-import com.aarh.borutoapp.ui.theme.LARGE_PADDING
 import com.aarh.borutoapp.ui.theme.SMALL_PADDING
 
 @Composable

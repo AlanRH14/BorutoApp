@@ -2,7 +2,6 @@ package com.aarh.borutoapp.di
 
 import android.content.Context
 import androidx.room.Room
-import androidx.room.RoomDatabase
 import com.aarh.borutoapp.data.local.BorutoDatabase
 import com.aarh.borutoapp.data.repository.LocalDataSourceImpl
 import com.aarh.borutoapp.domain.repository.LocalDataSource

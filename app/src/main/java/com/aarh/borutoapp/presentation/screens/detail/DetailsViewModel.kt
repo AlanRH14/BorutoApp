@@ -24,7 +24,7 @@ class DetailsViewModel @Inject constructor(
     init {
         viewModelScope.launch(Dispatchers.IO) {
             val heroId = savedStateHandle.get<Int>(DETAILS_ARGUMENT_KEY)
-            _selectedHero.value = heroId?.let { id ->  useCases.getSelectedHeroUseCase(heroId = id)}
+            _selectedHero.value = heroId?.let { id -> useCases.getSelectedHeroUseCase(heroId = id) }
         }
     }
 }
