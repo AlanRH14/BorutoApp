@@ -1,6 +1,5 @@
 package com.aarh.borutoapp.presentation.screens.detail.widgets
 
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -20,11 +19,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
-import coil3.compose.AsyncImage
 import coil3.compose.SubcomposeAsyncImage
-import coil3.compose.rememberAsyncImagePainter
 import coil3.request.ImageRequest
-import coil3.request.crossfade
 import coil3.request.error
 import coil3.request.placeholder
 import com.aarh.borutoapp.R
@@ -48,7 +44,9 @@ fun BackgroundContent(
     ) {
         SubcomposeAsyncImage(
             modifier = Modifier
-                .fillMaxSize(),
+                .fillMaxWidth()
+                .fillMaxHeight(fraction = imageFraction)
+                .align(Alignment.TopStart),
             model = ImageRequest
                 .Builder(mContext)
                 .data(imageUrl)

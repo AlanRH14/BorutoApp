@@ -26,7 +26,11 @@ fun BottomSheetContent(
 ) {
     Column(
         modifier = Modifier
-            .padding(all = MIN_LARGE_PADDING)
+            .padding(
+                start = MIN_LARGE_PADDING,
+                end = MIN_LARGE_PADDING,
+                bottom = MIN_LARGE_PADDING
+            )
             .fillMaxWidth()
     ) {
         HeaderBottomSheet(

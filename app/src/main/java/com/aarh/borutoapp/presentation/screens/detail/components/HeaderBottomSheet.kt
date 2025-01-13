@@ -17,7 +17,7 @@ import androidx.compose.ui.text.font.FontWeight
 import com.aarh.borutoapp.R
 import com.aarh.borutoapp.ui.theme.GraySystemUIColor
 import com.aarh.borutoapp.ui.theme.ICON_SIZE
-import com.aarh.borutoapp.ui.theme.MIN_LARGE_PADDING
+import com.aarh.borutoapp.ui.theme.MEDIUM_PADDING
 
 @Composable
 fun HeaderBottomSheet(
@@ -26,7 +26,7 @@ fun HeaderBottomSheet(
 ) {
     Row(
         modifier = Modifier
-            .padding(bottom = MIN_LARGE_PADDING)
+            .padding(bottom = MEDIUM_PADDING)
             .fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -36,7 +36,7 @@ fun HeaderBottomSheet(
                 .weight(2F),
             painter = painterResource(R.drawable.ic_logo),
             contentDescription = stringResource(R.string.app_logo),
-            tint = contentColor
+            tint = contentColor,
         )
 
         Text(
@@ -44,7 +44,7 @@ fun HeaderBottomSheet(
                 .weight(8F),
             text = name,
             color = contentColor,
-            fontSize = MaterialTheme.typography.headlineLarge.fontSize,
+            fontSize = MaterialTheme.typography.displaySmall.fontSize,
             fontWeight = FontWeight.Bold
         )
     }

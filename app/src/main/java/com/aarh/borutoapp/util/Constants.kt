@@ -37,4 +37,5 @@ object Constants {
     const val FIND_HERO = "Find your Favorite Hero!"
 
     const val MAX_LINES_TEXT = 7
+    const val MIN_BACKGROUND_IMAGE_HEIGHT = 0.4F
 }
