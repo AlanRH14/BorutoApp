@@ -1,24 +1,19 @@
 package com.aarh.borutoapp.presentation.screens.detail.widgets
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.aarh.borutoapp.R
 import com.aarh.borutoapp.data.mockdata.HeroProvider.hero2
 import com.aarh.borutoapp.domain.entity.Hero
 import com.aarh.borutoapp.presentation.screens.detail.components.AboutHero
 import com.aarh.borutoapp.presentation.screens.detail.components.FamilyHero
 import com.aarh.borutoapp.presentation.screens.detail.components.InfoHero
 import com.aarh.borutoapp.presentation.screens.detail.components.HeaderBottomSheet
-import com.aarh.borutoapp.presentation.screens.detail.components.OrderedList
 import com.aarh.borutoapp.ui.theme.GraySystemUIColor
 import com.aarh.borutoapp.ui.theme.MIN_LARGE_PADDING
 

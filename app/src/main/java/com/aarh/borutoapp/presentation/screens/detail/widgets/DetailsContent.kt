@@ -25,6 +25,15 @@ fun DetailsContent(
         sheetContent = {
             selectedHero?.let { hero -> BottomSheetContent(selectedHero = hero) }
         },
-        content = {}
+        content = {
+            selectedHero?.image?.let { hero ->
+                BackgroundContent(
+                    heroImage = hero,
+                    onCloseClicked = {
+                        navController.popBackStack()
+                    }
+                )
+            }
+        }
     )
 }
