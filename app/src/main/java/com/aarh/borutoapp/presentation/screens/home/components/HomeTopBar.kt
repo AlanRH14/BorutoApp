@@ -1,7 +1,6 @@
 package com.aarh.borutoapp.presentation.screens.home.components
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
-
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.ExperimentalMaterial3Api

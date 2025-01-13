@@ -9,7 +9,6 @@ import com.aarh.borutoapp.data.local.BorutoDatabase
 import com.aarh.borutoapp.data.remote.BorutoApi
 import com.aarh.borutoapp.domain.entity.Hero
 import com.aarh.borutoapp.domain.entity.HeroRemoteKeys
-import com.aarh.borutoapp.util.getInitialRefreshData
 import javax.inject.Inject
 
 @ExperimentalPagingApi

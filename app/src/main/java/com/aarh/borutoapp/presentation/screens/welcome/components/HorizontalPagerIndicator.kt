@@ -39,9 +39,9 @@ fun HorizontalPagerIndicator(
 ) {
     Row(
         modifier = modifier
+            .padding(containerPadding)
             .wrapContentHeight()
-            .fillMaxWidth()
-            .padding(containerPadding),
+            .fillMaxWidth(),
         horizontalArrangement = Arrangement.Center,
     ) {
         repeat(pagerState.pageCount) { iteration ->

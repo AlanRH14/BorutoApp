@@ -35,4 +35,7 @@ object Constants {
     const val INTERNET_UNAVAILABLE = "Internet Unavailable."
     const val UNKNOWN_ERROR = "Unknown Error."
     const val FIND_HERO = "Find your Favorite Hero!"
+
+    const val MAX_LINES_TEXT = 7
+    const val MIN_BACKGROUND_IMAGE_HEIGHT = 0.4F
 }
