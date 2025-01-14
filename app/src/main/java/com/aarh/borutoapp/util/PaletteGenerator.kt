@@ -30,13 +30,13 @@ object PaletteGenerator {
 
     fun extractColorsFromBitmap(bitmap: Bitmap): Map<String, String> {
         return mapOf(
-            "vibrant" to parseColorSwatch(
+            PaletteColors.Variant.color to parseColorSwatch(
                 color = Palette.from(bitmap).generate().vibrantSwatch
             ),
-            "darkVibrant" to parseColorSwatch(
+            PaletteColors.DarkVibrant.color to parseColorSwatch(
                 color = Palette.from(bitmap).generate().darkVibrantSwatch
             ),
-            "onDarkVariant" to parseBodyColor(
+            PaletteColors.OnDarkVariant.color to parseBodyColor(
                 color = Palette.from(bitmap).generate().darkVibrantSwatch?.bodyTextColor
             )
         )
