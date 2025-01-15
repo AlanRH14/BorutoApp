@@ -1,5 +1,6 @@
 package com.aarh.borutoapp.presentation.screens.detail.widgets
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -26,12 +27,8 @@ fun BottomSheetContent(
 ) {
     Column(
         modifier = Modifier
-            .padding(
-                start = MIN_LARGE_PADDING,
-                end = MIN_LARGE_PADDING,
-                bottom = MIN_LARGE_PADDING
-            )
-            .fillMaxWidth()
+            .background(sheetBackgroundColor)
+            .padding(all = MIN_LARGE_PADDING)
     ) {
         HeaderBottomSheet(
             name = selectedHero.name,

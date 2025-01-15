@@ -54,7 +54,7 @@ fun InfoBox(
                 text = bigText,
                 color = textColor,
                 textAlign = TextAlign.Center,
-                fontSize = MaterialTheme.typography.titleMedium.fontSize,
+                fontSize = MaterialTheme.typography.titleLarge.fontSize,
                 fontWeight = FontWeight.Black,
             )
             Text(
@@ -62,7 +62,7 @@ fun InfoBox(
                     .alpha(alpha = 0.74F),
                 text = smallText,
                 color = textColor,
-                fontSize = MaterialTheme.typography.bodyMedium.fontSize,
+                fontSize = MaterialTheme.typography.bodyLarge.fontSize,
             )
         }
     }

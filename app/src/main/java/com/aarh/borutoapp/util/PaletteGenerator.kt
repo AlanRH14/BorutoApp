@@ -1,9 +1,9 @@
 package com.aarh.borutoapp.util
 
 import android.content.Context
-import android.graphics.drawable.BitmapDrawable
 import androidx.palette.graphics.Palette
 import coil3.Bitmap
+import coil3.BitmapImage
 import coil3.ImageLoader
 import coil3.request.ImageRequest
 import coil3.request.SuccessResult
@@ -11,18 +11,18 @@ import coil3.request.allowHardware
 
 object PaletteGenerator {
 
-    suspend fun convertImageUrlTobitMap(
+    suspend fun convertImageUrlToBitMap(
         imageUrl: String,
-        context: Context,
+        mContext: Context,
     ): Bitmap? {
-        val loader = ImageLoader(context = context)
-        val request = ImageRequest.Builder(context = context)
+        val loader = ImageLoader(context = mContext)
+        val request = ImageRequest.Builder(context = mContext)
             .data(imageUrl)
             .allowHardware(false)
             .build()
         val imageResult = loader.execute(request = request)
         return if (imageResult is SuccessResult) {
-            (imageResult.image as BitmapDrawable).bitmap
+            (imageResult.image as BitmapImage).bitmap
         } else {
             null
         }
