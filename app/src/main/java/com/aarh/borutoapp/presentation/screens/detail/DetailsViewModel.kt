@@ -8,8 +8,11 @@ import com.aarh.borutoapp.domain.use_case.UseCases
 import com.aarh.borutoapp.util.Constants.DETAILS_ARGUMENT_KEY
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -20,11 +23,25 @@ class DetailsViewModel @Inject constructor(
 ) : ViewModel() {
     private val _selectedHero: MutableStateFlow<Hero?> = MutableStateFlow(null)
     val selectedHero: StateFlow<Hero?> get() = _selectedHero
+    private val _uiEvent = MutableSharedFlow<UIEvent>()
+    val uiEvent: SharedFlow<UIEvent> get() = _uiEvent.asSharedFlow()
+    private val _colorPalette: MutableStateFlow<Map<String, String>> = MutableStateFlow(mapOf())
+    val colorPalette: StateFlow<Map<String, String>> get() = _colorPalette
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
             val heroId = savedStateHandle.get<Int>(DETAILS_ARGUMENT_KEY)
             _selectedHero.value = heroId?.let { id -> useCases.getSelectedHeroUseCase(heroId = id) }
         }
+    }
+
+    fun generateColorPalette() {
+        viewModelScope.launch {
+            _uiEvent.emit(UIEvent.GenerateColorPalette)
+        }
+    }
+
+    fun setColorPalette(colors: Map<String, String>) {
+        _colorPalette.value = colors
     }
 }

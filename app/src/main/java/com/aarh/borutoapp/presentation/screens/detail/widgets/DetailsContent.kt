@@ -1,20 +1,30 @@
 package com.aarh.borutoapp.presentation.screens.detail.widgets
 
+import android.graphics.Color.parseColor
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.BottomSheetDefaults
 import androidx.compose.material3.BottomSheetScaffold
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.SheetValue
 import androidx.compose.material3.rememberBottomSheetScaffoldState
 import androidx.compose.material3.rememberStandardBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavController
 import com.aarh.borutoapp.domain.entity.Hero
 import com.aarh.borutoapp.ui.theme.EXPANDED_RADIUS_LEVEL
 import com.aarh.borutoapp.ui.theme.EXTRA_LARGE_PADDING
 import com.aarh.borutoapp.ui.theme.MIN_SHEET_HEIGHT
+import com.aarh.borutoapp.util.Constants.DARK_VIBRANT_COLOR
 import com.aarh.borutoapp.util.Constants.MIN_BACKGROUND_IMAGE_HEIGHT
+import com.aarh.borutoapp.util.Constants.ON_DARK_VIBRANT_COLOR
+import com.aarh.borutoapp.util.Constants.VIBRANT_COLOR
 import com.aarh.borutoapp.util.currentSheetFraction
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -22,6 +32,7 @@ import com.aarh.borutoapp.util.currentSheetFraction
 fun DetailsContent(
     navController: NavController,
     selectedHero: Hero?,
+    colors: Map<String, String>,
 ) {
     val scaffoldState = rememberBottomSheetScaffoldState(
         bottomSheetState = rememberStandardBottomSheetState(initialValue = SheetValue.Expanded)
@@ -35,22 +46,41 @@ fun DetailsContent(
         },
         label = ""
     )
+    var vibrant by remember { mutableStateOf("#000000") }
+    var darkVibrant by remember { mutableStateOf("#000000") }
+    var onDarkVibrant by remember { mutableStateOf("#FFFFFF") }
+
+    LaunchedEffect(key1 = selectedHero) {
+        vibrant = colors[VIBRANT_COLOR] ?: "#000000"
+        darkVibrant = colors[DARK_VIBRANT_COLOR] ?: "#000000"
+        onDarkVibrant = colors[ON_DARK_VIBRANT_COLOR] ?: "#FFFFFF"
+    }
 
     BottomSheetScaffold(
         sheetShape = RoundedCornerShape(
             topStart = radiusAnim,
-            bottomStart = radiusAnim
+            topEnd = radiusAnim
         ),
         scaffoldState = scaffoldState,
         sheetPeekHeight = MIN_SHEET_HEIGHT,
+        sheetContainerColor = Color(parseColor(darkVibrant)),
+        sheetDragHandle = {},
         sheetContent = {
-            selectedHero?.let { hero -> BottomSheetContent(selectedHero = hero) }
+            selectedHero?.let { hero ->
+                BottomSheetContent(
+                    selectedHero = hero,
+                    infoBoxIconColor = Color(parseColor(vibrant)),
+                    sheetBackgroundColor = Color(parseColor(darkVibrant)),
+                    contentColor = Color(parseColor(onDarkVibrant))
+                )
+            }
         },
         content = {
             selectedHero?.image?.let { hero ->
                 BackgroundContent(
                     heroImage = hero,
                     imageFraction = currentSheetFraction + MIN_BACKGROUND_IMAGE_HEIGHT,
+                    backgroundColor = Color(parseColor(darkVibrant)),
                     onCloseClicked = {
                         navController.popBackStack()
                     }
