@@ -1,8 +1,8 @@
 package com.aarh.borutoapp.data.remote
 
-import com.aarh.borutoapp.data.mockdata.HeroProvider.hero1
-import com.aarh.borutoapp.data.mockdata.HeroProvider.hero2
-import com.aarh.borutoapp.data.mockdata.HeroProvider.hero3
+import com.aarh.borutoapp.data.HeroFakeProvider.hero1
+import com.aarh.borutoapp.data.HeroFakeProvider.hero2
+import com.aarh.borutoapp.data.HeroFakeProvider.hero3
 import com.aarh.borutoapp.domain.entity.Hero
 import com.aarh.borutoapp.domain.model.ApiResponse
 

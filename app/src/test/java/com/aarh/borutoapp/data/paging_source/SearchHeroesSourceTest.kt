@@ -1,9 +1,9 @@
 package com.aarh.borutoapp.data.paging_source
 
 import androidx.paging.PagingSource
-import com.aarh.borutoapp.data.mockdata.HeroProvider.hero1
-import com.aarh.borutoapp.data.mockdata.HeroProvider.hero2
-import com.aarh.borutoapp.data.mockdata.HeroProvider.hero3
+import com.aarh.borutoapp.data.HeroFakeProvider.hero1
+import com.aarh.borutoapp.data.HeroFakeProvider.hero2
+import com.aarh.borutoapp.data.HeroFakeProvider.hero3
 import com.aarh.borutoapp.data.remote.BorutoApi
 import com.aarh.borutoapp.data.remote.FakeBorutoApi
 import com.aarh.borutoapp.domain.entity.Hero
