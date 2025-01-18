@@ -17,31 +17,31 @@ import com.aarh.borutoapp.data.mockdata.HeroFakeProvider.hero8
 import com.aarh.borutoapp.data.mockdata.HeroFakeProvider.hero9
 
 object PageFakeProvider {
-    val page1 = listOf(
+    var page1 = listOf(
         hero1,
         hero2,
         hero3
     )
 
-    val page2 = listOf(
+    var page2 = listOf(
         hero4,
         hero5,
         hero6,
     )
 
-    val page3 = listOf(
+    var page3 = listOf(
         hero7,
         hero8,
         hero9
     )
 
-    val page4 = listOf(
+    var page4 = listOf(
         hero10,
         hero11,
         hero12
     )
 
-    val page5 = listOf(
+    var page5 = listOf(
         hero13,
         hero14,
         hero15

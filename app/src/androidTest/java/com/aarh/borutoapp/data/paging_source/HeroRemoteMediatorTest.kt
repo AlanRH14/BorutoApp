@@ -17,7 +17,6 @@ import org.junit.Before
 import org.junit.Test
 
 class HeroRemoteMediatorTest {
-
     private lateinit var borutoApi: FakeBorutoApi2
     private lateinit var borutoDatabase: BorutoDatabase
 
@@ -52,5 +51,44 @@ class HeroRemoteMediatorTest {
             val result = remoteMediator.load(LoadType.REFRESH, pagingState)
             assertTrue(result is RemoteMediator.MediatorResult.Success)
             assertFalse((result as RemoteMediator.MediatorResult.Success).endOfPaginationReached)
+        }
+
+    @OptIn(ExperimentalPagingApi::class)
+    @Test
+    fun refreshLoadReturnsErrorResultWhenErrorOccurs() =
+        runBlocking {
+            borutoApi.clearData()
+            val remoteMediator = HeroRemoteMediator(
+                borutoApi = borutoApi,
+                borutoDatabase = borutoDatabase
+            )
+            val pagingState = PagingState<Int, Hero>(
+                pages = listOf(),
+                anchorPosition = null,
+                config = PagingConfig(pageSize = 3),
+                leadingPlaceholderCount = 0
+            )
+            val result = remoteMediator.load(LoadType.REFRESH, pagingState)
+            assertTrue(result is RemoteMediator.MediatorResult.Success)
+            assertTrue((result as RemoteMediator.MediatorResult.Success).endOfPaginationReached)
+        }
+
+    @OptIn(ExperimentalPagingApi::class)
+    @Test
+    fun refreshLoadSuccessAndEndOfPaginationTrueWhenNoMoreData() =
+        runBlocking {
+            borutoApi.addException()
+            val remoteMediator = HeroRemoteMediator(
+                borutoApi = borutoApi,
+                borutoDatabase = borutoDatabase,
+            )
+            val pagingState = PagingState<Int, Hero>(
+                pages = listOf(),
+                anchorPosition = null,
+                config = PagingConfig(pageSize = 3),
+                leadingPlaceholderCount = 0,
+            )
+            val result = remoteMediator.load(LoadType.REFRESH, pagingState)
+            assertTrue(result is RemoteMediator.MediatorResult.Error)
         }
 }

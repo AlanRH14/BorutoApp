@@ -7,6 +7,7 @@ import com.aarh.borutoapp.data.mockdata.PageFakeProvider.page4
 import com.aarh.borutoapp.data.mockdata.PageFakeProvider.page5
 import com.aarh.borutoapp.domain.entity.Hero
 import com.aarh.borutoapp.domain.model.ApiResponse
+import okio.IOException
 
 class FakeBorutoApi2 : BorutoApi {
     private val heroes: Map<Int, List<Hero>> by lazy {
@@ -18,6 +19,15 @@ class FakeBorutoApi2 : BorutoApi {
             5 to page5,
         )
     }
+    private var exception = false
+
+    fun clearData() {
+        page1 = emptyList()
+    }
+
+    fun addException() {
+        exception = true
+    }
 
     override suspend fun getAllHeroes(page: Int): ApiResponse {
         require(page in 1..5)
@@ -25,8 +35,8 @@ class FakeBorutoApi2 : BorutoApi {
             success = true,
             message = "Ok",
             prevPage = calculate(page)["prevPage"],
-            nextPage = calculate(page)["nexPage"],
-            heroes = heroes[page] ?: emptyList()
+            nextPage = calculate(page)["nextPage"],
+            heroes = heroes[page]!!
         )
     }
 
@@ -37,6 +47,12 @@ class FakeBorutoApi2 : BorutoApi {
     }
 
     private fun calculate(page: Int): Map<String, Int?> {
+        if (exception) {
+            throw IOException()
+        }
+        if (page1.isEmpty()) {
+            return mapOf("prevPage" to null, "nextPage" to null)
+        }
         var prevPage: Int? = page
         var nextPage: Int? = page
         if (page in 1..4) {
