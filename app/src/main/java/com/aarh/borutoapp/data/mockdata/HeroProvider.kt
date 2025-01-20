@@ -64,32 +64,4 @@ object HeroProvider {
             "Fire",
         ),
     )
-
-    val hero3 = Hero(
-        id = 3,
-        name = "Sakura",
-        image = "/images/sakura.jpg",
-        about = "Sakura Uchiha (うちはサクラ, Uchiha Sakura, née Haruno (春野)) is a kunoichi of Konohagakure. When assigned to Team 7, Sakura quickly finds herself ill-prepared for the duties of a shinobi. However, after training under the Sannin Tsunade, she overcomes this, and becomes recognised as one of the greatest medical-nin in the world.",
-        rating = 4.5,
-        power = 92,
-        month = "Mar",
-        day = "28th",
-        family = listOf(
-            "Kizashi",
-            "Mebuki",
-            "Sarada",
-            "Sasuke",
-        ),
-        abilities = listOf(
-            "Chakra Control",
-            "Medical Ninjutsu",
-            "Strength",
-            "Intelligence",
-        ),
-        natureTypes = listOf(
-            "Earth",
-            "Water",
-            "Fire",
-        ),
-    )
 }

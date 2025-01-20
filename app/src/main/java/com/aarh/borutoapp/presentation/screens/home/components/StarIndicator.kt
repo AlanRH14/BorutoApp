@@ -10,6 +10,8 @@ import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.clipPath
 import androidx.compose.ui.graphics.drawscope.scale
 import androidx.compose.ui.graphics.drawscope.translate
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import com.aarh.borutoapp.ui.theme.EmptyStar
 import com.aarh.borutoapp.ui.theme.StarColor
@@ -18,14 +20,18 @@ import com.aarh.borutoapp.util.isNumberType
 
 @Composable
 fun StarIndicator(
+    modifier: Modifier = Modifier,
     startPath: Path,
     startPathBounds: Rect,
     scaleFactor: Float,
     rating: Double,
 ) {
     Canvas(
-        modifier = Modifier
-            .size(24.dp),
+        modifier = modifier
+            .size(24.dp)
+            .semantics {
+                contentDescription = "StarIndicator"
+            },
     ) {
         val canvasSize = size
         val colorPath = if (rating == 0.0) {
