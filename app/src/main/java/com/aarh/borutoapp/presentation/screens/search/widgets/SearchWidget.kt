@@ -19,6 +19,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
@@ -37,12 +39,19 @@ fun SearchWidget(
 ) {
     TopAppBar(
         modifier = modifier
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .semantics {
+                contentDescription = "SearchWidget"
+            },
         colors = TopAppBarDefaults.topAppBarColors(
             containerColor = TopBarBackgroundColor
         ),
         title = {
             TextField(
+                modifier = Modifier
+                    .semantics {
+                        contentDescription = "TextField"
+                    },
                 value = text,
                 onValueChange = { onTextChange(it) },
                 placeholder = {
@@ -86,6 +95,10 @@ fun SearchWidget(
         },
         actions = {
             IconButton(
+                modifier = Modifier
+                    .semantics {
+                        contentDescription = "CloseButton"
+                    },
                 onClick = {
                     if (text.isNotEmpty()) {
                         onTextChange("")

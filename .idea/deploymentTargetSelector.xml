@@ -13,10 +13,19 @@
         </DropdownSelection>
         <DialogSelection />
       </SelectionState>
-      <SelectionState runConfigName="refreshLoadResultReturnsSuccessResultWhenMoreDataIsPresent()">
+      <SelectionState runConfigName="openSearchWidget_addInputText_assertInputText()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="refreshLoadSuccessAndEndOfPaginationTrueWhenNoMoreData()">
+      <SelectionState runConfigName="onSearchWidget_addInputText_pressCloseButtonOnce_assertEmptyInputText()">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="onSearchWidget_addInputText_pressCloseButtonTwice_assertClosedState()">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="openSearchWidget_pressCloseButtonOnceWhenInputIsEmpty_assertClosedState()">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="SearchWidgetTest">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>
