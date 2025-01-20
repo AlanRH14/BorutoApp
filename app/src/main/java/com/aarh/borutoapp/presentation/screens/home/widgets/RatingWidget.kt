@@ -7,6 +7,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.PathParser
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import com.aarh.borutoapp.R
@@ -40,33 +42,42 @@ fun RatingWidget(
         result[FILLED_STARS]?.let { filledStar ->
             repeat(filledStar) {
                 StarIndicator(
+                    modifier = Modifier.semantics {
+                        contentDescription = "FilledStar"
+                    },
                     startPath = startPath,
                     startPathBounds = startPathBounds,
                     scaleFactor = scaleFactor,
                     rating = 1.0,
                 )
             }
+        }
 
-            result[HALF_FILLED_STARTS]?.let { halfStar ->
-                repeat(halfStar) {
-                    StarIndicator(
-                        startPath = startPath,
-                        startPathBounds = startPathBounds,
-                        scaleFactor = scaleFactor,
-                        rating = 0.5,
-                    )
-                }
+        result[HALF_FILLED_STARTS]?.let { halfStar ->
+            repeat(halfStar) {
+                StarIndicator(
+                    modifier = Modifier.semantics {
+                        contentDescription = "HalfFilledStar"
+                    },
+                    startPath = startPath,
+                    startPathBounds = startPathBounds,
+                    scaleFactor = scaleFactor,
+                    rating = 0.5,
+                )
             }
+        }
 
-            result[EMPTY_STARS]?.let { emptyStar ->
-                repeat(emptyStar) {
-                    StarIndicator(
-                        startPath = startPath,
-                        startPathBounds = startPathBounds,
-                        scaleFactor = scaleFactor,
-                        rating = 0.0,
-                    )
-                }
+        result[EMPTY_STARS]?.let { emptyStar ->
+            repeat(emptyStar) {
+                StarIndicator(
+                    modifier = Modifier.semantics {
+                        contentDescription = "EmptyStar"
+                    },
+                    startPath = startPath,
+                    startPathBounds = startPathBounds,
+                    scaleFactor = scaleFactor,
+                    rating = 0.0,
+                )
             }
         }
     }

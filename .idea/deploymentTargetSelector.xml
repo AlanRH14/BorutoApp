@@ -13,19 +13,19 @@
         </DropdownSelection>
         <DialogSelection />
       </SelectionState>
-      <SelectionState runConfigName="openSearchWidget_addInputText_assertInputText()">
+      <SelectionState runConfigName="passZeroPointSixValue_Assert_FourEmptyStars_and_OneFilledStar()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="onSearchWidget_addInputText_pressCloseButtonOnce_assertEmptyInputText()">
+      <SelectionState runConfigName="passFourPointZeroValue_Assert_FourFilledStars_andOneEmptyStar()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="onSearchWidget_addInputText_pressCloseButtonTwice_assertClosedState()">
+      <SelectionState runConfigName="passFourPointThreeValue_Assert_FourFilledStars_and_OneHalfFilledStar()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="openSearchWidget_pressCloseButtonOnceWhenInputIsEmpty_assertClosedState()">
+      <SelectionState runConfigName="passNegativeValue_Assert_FiveEmptyStars()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="SearchWidgetTest">
+      <SelectionState runConfigName="passInvalidValue_Assert_FiveEmptyStars()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>
