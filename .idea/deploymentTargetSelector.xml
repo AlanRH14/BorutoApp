@@ -13,9 +13,6 @@
         </DropdownSelection>
         <DialogSelection />
       </SelectionState>
-      <SelectionState runConfigName="passZeroPointSixValue_Assert_FourEmptyStars_and_OneFilledStar()">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
       <SelectionState runConfigName="passFourPointZeroValue_Assert_FourFilledStars_andOneEmptyStar()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
