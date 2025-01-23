@@ -16,9 +16,6 @@
       <SelectionState runConfigName="passFourPointZeroValue_Assert_FourFilledStars_andOneEmptyStar()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="passFourPointThreeValue_Assert_FourFilledStars_and_OneHalfFilledStar()">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
       <SelectionState runConfigName="passNegativeValue_Assert_FiveEmptyStars()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
