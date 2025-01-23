@@ -80,5 +80,4 @@ dependencies {
     implementation(libs.androidx.palette.ktx)
     implementation(libs.paging)
     implementation(libs.data.store)
-    implementation(libs.horizontal.pager)
 }

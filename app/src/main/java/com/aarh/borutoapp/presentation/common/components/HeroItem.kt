@@ -1,7 +1,6 @@
 package com.aarh.borutoapp.presentation.common.components
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
-import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -75,7 +74,6 @@ fun HeroItem(
                     .error(R.drawable.ic_placeholder)
                     .placeholder(R.drawable.ic_placeholder)
                     .build(),
-                error = { Log.d("LordMiau", "Error = ${it.result}") },
                 contentDescription = stringResource(R.string.hero_image_content_description),
                 contentScale = ContentScale.Crop,
             )
