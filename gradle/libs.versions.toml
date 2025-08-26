@@ -8,16 +8,25 @@ espressoCore = "3.7.0"
 lifecycleRuntimeKtx = "2.9.2"
 activityCompose = "1.10.1"
 composeBom = "2025.08.00"
+
 kspVersion = "2.1.21-2.0.1"
+
 hiltAndroidxNavigationCompose = "1.2.0"
 hiltVersion = "2.57.1"
-retrofitVersion = "3.0.0"
+
+retrofit = "3.0.0"
 okhttpVersion = "5.1.0"
+
 roomVersion = "2.7.2"
+
 coilVersion = "3.3.0"
+
 paletteVersion = "1.0.0"
+
 kotlinxSerialization = "1.9.0"
+
 pagingVersion = "3.3.6"
+
 dataStoreVersion = "1.1.7"
 
 [libraries]
@@ -35,22 +44,31 @@ androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-toolin
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+
+
 hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hiltVersion" }
 hilt-androidx-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltAndroidxNavigationCompose" }
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hiltVersion" }
-retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofitVersion" }
+
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 okhttp = { module = "com.squareup.okhttp3:okhttp", name = "okhttp", version.ref = "okhttpVersion" }
+
+kotlin-serialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
+retrofit-converter-kotlinx-serialization = { module = "com.squareup.retrofit2:converter-kotlinx-serialization", version.ref = "retrofit" }
+
 room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomVersion" }
 room-android = { module = "androidx.room:room-ktx", version.ref = "roomVersion" }
 room-paging-android = { module  = "androidx.room:room-paging", version.ref = "roomVersion" }
-kotlin-serialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin" }
-kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
-retrofit-converter-kotlinx-serialization = { module = "com.squareup.retrofit2:converter-kotlinx-serialization", version.ref = "retrofitVersion" }
+
 coil-compose = { module = "io.coil-kt.coil3:coil-compose", name = "coil-compose", version.ref = "coilVersion" }
 coil-network-okhttp = { module = "io.coil-kt.coil3:coil-network-okhttp", name = "coil-compose", version.ref = "coilVersion" }
 coil-network-ktor = { module = "io.coil-kt.coil3:coil-network-ktor3", name = "coil-compose", version.ref = "coilVersion" }
+
 androidx-palette-ktx = { group = "androidx.palette", name = "palette-ktx", version.ref = "paletteVersion" }
+
 paging = { module = "androidx.paging:paging-compose", name = "paging", version.ref = "pagingVersion" }
+
 data-store = { module = "androidx.datastore:datastore-preferences", name = "data-store", version.ref = "dataStoreVersion" }
 
 [plugins]
