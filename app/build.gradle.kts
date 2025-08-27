@@ -69,16 +69,17 @@ dependencies {
     implementation(libs.koin.android)
     implementation(libs.koin.androidx.compose)
 
+    implementation(libs.retrofit)
+    implementation(libs.okhttp)
+
+    implementation(libs.kotlin.serialization)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.retrofit.converter.kotlinx.serialization)
+
     ksp(libs.room.compiler)
     implementation(libs.room.android)
     annotationProcessor(libs.room.compiler)
     implementation(libs.room.paging.android)
-
-    implementation(libs.retrofit)
-    implementation(libs.okhttp)
-    implementation(libs.kotlin.serialization)
-    implementation(libs.kotlinx.serialization.json)
-    implementation(libs.retrofit.converter.kotlinx.serialization)
 
     implementation(libs.coil.compose)
     implementation(libs.coil.network.okhttp)
