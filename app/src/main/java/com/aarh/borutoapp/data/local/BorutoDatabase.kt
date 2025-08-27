@@ -14,25 +14,6 @@ import com.aarh.borutoapp.util.Constants.BORUTO_DATABASE_TEST
 @Database(entities = [Hero::class, HeroRemoteKeys::class], version = 1)
 @TypeConverters(DataBaseConverter::class)
 abstract class BorutoDatabase : RoomDatabase() {
-
-    companion object {
-        fun crate(mContext: Context, useInMemory: Boolean): BorutoDatabase {
-            val databaseBuilder = if (useInMemory) {
-                Room.inMemoryDatabaseBuilder(context = mContext, klass = BorutoDatabase::class.java)
-            } else {
-                Room.databaseBuilder(
-                    context = mContext,
-                    klass = BorutoDatabase::class.java,
-                    name = BORUTO_DATABASE_TEST
-                )
-            }
-
-            return databaseBuilder
-                .fallbackToDestructiveMigration()
-                .build()
-        }
-    }
-
     abstract fun heroDao(): HeroDao
 
     abstract fun heroRemoteKeysDao(): HeroRemoteKeysDao
