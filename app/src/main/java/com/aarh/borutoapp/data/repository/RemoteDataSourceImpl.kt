@@ -41,7 +41,7 @@ class RemoteDataSourceImpl(
             config = PagingConfig(pageSize = ITEMS_PER_PAGE),
             pagingSourceFactory = {
                 SearchHeroesSource(
-                    borutoApi = api,
+                    api = api,
                     query = query
                 )
             }

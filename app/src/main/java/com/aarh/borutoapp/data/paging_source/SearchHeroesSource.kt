@@ -6,13 +6,13 @@ import com.aarh.borutoapp.data.remote.BorutoApi
 import com.aarh.borutoapp.domain.entity.Hero
 
 class SearchHeroesSource(
-    private val borutoApi: BorutoApi,
+    private val api: BorutoApi,
     private val query: String
 ) : PagingSource<Int, Hero>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Hero> {
         return try {
-            val apiResponse = borutoApi.searchHeroes(name = query)
+            val apiResponse = api.searchHeroes(name = query)
             val heroes = apiResponse.heroes
             if (heroes.isNotEmpty()) {
                 LoadResult.Page(
