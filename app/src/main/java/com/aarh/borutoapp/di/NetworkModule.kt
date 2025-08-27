@@ -1,5 +1,6 @@
 package com.aarh.borutoapp.di
 
+import androidx.paging.ExperimentalPagingApi
 import com.aarh.borutoapp.data.local.BorutoDatabase
 import com.aarh.borutoapp.data.remote.BorutoApi
 import com.aarh.borutoapp.data.repository.RemoteDataSourceImpl
@@ -36,15 +37,10 @@ val networkModule = module {
 
     single { get<Retrofit>().create(BorutoApi::class.java) }
 
-    @Provides
-    @Singleton
-    fun providesRemoteDataSource(
-        borutoApi: BorutoApi,
-        borutoDatabase: BorutoDatabase,
-    ): RemoteDataSource {
-        return RemoteDataSourceImpl(
-            borutoApi = borutoApi,
-            borutoDatabase = borutoDatabase,
+    single {
+        RemoteDataSourceImpl(
+            borutoApi = get(),
+            borutoDatabase = get(),
         )
     }
 }
