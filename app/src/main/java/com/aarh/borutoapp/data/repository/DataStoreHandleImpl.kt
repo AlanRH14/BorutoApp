@@ -14,7 +14,7 @@ class DataStoreHandleImpl(
     private val dataStore: DataStore<Preferences>
 ) : DataStoreHandle {
 
-    override suspend fun saveOnBoardingState(completed: Boolean) {
+    override suspend fun saveState(completed: Boolean) {
         dataStore.edit { preferences ->
             preferences[PreferencesKey.onBoardingKey] = completed
         }

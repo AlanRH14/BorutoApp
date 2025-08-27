@@ -27,7 +27,7 @@ class Repository @Inject constructor(
     }
 
     suspend fun saveOnBoardingState(completed: Boolean) {
-        dataStore.saveOnBoardingState(completed = completed)
+        dataStore.saveState(completed = completed)
     }
 
     fun readOnBoardingState(): Flow<Boolean> {
