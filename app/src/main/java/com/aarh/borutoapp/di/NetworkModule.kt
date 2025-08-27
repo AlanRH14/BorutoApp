@@ -15,6 +15,8 @@ import retrofit2.converter.kotlinx.serialization.asConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
+private val contentType = "application/json".toMediaType()
+
 val networkModule = module {
 
     single {
@@ -24,13 +26,10 @@ val networkModule = module {
             .build()
     }
 
-    @Provides
-    @Singleton
-    fun providesRetrofitInstance(okHttpClient: OkHttpClient): Retrofit {
-        val contentType = "application/json".toMediaType()
-        return Retrofit.Builder()
+    single {
+        Retrofit.Builder()
             .baseUrl(BASE_URL)
-            .client(okHttpClient)
+            .client(get<OkHttpClient>())
             .addConverterFactory(Json.asConverterFactory(contentType))
             .build()
     }
