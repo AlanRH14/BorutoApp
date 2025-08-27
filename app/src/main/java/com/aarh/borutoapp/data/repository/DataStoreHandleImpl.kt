@@ -20,7 +20,7 @@ class DataStoreHandleImpl(
         }
     }
 
-    override fun readOnBoardingState(): Flow<Boolean> {
+    override fun readState(): Flow<Boolean> {
         return dataStore.data
             .catch { exception ->
                 if (exception is IOException) {
