@@ -15,14 +15,11 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import org.koin.dsl.module
 import javax.inject.Singleton
 
-@Module
-@InstallIn(SingletonComponent::class)
-object RepositoryModule {
+val repositoryModule = module {
 
-    @Provides
-    @Singleton
     fun providesDataStoreOperations(
         @ApplicationContext context: Context,
     ): DataStoreOperations {
