@@ -27,7 +27,7 @@ class RemoteDataSourceImpl(
                 pageSize = ITEMS_PER_PAGE,
             ),
             remoteMediator = HeroRemoteMediator(
-                borutoApi = borutoApi,
+                api = borutoApi,
                 borutoDatabase = borutoDatabase,
             ),
             pagingSourceFactory = pagingSourceFactory,

@@ -39,7 +39,7 @@ class HeroRemoteMediatorTest {
     fun refreshLoadResultReturnsSuccessResultWhenMoreDataIsPresent() =
         runBlocking {
             val remoteMediator = HeroRemoteMediator(
-                borutoApi = borutoApi,
+                api = borutoApi,
                 borutoDatabase = borutoDatabase
             )
             val pagingState = PagingState<Int, Hero>(
@@ -59,7 +59,7 @@ class HeroRemoteMediatorTest {
         runBlocking {
             borutoApi.clearData()
             val remoteMediator = HeroRemoteMediator(
-                borutoApi = borutoApi,
+                api = borutoApi,
                 borutoDatabase = borutoDatabase
             )
             val pagingState = PagingState<Int, Hero>(
@@ -79,7 +79,7 @@ class HeroRemoteMediatorTest {
         runBlocking {
             borutoApi.addException()
             val remoteMediator = HeroRemoteMediator(
-                borutoApi = borutoApi,
+                api = borutoApi,
                 borutoDatabase = borutoDatabase,
             )
             val pagingState = PagingState<Int, Hero>(

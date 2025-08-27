@@ -12,7 +12,7 @@ import com.aarh.borutoapp.domain.entity.HeroRemoteKeys
 
 @ExperimentalPagingApi
 class HeroRemoteMediator(
-    private val borutoApi: BorutoApi,
+    private val api: BorutoApi,
     private val heroDao: HeroDao,
     private val heroRemoteKeysDao: HeroRemoteKeysDao
 ) : RemoteMediator<Int, Hero>() {
@@ -53,7 +53,7 @@ class HeroRemoteMediator(
                     nextPage
                 }
             }
-            val response = borutoApi.getAllHeroes(page = page)
+            val response = api.getAllHeroes(page = page)
             if (response.heroes.isNotEmpty()) {
                 if (loadType == LoadType.REFRESH) {
                     heroDao.deleteAllHeroes()
