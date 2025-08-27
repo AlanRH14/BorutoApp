@@ -10,7 +10,6 @@ import com.aarh.borutoapp.domain.use_case.search_heroes.SearchHeroesUseCase
 import org.koin.dsl.module
 
 val repositoryModule = module {
-
     single { DataStoreHandleImpl(dataStore = get()) }
 
     single {
