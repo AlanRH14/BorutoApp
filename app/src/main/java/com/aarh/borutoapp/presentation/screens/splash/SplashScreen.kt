@@ -8,16 +8,16 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.aarh.borutoapp.navigation.Screen
 import com.aarh.borutoapp.presentation.screens.splash.components.Splash
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun SplashScreen(
     modifier: Modifier = Modifier,
     navController: NavHostController,
-    splashViewModel: SplashViewModel = hiltViewModel(),
+    splashViewModel: SplashViewModel = koinViewModel(),
 ) {
     val onBoardingCompleted by splashViewModel.onBoardingCompleted.collectAsState()
     val degrees = remember { Animatable(0F) }
