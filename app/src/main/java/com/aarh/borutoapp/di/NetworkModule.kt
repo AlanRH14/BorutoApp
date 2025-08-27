@@ -45,7 +45,8 @@ val networkModule = module {
     single {
         RemoteDataSourceImpl(
             api = get(),
-            borutoDatabase = get(),
+            heroDao = get(),
+            heroRemoteKeysDao = get()
         )
     }
 }
