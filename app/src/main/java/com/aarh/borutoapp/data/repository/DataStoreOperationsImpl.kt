@@ -15,13 +15,9 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
 import java.io.IOException
 
-class DataStoreOperationsImpl(context: Context) : DataStoreOperations {
-
-    private object PreferencesKey {
-        val onBoardingKey = booleanPreferencesKey(name = PREFERENCES_KEY)
-    }
-
-    private val dataStore = context.dataStore
+class DataStoreOperationsImpl(
+    private val dataStore: DataStore<Preferences>
+) : DataStoreOperations {
 
     override suspend fun saveOnBoardingState(completed: Boolean) {
         dataStore.edit { preferences ->
