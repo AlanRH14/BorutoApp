@@ -13,6 +13,7 @@ kspVersion = "2.1.21-2.0.1"
 
 hiltAndroidxNavigationCompose = "1.2.0"
 hiltVersion = "2.57.1"
+koinAndroid = "4.1.0"
 
 retrofit = "3.0.0"
 okhttpVersion = "5.1.0"
