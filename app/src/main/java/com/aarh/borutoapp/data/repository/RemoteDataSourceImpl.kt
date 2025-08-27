@@ -4,7 +4,6 @@ import androidx.paging.ExperimentalPagingApi
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import com.aarh.borutoapp.data.local.BorutoDatabase
 import com.aarh.borutoapp.data.local.dao.HeroDao
 import com.aarh.borutoapp.data.local.dao.HeroRemoteKeysDao
 import com.aarh.borutoapp.data.paging_source.HeroRemoteMediator
