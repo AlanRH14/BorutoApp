@@ -6,6 +6,7 @@ import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
 import com.aarh.borutoapp.data.local.BorutoDatabase
+import com.aarh.borutoapp.data.local.dao.HeroDao
 import com.aarh.borutoapp.data.remote.BorutoApi
 import com.aarh.borutoapp.domain.entity.Hero
 import com.aarh.borutoapp.domain.entity.HeroRemoteKeys
@@ -13,7 +14,7 @@ import com.aarh.borutoapp.domain.entity.HeroRemoteKeys
 @ExperimentalPagingApi
 class HeroRemoteMediator(
     private val borutoApi: BorutoApi,
-    private val borutoDatabase: BorutoDatabase,
+    private val heroDao: HeroDao,
 ) : RemoteMediator<Int, Hero>() {
 
     private val heroDao = borutoDatabase.heroDao()
