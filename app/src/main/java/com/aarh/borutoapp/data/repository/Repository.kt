@@ -2,7 +2,7 @@ package com.aarh.borutoapp.data.repository
 
 import androidx.paging.PagingData
 import com.aarh.borutoapp.domain.entity.Hero
-import com.aarh.borutoapp.domain.repository.DataStoreOperations
+import com.aarh.borutoapp.domain.repository.DataStoreHandle
 import com.aarh.borutoapp.domain.repository.LocalDataSource
 import com.aarh.borutoapp.domain.repository.RemoteDataSource
 import kotlinx.coroutines.flow.Flow
@@ -11,7 +11,7 @@ import javax.inject.Inject
 class Repository @Inject constructor(
     private val local: LocalDataSource,
     private val remote: RemoteDataSource,
-    private val dataStore: DataStoreOperations,
+    private val dataStore: DataStoreHandle,
 ) {
 
     fun getAllHeroes(): Flow<PagingData<Hero>> {
