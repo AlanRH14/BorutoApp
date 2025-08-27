@@ -18,6 +18,10 @@ private val contentType = "application/json".toMediaType()
 val networkModule = module {
 
     single {
+
+    }
+
+    single {
         OkHttpClient.Builder()
             .readTimeout(15, TimeUnit.SECONDS)
             .connectTimeout(15, TimeUnit.SECONDS)
