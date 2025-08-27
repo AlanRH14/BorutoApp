@@ -67,6 +67,7 @@ dependencies {
     implementation(libs.hilt.android)
 
     implementation(libs.koin.android)
+    implementation(libs.koin.androidx.compose)
 
     ksp(libs.room.compiler)
     implementation(libs.room.android)
