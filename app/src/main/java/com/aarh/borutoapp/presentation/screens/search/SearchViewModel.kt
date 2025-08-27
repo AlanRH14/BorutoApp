@@ -6,15 +6,12 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.aarh.borutoapp.domain.entity.Hero
 import com.aarh.borutoapp.domain.use_case.UseCases
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-@HiltViewModel
-class SearchViewModel @Inject constructor(
+class SearchViewModel(
     private val useCases: UseCases,
 ) : ViewModel() {
     private val _searchQuery = MutableStateFlow("")
