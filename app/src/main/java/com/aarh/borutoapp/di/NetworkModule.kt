@@ -14,16 +14,13 @@ import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
+import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
-@ExperimentalPagingApi
-@ExperimentalSerializationApi
-@Module
-@InstallIn(SingletonComponent::class)
-object NetworkModule {
+val networkModule = module {
 
     @Provides
     @Singleton
