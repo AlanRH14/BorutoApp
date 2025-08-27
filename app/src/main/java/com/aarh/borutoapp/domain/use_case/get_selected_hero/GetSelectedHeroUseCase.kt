@@ -1,12 +1,12 @@
 package com.aarh.borutoapp.domain.use_case.get_selected_hero
 
-import com.aarh.borutoapp.data.repository.Repository
 import com.aarh.borutoapp.domain.entity.Hero
+import com.aarh.borutoapp.domain.repository.LocalDataSource
 
 class GetSelectedHeroUseCase(
-    private val repository: Repository
+    private val repository: LocalDataSource
 ) {
     suspend operator fun invoke(heroId: Int): Hero {
-        return repository.getSelectedHero(heroId = heroId)
+        return repository.getSelected(heroId = heroId)
     }
 }

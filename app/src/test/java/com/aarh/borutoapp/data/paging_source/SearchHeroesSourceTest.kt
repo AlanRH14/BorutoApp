@@ -31,7 +31,7 @@ class SearchHeroesSourceTest {
     @Test
     fun `Search api with existing hero name, expect single hero result, assert LoadResult_Page`() =
         runBlocking {
-            val heroSource = SearchHeroesSource(borutoApi = borutoApi, query = "Sasuke")
+            val heroSource = SearchHeroesSource(api = borutoApi, query = "Sasuke")
             assertEquals(
                 PagingSource.LoadResult.Page(
                     data = listOf(heroes.first()),
@@ -51,7 +51,7 @@ class SearchHeroesSourceTest {
     @Test
     fun `Search api with existing hero name, expect multiple hero result, assert LoadingResult_Page`() =
         runBlocking {
-            val heroSource = SearchHeroesSource(borutoApi = borutoApi, query = "sa")
+            val heroSource = SearchHeroesSource(api = borutoApi, query = "sa")
             assertEquals(
                 PagingSource.LoadResult.Page(
                     data = listOf(heroes.first(), hero3),
@@ -71,7 +71,7 @@ class SearchHeroesSourceTest {
     @Test
     fun `Search api with empty hero name, assert empty heroes list and LoadResult_Page`() =
         runBlocking {
-            val heroSource = SearchHeroesSource(borutoApi = borutoApi, query = "")
+            val heroSource = SearchHeroesSource(api = borutoApi, query = "")
             val loadResult = heroSource.load(
                 PagingSource.LoadParams.Refresh(
                     key = null,
@@ -88,7 +88,7 @@ class SearchHeroesSourceTest {
     @Test
     fun `Search api with non_existing hero name, assert empty heroes list and LoadResult_Page`() =
         runBlocking {
-            val heroSource = SearchHeroesSource(borutoApi = borutoApi, query = "Unknown")
+            val heroSource = SearchHeroesSource(api = borutoApi, query = "Unknown")
             val loadResult = heroSource.load(
                 PagingSource.LoadParams.Refresh(
                     key = null,
