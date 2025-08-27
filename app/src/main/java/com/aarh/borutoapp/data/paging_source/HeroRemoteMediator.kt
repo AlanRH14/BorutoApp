@@ -7,6 +7,7 @@ import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
 import com.aarh.borutoapp.data.local.BorutoDatabase
 import com.aarh.borutoapp.data.local.dao.HeroDao
+import com.aarh.borutoapp.data.local.dao.HeroRemoteKeysDao
 import com.aarh.borutoapp.data.remote.BorutoApi
 import com.aarh.borutoapp.domain.entity.Hero
 import com.aarh.borutoapp.domain.entity.HeroRemoteKeys
@@ -15,6 +16,7 @@ import com.aarh.borutoapp.domain.entity.HeroRemoteKeys
 class HeroRemoteMediator(
     private val borutoApi: BorutoApi,
     private val heroDao: HeroDao,
+    private val heroRemoteKeysDao: HeroRemoteKeysDao
 ) : RemoteMediator<Int, Hero>() {
     private val heroRemoteKeysDao = borutoDatabase.heroRemoteKeysDao()
 
