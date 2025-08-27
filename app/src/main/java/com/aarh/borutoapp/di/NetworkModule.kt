@@ -34,11 +34,7 @@ val networkModule = module {
             .build()
     }
 
-    @Provides
-    @Singleton
-    fun providesBorutoApi(retrofit: Retrofit): BorutoApi {
-        return retrofit.create(BorutoApi::class.java)
-    }
+    single { get<Retrofit>().create(BorutoApi::class.java) }
 
     @Provides
     @Singleton
