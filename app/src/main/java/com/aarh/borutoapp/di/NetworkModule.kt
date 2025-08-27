@@ -22,10 +22,8 @@ import javax.inject.Singleton
 
 val networkModule = module {
 
-    @Provides
-    @Singleton
-    fun providesHttpClient(): OkHttpClient {
-        return OkHttpClient.Builder()
+    single {
+        OkHttpClient.Builder()
             .readTimeout(15, TimeUnit.SECONDS)
             .connectTimeout(15, TimeUnit.SECONDS)
             .build()
