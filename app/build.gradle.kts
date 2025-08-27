@@ -70,7 +70,7 @@ dependencies {
     implementation(libs.koin.androidx.compose)
 
     implementation(libs.retrofit)
-    implementation(libs.okhttp)
+    implementation(libs.logging.interceptor)
 
     implementation(libs.kotlin.serialization)
     implementation(libs.kotlinx.serialization.json)
