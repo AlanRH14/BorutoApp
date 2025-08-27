@@ -16,8 +16,6 @@ class HeroRemoteMediator(
     private val borutoApi: BorutoApi,
     private val heroDao: HeroDao,
 ) : RemoteMediator<Int, Hero>() {
-
-    private val heroDao = borutoDatabase.heroDao()
     private val heroRemoteKeysDao = borutoDatabase.heroRemoteKeysDao()
 
     override suspend fun initialize(): InitializeAction {
