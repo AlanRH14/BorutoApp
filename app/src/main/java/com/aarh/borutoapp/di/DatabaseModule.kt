@@ -16,5 +16,5 @@ val databaseModule = module {
         ).build()
     }
 
-    single { LocalDataSourceImpl(borutoDatabase = get()) }
+    single { LocalDataSourceImpl(dao = get()) }
 }

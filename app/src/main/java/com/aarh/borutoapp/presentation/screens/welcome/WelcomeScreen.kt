@@ -8,7 +8,6 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.aarh.borutoapp.navigation.Screen
 import com.aarh.borutoapp.presentation.screens.welcome.components.FinisButton
@@ -16,13 +15,14 @@ import com.aarh.borutoapp.presentation.screens.welcome.components.HorizontalPage
 import com.aarh.borutoapp.presentation.screens.welcome.widgets.PagerScreen
 import com.aarh.borutoapp.ui.theme.WelcomeScreenBackground
 import com.aarh.borutoapp.util.Constants.WELCOME_PAGES_DATA
+import org.koin.androidx.compose.koinViewModel
 
 @ExperimentalFoundationApi
 @Composable
 fun WelcomeScreen(
     modifier: Modifier = Modifier,
     navController: NavHostController,
-    welcomeViewModel: WelcomeViewModel = hiltViewModel(),
+    welcomeViewModel: WelcomeViewModel = koinViewModel(),
 ) {
     Column(
         modifier = modifier
