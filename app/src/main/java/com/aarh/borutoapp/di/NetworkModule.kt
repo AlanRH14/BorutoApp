@@ -1,12 +1,9 @@
 package com.aarh.borutoapp.di
 
 import androidx.paging.ExperimentalPagingApi
-import com.aarh.borutoapp.data.local.BorutoDatabase
 import com.aarh.borutoapp.data.remote.BorutoApi
 import com.aarh.borutoapp.data.repository.RemoteDataSourceImpl
-import com.aarh.borutoapp.domain.repository.RemoteDataSource
 import com.aarh.borutoapp.util.Constants.BASE_URL
-import dagger.Provides
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
@@ -14,10 +11,10 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
 import java.util.concurrent.TimeUnit
-import javax.inject.Singleton
 
 private val contentType = "application/json".toMediaType()
 
+@OptIn(ExperimentalPagingApi::class)
 val networkModule = module {
 
     single {
