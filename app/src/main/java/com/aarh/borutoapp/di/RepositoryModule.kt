@@ -20,21 +20,13 @@ import javax.inject.Singleton
 
 val repositoryModule = module {
 
-    fun providesDataStoreOperations(
-        @ApplicationContext context: Context,
-    ): DataStoreOperations {
-        return DataStoreOperationsImpl(context = context)
-    }
-
-    @Provides
-    @Singleton
-    fun providesUseCases(repository: Repository): UseCases {
-        return UseCases(
-            saveOnBoardingUseCase = SaveOnBoardingUseCase(repository = repository),
-            readOnBoardingUseCase = ReadOnBoardingUseCase(repository = repository),
-            getAllHeroesUseCase = GetAllHeroesUseCase(repository = repository),
-            searchHeroesUseCase = SearchHeroesUseCase(repository = repository),
-            getSelectedHeroUseCase = GetSelectedHeroUseCase(repository = repository)
+    single {
+        UseCases(
+            saveOnBoardingUseCase = SaveOnBoardingUseCase(repository = get()),
+            readOnBoardingUseCase = ReadOnBoardingUseCase(repository = get()),
+            getAllHeroesUseCase = GetAllHeroesUseCase(repository = get()),
+            searchHeroesUseCase = SearchHeroesUseCase(repository = get()),
+            getSelectedHeroUseCase = GetSelectedHeroUseCase(repository = get())
         )
     }
 }
