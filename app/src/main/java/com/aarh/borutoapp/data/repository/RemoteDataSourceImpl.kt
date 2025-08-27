@@ -16,7 +16,7 @@ import kotlinx.coroutines.flow.Flow
 
 @ExperimentalPagingApi
 class RemoteDataSourceImpl(
-    private val borutoApi: BorutoApi,
+    private val api: BorutoApi,
     private val heroDao: HeroDao,
     private val heroRemoteKeysDao: HeroRemoteKeysDao,
 ) : RemoteDataSource {
@@ -28,7 +28,7 @@ class RemoteDataSourceImpl(
                 pageSize = ITEMS_PER_PAGE,
             ),
             remoteMediator = HeroRemoteMediator(
-                api = borutoApi,
+                api = api,
                 heroDao = heroDao,
                 heroRemoteKeysDao = heroRemoteKeysDao,
             ),
@@ -41,7 +41,7 @@ class RemoteDataSourceImpl(
             config = PagingConfig(pageSize = ITEMS_PER_PAGE),
             pagingSourceFactory = {
                 SearchHeroesSource(
-                    borutoApi = borutoApi,
+                    borutoApi = api,
                     query = query
                 )
             }

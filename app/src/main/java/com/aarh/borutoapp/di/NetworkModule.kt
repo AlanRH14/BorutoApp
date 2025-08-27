@@ -44,7 +44,7 @@ val networkModule = module {
 
     single {
         RemoteDataSourceImpl(
-            borutoApi = get(),
+            api = get(),
             borutoDatabase = get(),
         )
     }
