@@ -3,7 +3,6 @@ package com.aarh.borutoapp.di
 import androidx.room.Room
 import com.aarh.borutoapp.data.local.BorutoDatabase
 import com.aarh.borutoapp.data.repository.LocalDataSourceImpl
-import com.aarh.borutoapp.domain.repository.LocalDataSource
 import com.aarh.borutoapp.util.Constants.BORUTO_DATABASE
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
