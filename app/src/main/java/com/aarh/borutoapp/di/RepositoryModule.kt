@@ -1,6 +1,7 @@
 package com.aarh.borutoapp.di
 
 import com.aarh.borutoapp.data.repository.DataStoreHandleImpl
+import com.aarh.borutoapp.domain.repository.DataStoreHandle
 import com.aarh.borutoapp.domain.use_case.UseCases
 import com.aarh.borutoapp.domain.use_case.get_all_heroes.GetAllHeroesUseCase
 import com.aarh.borutoapp.domain.use_case.get_selected_hero.GetSelectedHeroUseCase
@@ -10,7 +11,7 @@ import com.aarh.borutoapp.domain.use_case.search_heroes.SearchHeroesUseCase
 import org.koin.dsl.module
 
 val repositoryModule = module {
-    single { DataStoreHandleImpl(dataStore = get()) }
+    single<DataStoreHandle> { DataStoreHandleImpl(dataStore = get()) }
 
     single {
         UseCases(
