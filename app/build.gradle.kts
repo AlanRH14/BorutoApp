@@ -62,6 +62,8 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    implementation(libs.androdix.core.splashscreen)
+
     ksp(libs.hilt.android.compiler)
     implementation(libs.hilt.androidx.navigation.compose)
     implementation(libs.hilt.android)
