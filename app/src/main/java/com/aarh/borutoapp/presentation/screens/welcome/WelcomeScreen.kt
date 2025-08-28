@@ -55,10 +55,11 @@ fun WelcomeScreen(
             modifier = Modifier
                 .weight(1F),
             pagerState = pagerState,
-        ) {
+            onEvent = welcomeViewModel::onEvent
+        ) /*{
             navController.popBackStack()
             navController.navigate(Screen.Home.route)
             state.saveOnBoardingState(completed = true)
-        }
+        }*/
     }
 }
