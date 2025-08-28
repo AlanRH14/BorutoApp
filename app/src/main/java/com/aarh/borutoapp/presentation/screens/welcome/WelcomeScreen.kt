@@ -8,6 +8,8 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import com.aarh.borutoapp.navigation.Screen
@@ -26,6 +28,9 @@ fun WelcomeScreen(
     navController: NavHostController,
     welcomeViewModel: WelcomeViewModel = koinViewModel(),
 ) {
+
+    val state by welcomeViewModel.state.collectAsState()
+
     LaunchedEffect(key1 = true) {
         welcomeViewModel.effect.collectLatest {
             when (it) {
