@@ -48,7 +48,10 @@ fun FinisButton(
                     containerColor = PurpleUIModeColor,
                     contentColor = Color.White,
                 ),
-                onClick = { onEvent(WelcomeUIEvent.OnSaveOnBoardingState(completed = true)) },
+                onClick = {
+                    onEvent(WelcomeUIEvent.OnSaveOnBoardingState(completed = true))
+                    onEvent(WelcomeUIEvent.OnNavigateToHome)
+                },
             ) {
                 Text(text = stringResource(R.string.btn_finish))
             }
