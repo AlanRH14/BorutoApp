@@ -23,12 +23,19 @@ class WelcomeViewModel(
     fun onEvent(event: WelcomeUIEvent) {
         when (event) {
             is WelcomeUIEvent.OnSaveOnBoardingState -> saveOnBoardingState(completed = event.completed)
+            is WelcomeUIEvent.OnNavigateToHome -> navigateToHome()
         }
     }
 
     private fun saveOnBoardingState(completed: Boolean) {
         viewModelScope.launch(Dispatchers.IO) {
             useCases.saveOnBoardingUseCase(completed = completed)
+        }
+    }
+
+    private fun navigateToHome() {
+        viewModelScope.launch {
+            _effect.emit(WelcomeEffect.NavigateToHome)
         }
     }
 }
