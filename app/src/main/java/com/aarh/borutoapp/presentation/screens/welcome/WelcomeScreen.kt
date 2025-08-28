@@ -15,6 +15,7 @@ import androidx.navigation.NavHostController
 import com.aarh.borutoapp.navigation.Screen
 import com.aarh.borutoapp.presentation.screens.welcome.components.FinisButton
 import com.aarh.borutoapp.presentation.screens.welcome.components.HorizontalPagerIndicator
+import com.aarh.borutoapp.presentation.screens.welcome.mvi.WelcomeEffect
 import com.aarh.borutoapp.presentation.screens.welcome.widgets.PagerScreen
 import com.aarh.borutoapp.ui.theme.WelcomeScreenBackground
 import com.aarh.borutoapp.util.Constants.WELCOME_PAGES_DATA
