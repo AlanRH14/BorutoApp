@@ -1,4 +1,4 @@
-package com.aarh.borutoapp.presentation.screens.welcome
+package com.aarh.borutoapp.presentation.screens.welcome.mvi
 
 sealed interface WelcomeUIEvent {
     data class OnSaveOnBoardingState(val completed: Boolean) : WelcomeUIEvent

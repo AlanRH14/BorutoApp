@@ -16,7 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import com.aarh.borutoapp.R
-import com.aarh.borutoapp.presentation.screens.welcome.WelcomeUIEvent
+import com.aarh.borutoapp.presentation.screens.welcome.mvi.WelcomeUIEvent
 import com.aarh.borutoapp.ui.theme.PurpleUIModeColor
 import com.aarh.borutoapp.ui.theme.EXTRA_LARGE_PADDING
 import com.aarh.borutoapp.ui.theme.SMALL_PADDING
