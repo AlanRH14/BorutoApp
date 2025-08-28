@@ -41,12 +41,4 @@ val networkModule = module {
     }
 
     single { get<Retrofit>().create(BorutoApi::class.java) }
-
-    single {
-        RemoteDataSourceImpl(
-            api = get(),
-            heroDao = get(),
-            heroRemoteKeysDao = get()
-        )
-    }
 }
