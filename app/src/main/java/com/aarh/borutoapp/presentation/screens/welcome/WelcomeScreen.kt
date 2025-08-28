@@ -7,6 +7,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import com.aarh.borutoapp.navigation.Screen
@@ -24,6 +26,9 @@ fun WelcomeScreen(
     navController: NavHostController,
     welcomeViewModel: WelcomeViewModel = koinViewModel(),
 ) {
+
+    val state by welcomeViewModel.state.collectAsState()
+
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -53,7 +58,7 @@ fun WelcomeScreen(
         ) {
             navController.popBackStack()
             navController.navigate(Screen.Home.route)
-            welcomeViewModel.saveOnBoardingState(completed = true)
+            state.saveOnBoardingState(completed = true)
         }
     }
 }
