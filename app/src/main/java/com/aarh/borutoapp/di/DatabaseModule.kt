@@ -16,5 +16,7 @@ val databaseModule = module {
         ).build()
     }
 
-    single { LocalDataSourceImpl(dao = get()) }
+    single { get<BorutoDatabase>().heroDao() }
+
+    single { get<BorutoDatabase>().heroRemoteKeysDao() }
 }

@@ -2,6 +2,7 @@ package com.aarh.borutoapp.di
 
 import androidx.paging.ExperimentalPagingApi
 import com.aarh.borutoapp.data.repository.DataStoreHandleImpl
+import com.aarh.borutoapp.data.repository.LocalDataSourceImpl
 import com.aarh.borutoapp.data.repository.RemoteDataSourceImpl
 import com.aarh.borutoapp.domain.repository.DataStoreHandle
 import com.aarh.borutoapp.domain.repository.RemoteDataSource
@@ -19,4 +20,6 @@ val dataSourceModule = module {
     }
 
     single<DataStoreHandle> { DataStoreHandleImpl(dataStore = get()) }
+
+    single { LocalDataSourceImpl(dao = get()) }
 }
