@@ -11,7 +11,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import com.aarh.borutoapp.navigation.Screen
-import com.aarh.borutoapp.presentation.screens.welcome.components.FinisButton
+import com.aarh.borutoapp.presentation.screens.welcome.components.FinishButton
 import com.aarh.borutoapp.presentation.screens.welcome.components.HorizontalPagerIndicator
 import com.aarh.borutoapp.presentation.screens.welcome.mvi.WelcomeEffect
 import com.aarh.borutoapp.presentation.screens.welcome.widgets.PagerScreen
@@ -61,7 +61,7 @@ fun WelcomeScreen(
             pagerState = pagerState,
         )
 
-        FinisButton(
+        FinishButton(
             modifier = Modifier
                 .weight(1F),
             pagerState = pagerState,

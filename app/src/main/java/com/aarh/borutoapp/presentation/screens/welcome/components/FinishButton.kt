@@ -23,7 +23,7 @@ import com.aarh.borutoapp.ui.theme.SMALL_PADDING
 
 @ExperimentalFoundationApi
 @Composable
-fun FinisButton(
+fun FinishButton(
     modifier: Modifier = Modifier,
     pagerState: PagerState,
     onEvent: (WelcomeUIEvent) -> Unit,
