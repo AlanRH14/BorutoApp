@@ -26,7 +26,7 @@ import com.aarh.borutoapp.ui.theme.SMALL_PADDING
 fun FinisButton(
     modifier: Modifier = Modifier,
     pagerState: PagerState,
-    onClick: (WelcomeUIEvent) -> Unit,
+    onEvent: (WelcomeUIEvent) -> Unit,
 ) {
     Row(
         modifier = modifier
@@ -48,7 +48,7 @@ fun FinisButton(
                     containerColor = PurpleUIModeColor,
                     contentColor = Color.White,
                 ),
-                onClick = { onClick.invoke() },
+                onClick = { onEvent(WelcomeUIEvent.OnSaveOnBoardingState(completed = true)) },
             ) {
                 Text(text = stringResource(R.string.btn_finish))
             }
