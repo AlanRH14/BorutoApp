@@ -1,6 +1,7 @@
 package com.aarh.borutoapp
 
 import android.app.Application
+import com.aarh.borutoapp.di.DataStoreModule
 import com.aarh.borutoapp.di.appModule
 import com.aarh.borutoapp.di.databaseModule
 import com.aarh.borutoapp.di.networkModule
@@ -22,7 +23,7 @@ class MyApplication : Application() {
             modules(
                 networkModule,
                 databaseModule,
-                databaseModule,
+                DataStoreModule,
                 repositoryModule,
                 appModule
             )
