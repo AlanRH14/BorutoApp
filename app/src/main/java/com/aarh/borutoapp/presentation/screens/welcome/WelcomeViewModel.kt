@@ -13,10 +13,6 @@ import kotlinx.coroutines.launch
 class WelcomeViewModel(
     private val useCases: UseCases,
 ) : ViewModel() {
-
-    private val _state = MutableStateFlow(WelcomeState())
-    val state = _state.asStateFlow()
-
     private val _effect = MutableSharedFlow<WelcomeEffect>()
     val effect = _effect.asSharedFlow()
 
