@@ -3,6 +3,7 @@ package com.aarh.borutoapp
 import android.app.Application
 import com.aarh.borutoapp.di.dataStoreModule
 import com.aarh.borutoapp.di.appModule
+import com.aarh.borutoapp.di.dataSourceModule
 import com.aarh.borutoapp.di.databaseModule
 import com.aarh.borutoapp.di.networkModule
 import com.aarh.borutoapp.di.repositoryModule
@@ -22,6 +23,7 @@ class MyApplication : Application() {
             androidLogger(level = Level.DEBUG)
             modules(
                 networkModule,
+                dataSourceModule,
                 databaseModule,
                 dataStoreModule,
                 repositoryModule,
