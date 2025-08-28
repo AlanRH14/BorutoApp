@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -17,6 +18,7 @@ import com.aarh.borutoapp.presentation.screens.welcome.components.HorizontalPage
 import com.aarh.borutoapp.presentation.screens.welcome.widgets.PagerScreen
 import com.aarh.borutoapp.ui.theme.WelcomeScreenBackground
 import com.aarh.borutoapp.util.Constants.WELCOME_PAGES_DATA
+import kotlinx.coroutines.flow.collectLatest
 import org.koin.androidx.compose.koinViewModel
 
 @ExperimentalFoundationApi
@@ -26,8 +28,16 @@ fun WelcomeScreen(
     navController: NavHostController,
     welcomeViewModel: WelcomeViewModel = koinViewModel(),
 ) {
-
-    val state by welcomeViewModel.state.collectAsState()
+    LaunchedEffect(key1 = true) {
+        welcomeViewModel.effect.collectLatest {
+            when (it) {
+                is WelcomeEffect.NavigateToHome -> {
+                    navController.popBackStack()
+                    navController.navigate(Screen.Home.route)
+                }
+            }
+        }
+    }
 
     Column(
         modifier = modifier
@@ -56,10 +66,6 @@ fun WelcomeScreen(
                 .weight(1F),
             pagerState = pagerState,
             onEvent = welcomeViewModel::onEvent
-        ) /*{
-            navController.popBackStack()
-            navController.navigate(Screen.Home.route)
-            state.saveOnBoardingState(completed = true)
-        }*/
+        )
     }
 }
