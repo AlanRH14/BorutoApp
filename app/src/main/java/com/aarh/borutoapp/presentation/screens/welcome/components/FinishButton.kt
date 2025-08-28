@@ -16,16 +16,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import com.aarh.borutoapp.R
+import com.aarh.borutoapp.presentation.screens.welcome.mvi.WelcomeUIEvent
 import com.aarh.borutoapp.ui.theme.PurpleUIModeColor
 import com.aarh.borutoapp.ui.theme.EXTRA_LARGE_PADDING
 import com.aarh.borutoapp.ui.theme.SMALL_PADDING
 
 @ExperimentalFoundationApi
 @Composable
-fun FinisButton(
+fun FinishButton(
     modifier: Modifier = Modifier,
     pagerState: PagerState,
-    onClick: () -> Unit,
+    onEvent: (WelcomeUIEvent) -> Unit,
 ) {
     Row(
         modifier = modifier
@@ -47,7 +48,10 @@ fun FinisButton(
                     containerColor = PurpleUIModeColor,
                     contentColor = Color.White,
                 ),
-                onClick = { onClick.invoke() },
+                onClick = {
+                    onEvent(WelcomeUIEvent.OnSaveOnBoardingState(completed = true))
+                    onEvent(WelcomeUIEvent.OnNavigateToHome)
+                },
             ) {
                 Text(text = stringResource(R.string.btn_finish))
             }

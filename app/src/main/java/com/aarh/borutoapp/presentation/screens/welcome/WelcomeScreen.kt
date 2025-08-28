@@ -7,14 +7,17 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import com.aarh.borutoapp.navigation.Screen
-import com.aarh.borutoapp.presentation.screens.welcome.components.FinisButton
+import com.aarh.borutoapp.presentation.screens.welcome.components.FinishButton
 import com.aarh.borutoapp.presentation.screens.welcome.components.HorizontalPagerIndicator
+import com.aarh.borutoapp.presentation.screens.welcome.mvi.WelcomeEffect
 import com.aarh.borutoapp.presentation.screens.welcome.widgets.PagerScreen
 import com.aarh.borutoapp.ui.theme.WelcomeScreenBackground
 import com.aarh.borutoapp.util.Constants.WELCOME_PAGES_DATA
+import kotlinx.coroutines.flow.collectLatest
 import org.koin.androidx.compose.koinViewModel
 
 @ExperimentalFoundationApi
@@ -24,6 +27,18 @@ fun WelcomeScreen(
     navController: NavHostController,
     welcomeViewModel: WelcomeViewModel = koinViewModel(),
 ) {
+
+    LaunchedEffect(key1 = true) {
+        welcomeViewModel.effect.collectLatest {
+            when (it) {
+                is WelcomeEffect.NavigateToHome -> {
+                    navController.popBackStack()
+                    navController.navigate(Screen.Home.route)
+                }
+            }
+        }
+    }
+
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -46,14 +61,11 @@ fun WelcomeScreen(
             pagerState = pagerState,
         )
 
-        FinisButton(
+        FinishButton(
             modifier = Modifier
                 .weight(1F),
             pagerState = pagerState,
-        ) {
-            navController.popBackStack()
-            navController.navigate(Screen.Home.route)
-            welcomeViewModel.saveOnBoardingState(completed = true)
-        }
+            onEvent = welcomeViewModel::onEvent
+        )
     }
 }
