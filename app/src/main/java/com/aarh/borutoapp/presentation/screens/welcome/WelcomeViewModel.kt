@@ -5,9 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.aarh.borutoapp.domain.use_case.UseCases
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class WelcomeViewModel(
