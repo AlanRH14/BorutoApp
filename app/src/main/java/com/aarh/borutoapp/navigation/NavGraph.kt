@@ -12,7 +12,6 @@ import androidx.navigation.navArgument
 import com.aarh.borutoapp.presentation.screens.detail.DetailScreen
 import com.aarh.borutoapp.presentation.screens.home.HomeScreen
 import com.aarh.borutoapp.presentation.screens.search.SearchScreen
-import com.aarh.borutoapp.presentation.screens.splash.SplashScreen
 import com.aarh.borutoapp.presentation.screens.welcome.WelcomeScreen
 import com.aarh.borutoapp.util.Constants.DETAILS_ARGUMENT_KEY
 
@@ -26,14 +25,8 @@ fun SetupNavGraph(
 
     NavHost(
         navController = navController,
-        startDestination = Screen.Splash.route,
+        startDestination = Screen.Welcome.route,
     ) {
-        composable(route = Screen.Splash.route) {
-            SplashScreen(
-                modifier = modifier,
-                navController = navController
-            )
-        }
         composable(route = Screen.Welcome.route) {
             WelcomeScreen(
                 modifier = modifier,
