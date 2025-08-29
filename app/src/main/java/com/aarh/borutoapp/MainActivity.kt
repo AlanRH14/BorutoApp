@@ -18,7 +18,6 @@ import com.aarh.borutoapp.navigation.SetupNavGraph
 import com.aarh.borutoapp.ui.theme.BorutoAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
-@ExperimentalMaterial3Api
 @ExperimentalFoundationApi
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
