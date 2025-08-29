@@ -4,6 +4,6 @@
     <style name="Theme.App.MySplash" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@drawable/splash_background</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/ic_logo</item>
-        <item name="postSplashScreenTheme">@style/Theme.App.MySplash</item>
+        <item name="postSplashScreenTheme">@style/Theme.BorutoApp</item>
     </style>
 </resources>
