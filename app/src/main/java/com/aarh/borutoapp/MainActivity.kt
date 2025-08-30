@@ -1,5 +1,6 @@
 package com.aarh.borutoapp
 
+import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.View
@@ -9,7 +10,6 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import androidx.core.animation.doOnEnd
@@ -26,23 +26,27 @@ class MainActivity : ComponentActivity() {
 
         installSplashScreen().apply {
             setOnExitAnimationListener { splashScreenView ->
-                val rotation = ObjectAnimator.ofFloat(
-                    splashScreenView.iconView,
-                    View.ROTATION,
-                    0F,
-                    360F
-                )
+                val iconView = splashScreenView.iconView
 
-                rotation.apply {
-                    duration = 1000
+                val rotation = ObjectAnimator.ofFloat(iconView, View.ROTATION, 0F, 360F).apply {
+                    duration = 700
                     interpolator = AccelerateDecelerateInterpolator()
-
-                    doOnEnd {
-                        splashScreenView.remove()
-                    }
-
-                    start()
                 }
+
+                val scaleX = ObjectAnimator.ofFloat(iconView, View.SCALE_X, 1F, 1.2F, 1F).apply {
+                    duration = 700
+                }
+
+                val scaleY = ObjectAnimator.ofFloat(iconView, View.SCALE_Y, 1F, 1.2F, 1F).apply {
+                    duration = 700
+                }
+
+                val animatorSet = AnimatorSet().apply {
+                    playTogether(rotation, scaleX, scaleY)
+                    doOnEnd { splashScreenView.remove() }
+                }
+
+                animatorSet.start()
             }
         }
 
