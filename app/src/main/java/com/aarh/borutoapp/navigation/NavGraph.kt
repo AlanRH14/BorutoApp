@@ -36,6 +36,7 @@ fun SetupNavGraph(
         composable<Details> {
             DetailScreen(navController = navController)
         }
+
         composable<Search> {
             SearchScreen(navController = navController)
         }
