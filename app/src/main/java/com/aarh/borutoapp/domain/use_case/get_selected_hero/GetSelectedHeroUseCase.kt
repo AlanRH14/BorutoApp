@@ -7,6 +7,6 @@ class GetSelectedHeroUseCase(
     private val repository: LocalDataSource
 ) {
     suspend operator fun invoke(heroID: Int): Hero {
-        return repository.getSelected(heroId = heroID)
+        return repository.getSelected(heroID = heroID)
     }
 }

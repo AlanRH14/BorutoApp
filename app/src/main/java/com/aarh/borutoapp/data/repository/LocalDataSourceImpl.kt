@@ -8,7 +8,7 @@ class LocalDataSourceImpl(
     private val dao: HeroDao
 ) : LocalDataSource {
 
-    override suspend fun getSelected(heroId: Int): Hero {
-        return dao.getSelectedHero(heroId = heroId)
+    override suspend fun getSelected(heroID: Int): Hero {
+        return dao.getSelectedHero(heroId = heroID)
     }
 }
