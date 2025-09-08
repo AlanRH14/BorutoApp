@@ -33,7 +33,7 @@ fun HomeTopBar(
             containerColor = TopBarBackgroundColor
         ),
         actions = {
-            IconButton(onClick = { onEvent(HomeUIEvent.OnClickHeroItem) }) {
+            IconButton(onClick = { onEvent(HomeUIEvent.OnSearchClicked) }) {
                 Icon(
                     imageVector = Icons.Default.Search,
                     contentDescription = stringResource(R.string.search_icon),
