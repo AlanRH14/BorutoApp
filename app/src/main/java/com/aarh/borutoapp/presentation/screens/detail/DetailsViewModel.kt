@@ -12,12 +12,17 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class DetailsViewModel(
     private val useCases: UseCases,
 ) : ViewModel() {
+
+    private val _state = MutableStateFlow(DetailsState())
+    val state = _state.asStateFlow()
+
     private val _selectedHero: MutableStateFlow<Hero?> = MutableStateFlow(null)
     val selectedHero: StateFlow<Hero?> get() = _selectedHero
     private val _uiEvent = MutableSharedFlow<UIEvent>()
@@ -35,8 +40,13 @@ class DetailsViewModel(
 
     private fun getSelectedHero(heroID: Int) {
         viewModelScope.launch(Dispatchers.IO) {
-            useCases.getSelectedHeroUseCase(heroID = heroID).collect {
-                _selectedHero.update { it.copy(hero) }
+            useCases.getSelectedHeroUseCase(heroID = heroID).collect { selectedHero ->
+                _state.update {
+                    it.copy(
+                        isLoading = true,
+                        selectedHero = selectedHero
+                    )
+                }
             }
         }
     }
