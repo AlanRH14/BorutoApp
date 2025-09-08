@@ -16,12 +16,11 @@ import com.aarh.borutoapp.presentation.screens.welcome.WelcomeScreen
 @Composable
 fun SetupNavGraph(
     navController: NavHostController,
-    startDestination: NavRoutes,
     modifier: Modifier = Modifier,
 ) {
     NavHost(
         navController = navController,
-        startDestination = startDestination,
+        startDestination = Welcome,
     ) {
         composable<Welcome> {
             WelcomeScreen(

@@ -14,12 +14,11 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import androidx.core.animation.doOnEnd
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.navigation.compose.rememberNavController
 import com.aarh.borutoapp.navigation.SetupNavGraph
 import com.aarh.borutoapp.ui.theme.BorutoAppTheme
-import dagger.hilt.android.AndroidEntryPoint
 
 @ExperimentalFoundationApi
-@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,8 +52,11 @@ class MainActivity : ComponentActivity() {
         setContent {
             BorutoAppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-
-                    SetupNavGraph(modifier = Modifier.padding(innerPadding))
+                    val navController = rememberNavController()
+                    SetupNavGraph(
+                        modifier = Modifier.padding(innerPadding),
+                        navController = navController
+                    )
                 }
             }
         }
