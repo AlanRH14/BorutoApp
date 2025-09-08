@@ -40,7 +40,9 @@ class DetailsViewModel(
 
     private fun getSelectedHero(heroID: Int) {
         viewModelScope.launch(Dispatchers.IO) {
-            useCases.getSelectedHeroUseCase(heroID = heroID)
+            useCases.getSelectedHeroUseCase(heroID = heroID).collect {
+
+            }
         }
     }
 
