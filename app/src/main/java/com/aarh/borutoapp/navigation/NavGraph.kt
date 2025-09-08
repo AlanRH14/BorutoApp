@@ -3,6 +3,8 @@ package com.aarh.borutoapp.navigation
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.aarh.borutoapp.presentation.screens.detail.DetailScreen
@@ -13,13 +15,13 @@ import com.aarh.borutoapp.presentation.screens.welcome.WelcomeScreen
 @ExperimentalFoundationApi
 @Composable
 fun SetupNavGraph(
+    navController: NavHostController,
+    startDestination: NavRoutes,
     modifier: Modifier = Modifier,
 ) {
-    val navController = rememberNavController()
-
     NavHost(
         navController = navController,
-        startDestination = Welcome,
+        startDestination = startDestination,
     ) {
         composable<Welcome> {
             WelcomeScreen(
