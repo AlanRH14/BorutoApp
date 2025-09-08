@@ -45,20 +45,15 @@ import com.aarh.borutoapp.util.Constants.BASE_URL
 
 @Composable
 fun HeroItem(
-
     hero: Hero,
+    onClickHeroItem: (Int) -> Unit,
 ) {
     val mContext = LocalContext.current
 
     Box(
         modifier = Modifier
             .height(HERO_ITEM_HEIGHT)
-            .clickable {
-                navController
-                    .navigate(
-                        NavRoutes.Details.passHeroId(heroId = hero.id)
-                    )
-            },
+            .clickable { onClickHeroItem(hero.id) },
         contentAlignment = Alignment.BottomStart,
     ) {
         Surface(
@@ -140,6 +135,7 @@ fun HeroItemPreview() {
     HeroItem(
         navController = rememberNavController(),
         hero = hero1,
+
     )
 }
 
