@@ -1,34 +1,48 @@
 package com.aarh.borutoapp.presentation.screens.detail
 
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.aarh.borutoapp.domain.entity.Hero
 import com.aarh.borutoapp.domain.use_case.UseCases
-import com.aarh.borutoapp.util.Constants.DETAILS_ARGUMENT_KEY
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class DetailsViewModel(
     private val useCases: UseCases,
-    savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
-    private val _selectedHero: MutableStateFlow<Hero?> = MutableStateFlow(null)
-    val selectedHero: StateFlow<Hero?> get() = _selectedHero
+
+    private val _state = MutableStateFlow(DetailsState())
+    val state = _state.asStateFlow()
+
+    private val _effect = MutableSharedFlow<DetailsEffect>()
+    val effect = _effect.asSharedFlow()
+
     private val _uiEvent = MutableSharedFlow<UIEvent>()
     val uiEvent: SharedFlow<UIEvent> get() = _uiEvent.asSharedFlow()
-    private val _colorPalette: MutableStateFlow<Map<String, String>> = MutableStateFlow(mapOf())
-    val colorPalette: StateFlow<Map<String, String>> get() = _colorPalette
 
-    init {
+
+    fun onEvent(event: DetailUIEvent) {
+        when (event) {
+            is DetailUIEvent.OnGetSelectedHero -> getSelectedHero(heroID = event.heroID)
+            is DetailUIEvent.OnBackClicked -> Unit
+        }
+    }
+
+    private fun getSelectedHero(heroID: Int) {
         viewModelScope.launch(Dispatchers.IO) {
-            val heroId = savedStateHandle.get<Int>(DETAILS_ARGUMENT_KEY)
-            _selectedHero.value = heroId?.let { id -> useCases.getSelectedHeroUseCase(heroId = id) }
+            useCases.getSelectedHeroUseCase(heroID = heroID).collect { selectedHero ->
+                _state.update {
+                    it.copy(
+                        isLoading = true,
+                        selectedHero = selectedHero
+                    )
+                }
+            }
         }
     }
 
@@ -39,6 +53,6 @@ class DetailsViewModel(
     }
 
     fun setColorPalette(colors: Map<String, String>) {
-        _colorPalette.value = colors
+        _state.update { it.copy(colorPalette = colors) }
     }
 }

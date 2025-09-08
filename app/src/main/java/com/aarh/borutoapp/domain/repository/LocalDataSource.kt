@@ -1,7 +1,8 @@
 package com.aarh.borutoapp.domain.repository
 
 import com.aarh.borutoapp.domain.entity.Hero
+import kotlinx.coroutines.flow.Flow
 
 interface LocalDataSource {
-    suspend fun getSelected(heroId: Int): Hero
+    fun getSelected(heroID: Int): Flow<Hero>
 }

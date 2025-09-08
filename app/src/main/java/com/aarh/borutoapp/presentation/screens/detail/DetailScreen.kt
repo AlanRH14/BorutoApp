@@ -5,7 +5,6 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.navigation.NavHostController
 import com.aarh.borutoapp.presentation.screens.detail.widgets.DetailsContent
 import com.aarh.borutoapp.util.Constants.BASE_URL
 import com.aarh.borutoapp.util.PaletteGenerator.convertImageUrlToBitMap
@@ -15,29 +14,19 @@ import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun DetailScreen(
-    navController: NavHostController,
+    heroID: Int,
     detailsViewModel: DetailsViewModel = koinViewModel(),
 ) {
-    val selectedHero by detailsViewModel.selectedHero.collectAsStateWithLifecycle()
-    val colorPalette by detailsViewModel.colorPalette.collectAsStateWithLifecycle()
+    val state by detailsViewModel.state.collectAsStateWithLifecycle()
     val mContext = LocalContext.current
 
-    if (colorPalette.isNotEmpty()) {
-        DetailsContent(
-            navController = navController,
-            selectedHero = selectedHero,
-            colors = colorPalette
-        )
-    } else {
-        detailsViewModel.generateColorPalette()
-    }
-
     LaunchedEffect(key1 = true) {
+        detailsViewModel.onEvent(DetailUIEvent.OnGetSelectedHero(heroID = heroID))
         detailsViewModel.uiEvent.collectLatest { uiEvent ->
             when (uiEvent) {
                 is UIEvent.GenerateColorPalette -> {
                     val bitMap = convertImageUrlToBitMap(
-                        imageUrl = "$BASE_URL${selectedHero?.image}",
+                        imageUrl = "$BASE_URL${state.selectedHero?.image}",
                         mContext = mContext
                     )
 
@@ -53,5 +42,15 @@ fun DetailScreen(
                 null -> Unit
             }
         }
+    }
+
+    if (state.colorPalette.isNotEmpty()) {
+        DetailsContent(
+            selectedHero = state.selectedHero,
+            colors = state.colorPalette,
+            onEvent = detailsViewModel::onEvent
+        )
+    } else {
+        detailsViewModel.generateColorPalette()
     }
 }
