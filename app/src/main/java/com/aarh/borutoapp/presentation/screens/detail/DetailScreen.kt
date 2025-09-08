@@ -18,15 +18,14 @@ fun DetailScreen(
     navController: NavHostController,
     detailsViewModel: DetailsViewModel = koinViewModel(),
 ) {
-    val selectedHero by detailsViewModel.selectedHero.collectAsStateWithLifecycle()
-    val colorPalette by detailsViewModel.colorPalette.collectAsStateWithLifecycle()
+    val state by detailsViewModel.state.collectAsStateWithLifecycle()
     val mContext = LocalContext.current
 
-    if (colorPalette.isNotEmpty()) {
+    if (state.colorPalette.isNotEmpty()) {
         DetailsContent(
             navController = navController,
-            selectedHero = selectedHero,
-            colors = colorPalette
+            selectedHero = state.selectedHero,
+            colors = state.colorPalette
         )
     } else {
         detailsViewModel.generateColorPalette()
@@ -37,7 +36,7 @@ fun DetailScreen(
             when (uiEvent) {
                 is UIEvent.GenerateColorPalette -> {
                     val bitMap = convertImageUrlToBitMap(
-                        imageUrl = "$BASE_URL${selectedHero?.image}",
+                        imageUrl = "$BASE_URL${state.selectedHero?.image}",
                         mContext = mContext
                     )
 
