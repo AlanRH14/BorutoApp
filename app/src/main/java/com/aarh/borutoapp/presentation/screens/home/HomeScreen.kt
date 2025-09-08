@@ -4,12 +4,19 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.paging.compose.collectAsLazyPagingItems
-import com.aarh.borutoapp.navigation.Screen
+import com.aarh.borutoapp.navigation.Details
+import com.aarh.borutoapp.navigation.Search
 import com.aarh.borutoapp.presentation.common.widgets.HeroesListContent
+import com.aarh.borutoapp.presentation.screens.home.mvi.HomeEffect
 import com.aarh.borutoapp.presentation.screens.home.components.HomeTopBar
+import com.aarh.borutoapp.presentation.screens.home.mvi.HomeUIEvent
+import kotlinx.coroutines.flow.collectLatest
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -17,13 +24,27 @@ fun HomeScreen(
     navController: NavHostController,
     homeViewModel: HomeViewModel = koinViewModel(),
 ) {
-    val allHeroes = homeViewModel.getAllHeroes.collectAsLazyPagingItems()
+    val state by homeViewModel.state.collectAsState()
+    val heroes = state.heroes.collectAsLazyPagingItems()
+
+    LaunchedEffect(key1 = true) {
+        homeViewModel.onEvent(HomeUIEvent.OnGeAllHeroes)
+        homeViewModel.effect.collectLatest { effect ->
+            when (effect) {
+                is HomeEffect.NavigateToDetail -> {
+                    navController.navigate(Details(heroID = effect.heroID))
+                }
+
+                is HomeEffect.NavigateToSearch -> {
+                    navController.navigate(Search)
+                }
+            }
+        }
+    }
 
     Scaffold(
         topBar = {
-            HomeTopBar {
-                navController.navigate(Screen.Search.route)
-            }
+            HomeTopBar(onEvent = homeViewModel::onEvent)
         },
         content = { paddingValues ->
             Column(
@@ -31,8 +52,8 @@ fun HomeScreen(
                     .padding(paddingValues),
             ) {
                 HeroesListContent(
-                    navController = navController,
-                    heroes = allHeroes,
+                    heroes = heroes,
+                    onEvent = homeViewModel::onEvent
                 )
             }
         },

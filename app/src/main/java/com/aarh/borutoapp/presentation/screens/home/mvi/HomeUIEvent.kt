@@ -1,0 +1,7 @@
+package com.aarh.borutoapp.presentation.screens.home.mvi
+
+sealed interface HomeUIEvent {
+    data object OnGeAllHeroes : HomeUIEvent
+    data class OnHeroItemClicked(val heroID: Int) : HomeUIEvent
+    data object OnSearchClicked : HomeUIEvent
+}

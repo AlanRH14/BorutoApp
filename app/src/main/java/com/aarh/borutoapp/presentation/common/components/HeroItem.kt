@@ -25,7 +25,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import coil3.compose.SubcomposeAsyncImage
 import coil3.request.ImageRequest
@@ -34,7 +33,7 @@ import coil3.request.placeholder
 import com.aarh.borutoapp.R
 import com.aarh.borutoapp.data.mockdata.HeroProvider.hero1
 import com.aarh.borutoapp.domain.entity.Hero
-import com.aarh.borutoapp.navigation.Screen
+import com.aarh.borutoapp.navigation.NavRoutes
 import com.aarh.borutoapp.presentation.screens.home.widgets.RatingWidget
 import com.aarh.borutoapp.ui.theme.HERO_ITEM_HEIGHT
 import com.aarh.borutoapp.ui.theme.LARGE_PADDING
@@ -46,20 +45,15 @@ import com.aarh.borutoapp.util.Constants.BASE_URL
 
 @Composable
 fun HeroItem(
-    navController: NavHostController,
     hero: Hero,
+    onClickHeroItem: (Int) -> Unit,
 ) {
     val mContext = LocalContext.current
 
     Box(
         modifier = Modifier
             .height(HERO_ITEM_HEIGHT)
-            .clickable {
-                navController
-                    .navigate(
-                        Screen.Details.passHeroId(heroId = hero.id)
-                    )
-            },
+            .clickable { onClickHeroItem(hero.id) },
         contentAlignment = Alignment.BottomStart,
     ) {
         Surface(
@@ -139,8 +133,8 @@ fun HeroItem(
 @Composable
 fun HeroItemPreview() {
     HeroItem(
-        navController = rememberNavController(),
         hero = hero1,
+        onClickHeroItem = {}
     )
 }
 
@@ -148,7 +142,7 @@ fun HeroItemPreview() {
 @Composable
 fun HeroItemDarkPreview() {
     HeroItem(
-        navController = rememberNavController(),
         hero = hero1,
+        onClickHeroItem = {}
     )
 }

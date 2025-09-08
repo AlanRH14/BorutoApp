@@ -2,10 +2,8 @@ package com.aarh.borutoapp.presentation.screens.detail
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalContext
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import com.aarh.borutoapp.presentation.screens.detail.widgets.DetailsContent
@@ -13,11 +11,12 @@ import com.aarh.borutoapp.util.Constants.BASE_URL
 import com.aarh.borutoapp.util.PaletteGenerator.convertImageUrlToBitMap
 import com.aarh.borutoapp.util.PaletteGenerator.extractColorsFromBitmap
 import kotlinx.coroutines.flow.collectLatest
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun DetailScreen(
     navController: NavHostController,
-    detailsViewModel: DetailsViewModel = hiltViewModel(),
+    detailsViewModel: DetailsViewModel = koinViewModel(),
 ) {
     val selectedHero by detailsViewModel.selectedHero.collectAsStateWithLifecycle()
     val colorPalette by detailsViewModel.colorPalette.collectAsStateWithLifecycle()

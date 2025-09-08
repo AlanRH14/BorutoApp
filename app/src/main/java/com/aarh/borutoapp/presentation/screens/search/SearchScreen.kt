@@ -39,7 +39,9 @@ fun SearchScreen(
             HeroesListContent(
                 modifier = Modifier.padding(paddingValues),
                 heroes = heroes,
-                navController = navController
+                onEvent = {
+                    //navController
+                }
             )
         }
     )

@@ -13,13 +13,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.aarh.borutoapp.R
+import com.aarh.borutoapp.presentation.screens.home.mvi.HomeUIEvent
 import com.aarh.borutoapp.ui.theme.TopBarBackgroundColor
 import com.aarh.borutoapp.ui.theme.TopBarContentColor
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeTopBar(
-    onSearchClicked: () -> Unit,
+    onEvent: (HomeUIEvent) -> Unit,
 ) {
     TopAppBar(
         title = {
@@ -32,7 +33,7 @@ fun HomeTopBar(
             containerColor = TopBarBackgroundColor
         ),
         actions = {
-            IconButton(onClick = { onSearchClicked.invoke() }) {
+            IconButton(onClick = { onEvent(HomeUIEvent.OnSearchClicked) }) {
                 Icon(
                     imageVector = Icons.Default.Search,
                     contentDescription = stringResource(R.string.search_icon),

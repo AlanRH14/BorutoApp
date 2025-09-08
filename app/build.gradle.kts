@@ -5,7 +5,6 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.ksp)
-    alias(libs.plugins.hilt)
     alias(libs.plugins.kotlin.serialization)
 }
 
@@ -62,11 +61,9 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    implementation(libs.androdix.core.splashscreen)
+    implementation(libs.androidx.navigation.compose)
 
-    ksp(libs.hilt.android.compiler)
-    implementation(libs.hilt.androidx.navigation.compose)
-    implementation(libs.hilt.android)
+    implementation(libs.androdix.core.splashscreen)
 
     implementation(libs.koin.android)
     implementation(libs.koin.androidx.compose)
