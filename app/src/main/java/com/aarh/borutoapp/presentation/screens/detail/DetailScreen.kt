@@ -15,7 +15,7 @@ import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun DetailScreen(
-    navController: NavHostController,
+    heroID: Int,
     detailsViewModel: DetailsViewModel = koinViewModel(),
 ) {
     val state by detailsViewModel.state.collectAsStateWithLifecycle()
@@ -32,6 +32,7 @@ fun DetailScreen(
     }
 
     LaunchedEffect(key1 = true) {
+        detailsViewModel.onEvent(DetailUIEvent.OnGetSelectedHero(heroID = heroID))
         detailsViewModel.uiEvent.collectLatest { uiEvent ->
             when (uiEvent) {
                 is UIEvent.GenerateColorPalette -> {

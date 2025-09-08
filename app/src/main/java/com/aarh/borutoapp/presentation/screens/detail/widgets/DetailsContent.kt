@@ -18,6 +18,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavController
 import com.aarh.borutoapp.domain.entity.Hero
+import com.aarh.borutoapp.presentation.screens.detail.DetailUIEvent
 import com.aarh.borutoapp.ui.theme.EXPANDED_RADIUS_LEVEL
 import com.aarh.borutoapp.ui.theme.EXTRA_LARGE_PADDING
 import com.aarh.borutoapp.ui.theme.MIN_SHEET_HEIGHT
@@ -30,7 +31,7 @@ import com.aarh.borutoapp.util.currentSheetFraction
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DetailsContent(
-    navController: NavController,
+    onEvent: (DetailUIEvent) -> Unit,
     selectedHero: Hero?,
     colors: Map<String, String>,
 ) {
@@ -81,9 +82,7 @@ fun DetailsContent(
                     heroImage = hero,
                     imageFraction = currentSheetFraction + MIN_BACKGROUND_IMAGE_HEIGHT,
                     backgroundColor = Color(parseColor(darkVibrant)),
-                    onCloseClicked = {
-                        navController.popBackStack()
-                    }
+                    onCloseClicked = { onEvent(DetailUIEvent.OnBackClicked) }
                 )
             }
         }
