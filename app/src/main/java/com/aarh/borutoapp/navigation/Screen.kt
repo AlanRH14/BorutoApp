@@ -1,16 +1,17 @@
 package com.aarh.borutoapp.navigation
 
-import com.aarh.borutoapp.util.Constants.DETAILS_SCREEN_ROUTE
-import com.aarh.borutoapp.util.Constants.HOME_SCREEN_ROUTE
-import com.aarh.borutoapp.util.Constants.SEARCH_SCREEN_ROUTE
-import com.aarh.borutoapp.util.Constants.WELCOME_SCREEN_ROUTE
+import kotlinx.serialization.Serializable
 
 sealed interface Screen
 
+@Serializable
 data object Welcome : Screen
-data object Home : Screen(route = HOME_SCREEN_ROUTE)
-data object Details : Screen(route = "$DETAILS_SCREEN_ROUTE/{heroId}") {
-    fun passHeroId(heroId: Int) = "$DETAILS_SCREEN_ROUTE/$heroId"
-}
 
-data object Search : Screen(route = SEARCH_SCREEN_ROUTE)
+@Serializable
+data object Home : Screen
+
+@Serializable
+data class Details(val heroID: Int) : Screen
+
+@Serializable
+data object Search : Screen
