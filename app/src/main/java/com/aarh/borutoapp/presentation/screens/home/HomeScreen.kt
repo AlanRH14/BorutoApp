@@ -12,6 +12,7 @@ import androidx.navigation.NavHostController
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.aarh.borutoapp.navigation.Details
 import com.aarh.borutoapp.navigation.NavRoutes
+import com.aarh.borutoapp.navigation.Search
 import com.aarh.borutoapp.presentation.common.widgets.HeroesListContent
 import com.aarh.borutoapp.presentation.screens.home.components.HomeTopBar
 import kotlinx.coroutines.flow.collectLatest
@@ -39,7 +40,7 @@ fun HomeScreen(
     Scaffold(
         topBar = {
             HomeTopBar {
-                navController.navigate(NavRoutes.Search.route)
+                navController.navigate(Search)
             }
         },
         content = { paddingValues ->
