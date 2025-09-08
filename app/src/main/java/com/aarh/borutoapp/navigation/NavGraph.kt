@@ -23,19 +23,19 @@ fun SetupNavGraph(
 
     NavHost(
         navController = navController,
-        startDestination = Screen.Welcome.route,
+        startDestination = NavRoutes.Welcome.route,
     ) {
-        composable(route = Screen.Welcome.route) {
+        composable(route = NavRoutes.Welcome.route) {
             WelcomeScreen(
                 modifier = modifier,
                 navController = navController
             )
         }
-        composable(route = Screen.Home.route) {
+        composable(route = NavRoutes.Home.route) {
             HomeScreen(navController = navController)
         }
         composable(
-            route = Screen.Details.route,
+            route = NavRoutes.Details.route,
             arguments = listOf(
                 navArgument(DETAILS_ARGUMENT_KEY) {
                     type = NavType.IntType
@@ -44,7 +44,7 @@ fun SetupNavGraph(
         ) {
             DetailScreen(navController = navController)
         }
-        composable(route = Screen.Search.route) {
+        composable(route = NavRoutes.Search.route) {
             SearchScreen(navController = navController)
         }
     }

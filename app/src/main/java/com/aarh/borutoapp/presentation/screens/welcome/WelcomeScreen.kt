@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
-import com.aarh.borutoapp.navigation.Screen
+import com.aarh.borutoapp.navigation.NavRoutes
 import com.aarh.borutoapp.presentation.screens.welcome.components.FinishButton
 import com.aarh.borutoapp.presentation.screens.welcome.components.HorizontalPagerIndicator
 import com.aarh.borutoapp.presentation.screens.welcome.mvi.WelcomeEffect
@@ -35,7 +35,7 @@ fun WelcomeScreen(
             when (it) {
                 is WelcomeEffect.NavigateToHome -> {
                     navController.popBackStack()
-                    navController.navigate(Screen.Home.route)
+                    navController.navigate(NavRoutes.Home.route)
                 }
             }
         }

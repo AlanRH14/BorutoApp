@@ -2,16 +2,16 @@ package com.aarh.borutoapp.navigation
 
 import kotlinx.serialization.Serializable
 
-sealed interface Screen
+interface NavRoutes
 
 @Serializable
-data object Welcome : Screen
+data object Welcome : NavRoutes
 
 @Serializable
-data object Home : Screen
+data object Home : NavRoutes
 
 @Serializable
-data class Details(val heroID: Int) : Screen
+data class Details(val heroID: Int) : NavRoutes
 
 @Serializable
-data object Search : Screen
+data object Search : NavRoutes
