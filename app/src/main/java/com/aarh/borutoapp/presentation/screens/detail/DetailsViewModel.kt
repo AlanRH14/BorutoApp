@@ -31,8 +31,11 @@ class DetailsViewModel(
         }
     }
 
-    fun onEvent(event: DetailsUIe) {
-
+    fun onEvent(event: DetailUIEvent) {
+        when (event) {
+            is DetailUIEvent.OnGetSelectedHero -> Unit
+            is DetailUIEvent.OnBackClicked -> Unit
+        }
     }
 
     fun generateColorPalette() {
