@@ -23,6 +23,8 @@ class DetailsViewModel(
     private val _state = MutableStateFlow(DetailsState())
     val state = _state.asStateFlow()
 
+    private val _effect = MutableSharedFlow<DetailsEffect>()
+    val effect = _effect.asSharedFlow()
 
     private val _uiEvent = MutableSharedFlow<UIEvent>()
     val uiEvent: SharedFlow<UIEvent> get() = _uiEvent.asSharedFlow()
@@ -55,6 +57,6 @@ class DetailsViewModel(
     }
 
     fun setColorPalette(colors: Map<String, String>) {
-        _colorPalette.value = colors
+        _state.update { it.copy(colorPalette = colors) }
     }
 }
