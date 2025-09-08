@@ -33,15 +33,17 @@ fun HomeScreen(
                 is HomeEffect.NavigateToDetail -> {
                     navController.navigate(Details(heroID = effect.heroID))
                 }
+
+                is HomeEffect.NavigateToSearch -> {
+                    navController.navigate(Search)
+                }
             }
         }
     }
 
     Scaffold(
         topBar = {
-            HomeTopBar {
-                navController.navigate(Search)
-            }
+            HomeTopBar( on)
         },
         content = { paddingValues ->
             Column(
