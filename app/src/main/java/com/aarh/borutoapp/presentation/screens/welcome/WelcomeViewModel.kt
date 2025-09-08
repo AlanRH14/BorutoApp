@@ -3,16 +3,21 @@ package com.aarh.borutoapp.presentation.screens.welcome
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.aarh.borutoapp.domain.use_case.UseCases
+import com.aarh.borutoapp.presentation.screens.WelcomeState
 import com.aarh.borutoapp.presentation.screens.welcome.mvi.WelcomeEffect
 import com.aarh.borutoapp.presentation.screens.welcome.mvi.WelcomeUIEvent
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 
 class WelcomeViewModel(
     private val useCases: UseCases,
 ) : ViewModel() {
+    private val _state = MutableStateFlow(WelcomeState())
+    val state = _state.asSharedFlow()
+
     private val _effect = MutableSharedFlow<WelcomeEffect>()
     val effect = _effect.asSharedFlow()
 
