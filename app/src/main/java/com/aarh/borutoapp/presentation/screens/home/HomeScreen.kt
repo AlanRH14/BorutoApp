@@ -4,8 +4,12 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.aarh.borutoapp.navigation.Screen
 import com.aarh.borutoapp.presentation.common.widgets.HeroesListContent
@@ -17,7 +21,11 @@ fun HomeScreen(
     navController: NavHostController,
     homeViewModel: HomeViewModel = koinViewModel(),
 ) {
-    val allHeroes = homeViewModel.getAllHeroes.collectAsLazyPagingItems()
+    val state by homeViewModel.state.collectAsState()
+    val heroes = state.heroes.collectAsLazyPagingItems()
+    LaunchedEffect(key1 = true) {
+        homeViewModel.onEvent(HomeUIEvent.OnGeAllHeroes)
+    }
 
     Scaffold(
         topBar = {
@@ -32,7 +40,7 @@ fun HomeScreen(
             ) {
                 HeroesListContent(
                     navController = navController,
-                    heroes = allHeroes,
+                    heroes = heroes,
                 )
             }
         },

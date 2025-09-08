@@ -31,14 +31,11 @@ class HomeViewModel(
     private fun getAlHeroes() {
         viewModelScope.launch(Dispatchers.IO) {
             _state.update { it.copy(isLoading = true) }
-            useCases.getAllHeroesUseCase().collect { heroes ->
-
-                _state.update {
-                    it.copy(
-                        isLoading = false,
-                        heroes = heroes
-                    )
-                }
+            _state.update {
+                it.copy(
+                    heroes = useCases.getAllHeroesUseCase(),
+                    isLoading = false,
+                )
             }
         }
     }
