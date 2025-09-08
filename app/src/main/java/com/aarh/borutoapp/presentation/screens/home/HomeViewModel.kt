@@ -23,7 +23,8 @@ class HomeViewModel(
 
     fun onEvent(event: HomeUIEvent) {
         when (event) {
-            is HomeUIEvent.OnGeAllHeroes -> getAlHeroes(),
+            is HomeUIEvent.OnGeAllHeroes -> getAlHeroes()
+            is HomeUIEvent.OnClickHeroItem -> navigateToDetail(heroID = event.heroID)
         }
     }
 
@@ -36,6 +37,12 @@ class HomeViewModel(
                     isLoading = false,
                 )
             }
+        }
+    }
+
+    private fun navigateToDetail(heroID: Int) {
+        viewModelScope.launch {
+            _effect.emit(HomeEffect.NavigateToDetail(heroID = heroID))
         }
     }
 }
