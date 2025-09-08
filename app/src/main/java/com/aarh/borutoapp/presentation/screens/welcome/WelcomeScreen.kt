@@ -14,6 +14,7 @@ import com.aarh.borutoapp.navigation.Screen
 import com.aarh.borutoapp.presentation.screens.welcome.components.FinishButton
 import com.aarh.borutoapp.presentation.screens.welcome.components.HorizontalPagerIndicator
 import com.aarh.borutoapp.presentation.screens.welcome.mvi.WelcomeEffect
+import com.aarh.borutoapp.presentation.screens.welcome.mvi.WelcomeUIEvent
 import com.aarh.borutoapp.presentation.screens.welcome.widgets.PagerScreen
 import com.aarh.borutoapp.ui.theme.WelcomeScreenBackground
 import com.aarh.borutoapp.util.Constants.WELCOME_PAGES_DATA
@@ -29,6 +30,7 @@ fun WelcomeScreen(
 ) {
 
     LaunchedEffect(key1 = true) {
+        welcomeViewModel.onEvent(WelcomeUIEvent.OnGetOnBoardingState)
         welcomeViewModel.effect.collectLatest {
             when (it) {
                 is WelcomeEffect.NavigateToHome -> {

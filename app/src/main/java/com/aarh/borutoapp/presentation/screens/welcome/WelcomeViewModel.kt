@@ -16,8 +16,6 @@ import kotlinx.coroutines.launch
 class WelcomeViewModel(
     private val useCases: UseCases,
 ) : ViewModel() {
-    private val _state = MutableStateFlow(WelcomeState())
-    val state = _state.asSharedFlow()
 
     private val _effect = MutableSharedFlow<WelcomeEffect>()
     val effect = _effect.asSharedFlow()
@@ -25,6 +23,7 @@ class WelcomeViewModel(
     fun onEvent(event: WelcomeUIEvent) {
         when (event) {
             is WelcomeUIEvent.OnSaveOnBoardingState -> saveOnBoardingState(completed = event.completed)
+            is WelcomeUIEvent.OnGetOnBoardingState -> getOnBoardingState()
             is WelcomeUIEvent.OnNavigateToHome -> navigateToHome()
         }
     }
@@ -38,7 +37,9 @@ class WelcomeViewModel(
     private fun getOnBoardingState() {
         viewModelScope.launch(Dispatchers.IO) {
             useCases.readOnBoardingUseCase().collect { state ->
-                _state.update { it.copy(isCompleted = state) }
+                if (state) {
+                    navigateToHome()
+                }
             }
         }
     }
