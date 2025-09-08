@@ -13,6 +13,7 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import com.aarh.borutoapp.navigation.Screen
 import com.aarh.borutoapp.presentation.common.widgets.HeroesListContent
 import com.aarh.borutoapp.presentation.screens.home.components.HomeTopBar
+import kotlinx.coroutines.flow.collectLatest
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -22,8 +23,16 @@ fun HomeScreen(
 ) {
     val state by homeViewModel.state.collectAsState()
     val heroes = state.heroes.collectAsLazyPagingItems()
+
     LaunchedEffect(key1 = true) {
         homeViewModel.onEvent(HomeUIEvent.OnGeAllHeroes)
+        homeViewModel.effect.collectLatest { effect ->
+            when(effect) {
+                is HomeEffect.NavigateToDetail -> {
+                    navController.navigate(Screen.Search.route)
+                }
+            }
+        }
     }
 
     Scaffold(

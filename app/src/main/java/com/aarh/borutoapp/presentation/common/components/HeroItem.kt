@@ -46,7 +46,7 @@ import com.aarh.borutoapp.util.Constants.BASE_URL
 
 @Composable
 fun HeroItem(
-    navController: NavHostController,
+
     hero: Hero,
 ) {
     val mContext = LocalContext.current

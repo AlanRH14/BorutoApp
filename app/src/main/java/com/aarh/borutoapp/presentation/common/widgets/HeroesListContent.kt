@@ -16,7 +16,7 @@ import com.aarh.borutoapp.presentation.screens.error.handlerPagingResult
 @Composable
 fun HeroesListContent(
     modifier: Modifier = Modifier,
-    navController: NavHostController,
+
     heroes: LazyPagingItems<Hero>,
 ) {
     val result = handlerPagingResult(heroes = heroes)
