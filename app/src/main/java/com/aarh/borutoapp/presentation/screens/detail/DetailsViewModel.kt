@@ -12,6 +12,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class DetailsViewModel(
@@ -24,16 +25,10 @@ class DetailsViewModel(
     private val _colorPalette: MutableStateFlow<Map<String, String>> = MutableStateFlow(mapOf())
     val colorPalette: StateFlow<Map<String, String>> get() = _colorPalette
 
-    init {
-        viewModelScope.launch(Dispatchers.IO) {
-            val heroId = savedStateHandle.get<Int>(DETAILS_ARGUMENT_KEY)
-            _selectedHero.value = heroId?.let { id -> useCases.getSelectedHeroUseCase(heroId = id) }
-        }
-    }
 
     fun onEvent(event: DetailUIEvent) {
         when (event) {
-            is DetailUIEvent.OnGetSelectedHero -> Unit
+            is DetailUIEvent.OnGetSelectedHero -> getSelectedHero(heroID = event.heroID)
             is DetailUIEvent.OnBackClicked -> Unit
         }
     }
@@ -41,7 +36,7 @@ class DetailsViewModel(
     private fun getSelectedHero(heroID: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             useCases.getSelectedHeroUseCase(heroID = heroID).collect {
-
+                _selectedHero.update { it.copy(hero) }
             }
         }
     }
