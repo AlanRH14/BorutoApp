@@ -133,9 +133,8 @@ fun HeroItem(
 @Composable
 fun HeroItemPreview() {
     HeroItem(
-        navController = rememberNavController(),
         hero = hero1,
-
+        onClickHeroItem = {}
     )
 }
 
@@ -143,7 +142,7 @@ fun HeroItemPreview() {
 @Composable
 fun HeroItemDarkPreview() {
     HeroItem(
-        navController = rememberNavController(),
         hero = hero1,
+        onClickHeroItem = {}
     )
 }
