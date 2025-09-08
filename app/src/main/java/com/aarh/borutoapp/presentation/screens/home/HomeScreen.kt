@@ -13,7 +13,7 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import com.aarh.borutoapp.navigation.Details
 import com.aarh.borutoapp.navigation.Search
 import com.aarh.borutoapp.presentation.common.widgets.HeroesListContent
-import com.aarh.borutoapp.presentation.screens.home.components.HomeEffect
+import com.aarh.borutoapp.presentation.screens.home.mvi.HomeEffect
 import com.aarh.borutoapp.presentation.screens.home.components.HomeTopBar
 import kotlinx.coroutines.flow.collectLatest
 import org.koin.androidx.compose.koinViewModel
