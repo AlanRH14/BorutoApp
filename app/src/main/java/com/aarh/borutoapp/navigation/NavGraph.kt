@@ -6,6 +6,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.toRoute
 import com.aarh.borutoapp.presentation.screens.detail.DetailScreen
 import com.aarh.borutoapp.presentation.screens.home.HomeScreen
 import com.aarh.borutoapp.presentation.screens.search.SearchScreen
@@ -33,7 +34,8 @@ fun SetupNavGraph(
             HomeScreen(navController = navController)
         }
 
-        composable<Details> {
+        composable<Details> { heroID ->
+            val heroID = heroID.toRoute<Details>().heroID
             DetailScreen(navController = navController)
         }
 
