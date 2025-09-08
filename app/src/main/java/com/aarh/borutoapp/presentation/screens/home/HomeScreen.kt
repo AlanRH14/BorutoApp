@@ -10,6 +10,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.paging.compose.collectAsLazyPagingItems
+import com.aarh.borutoapp.navigation.Details
 import com.aarh.borutoapp.navigation.NavRoutes
 import com.aarh.borutoapp.presentation.common.widgets.HeroesListContent
 import com.aarh.borutoapp.presentation.screens.home.components.HomeTopBar
@@ -27,9 +28,9 @@ fun HomeScreen(
     LaunchedEffect(key1 = true) {
         homeViewModel.onEvent(HomeUIEvent.OnGeAllHeroes)
         homeViewModel.effect.collectLatest { effect ->
-            when(effect) {
+            when (effect) {
                 is HomeEffect.NavigateToDetail -> {
-                    navController.navigate(NavRoutes.Search.route)
+                    navController.navigate(Details(heroID = effect.heroID))
                 }
             }
         }
@@ -47,8 +48,8 @@ fun HomeScreen(
                     .padding(paddingValues),
             ) {
                 HeroesListContent(
-                    navController = navController,
                     heroes = heroes,
+                    onEvent = homeViewModel::onEvent
                 )
             }
         },

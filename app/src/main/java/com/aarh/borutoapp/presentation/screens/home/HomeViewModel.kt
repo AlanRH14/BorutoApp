@@ -23,7 +23,7 @@ class HomeViewModel(
 
     fun onEvent(event: HomeUIEvent) {
         when (event) {
-            is HomeUIEvent.OnGeAllHeroes -> getAlHeroes()
+            is HomeUIEvent.OnGeAllHeroes -> getAlHeroes(),
         }
     }
 
