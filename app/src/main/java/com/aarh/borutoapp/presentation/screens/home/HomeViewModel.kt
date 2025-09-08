@@ -10,8 +10,10 @@ class HomeViewModel(
     private val useCases: UseCases,
 ) : ViewModel() {
 
-    fun onEvent(event: T) {
-
+    fun onEvent(event: HomeUIEvent) {
+        when (event) {
+            is HomeUIEvent.OnGeAllHeroes -> getAlHeroes()
+        }
     }
 
     private fun getAlHeroes() {
