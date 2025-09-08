@@ -5,7 +5,6 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.navigation.NavHostController
 import com.aarh.borutoapp.presentation.screens.detail.widgets.DetailsContent
 import com.aarh.borutoapp.util.Constants.BASE_URL
 import com.aarh.borutoapp.util.PaletteGenerator.convertImageUrlToBitMap
@@ -20,16 +19,6 @@ fun DetailScreen(
 ) {
     val state by detailsViewModel.state.collectAsStateWithLifecycle()
     val mContext = LocalContext.current
-
-    if (state.colorPalette.isNotEmpty()) {
-        DetailsContent(
-            navController = navController,
-            selectedHero = state.selectedHero,
-            colors = state.colorPalette
-        )
-    } else {
-        detailsViewModel.generateColorPalette()
-    }
 
     LaunchedEffect(key1 = true) {
         detailsViewModel.onEvent(DetailUIEvent.OnGetSelectedHero(heroID = heroID))
@@ -53,5 +42,15 @@ fun DetailScreen(
                 null -> Unit
             }
         }
+    }
+
+    if (state.colorPalette.isNotEmpty()) {
+        DetailsContent(
+            selectedHero = state.selectedHero,
+            colors = state.colorPalette,
+            onEvent = detailsViewModel::onEvent
+        )
+    } else {
+        detailsViewModel.generateColorPalette()
     }
 }
