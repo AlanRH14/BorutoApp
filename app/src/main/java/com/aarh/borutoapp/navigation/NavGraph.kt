@@ -6,7 +6,6 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
 import com.aarh.borutoapp.presentation.screens.detail.DetailScreen
 import com.aarh.borutoapp.presentation.screens.home.HomeScreen
 import com.aarh.borutoapp.presentation.screens.search.SearchScreen
