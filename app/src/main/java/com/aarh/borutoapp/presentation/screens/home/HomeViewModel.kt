@@ -25,6 +25,7 @@ class HomeViewModel(
         when (event) {
             is HomeUIEvent.OnGeAllHeroes -> getAlHeroes()
             is HomeUIEvent.OnClickHeroItem -> navigateToDetail(heroID = event.heroID)
+            is HomeUIEvent.OnSearchClicked -> navigateToSearch()
         }
     }
 
@@ -43,6 +44,12 @@ class HomeViewModel(
     private fun navigateToDetail(heroID: Int) {
         viewModelScope.launch {
             _effect.emit(HomeEffect.NavigateToDetail(heroID = heroID))
+        }
+    }
+
+    private fun navigateToSearch() {
+        viewModelScope.launch {
+            _effect.emit(HomeEffect.NavigateToSearch)
         }
     }
 }
