@@ -23,12 +23,9 @@ class DetailsViewModel(
     private val _state = MutableStateFlow(DetailsState())
     val state = _state.asStateFlow()
 
-    private val _selectedHero: MutableStateFlow<Hero?> = MutableStateFlow(null)
-    val selectedHero: StateFlow<Hero?> get() = _selectedHero
+
     private val _uiEvent = MutableSharedFlow<UIEvent>()
     val uiEvent: SharedFlow<UIEvent> get() = _uiEvent.asSharedFlow()
-    private val _colorPalette: MutableStateFlow<Map<String, String>> = MutableStateFlow(mapOf())
-    val colorPalette: StateFlow<Map<String, String>> get() = _colorPalette
 
 
     fun onEvent(event: DetailUIEvent) {
