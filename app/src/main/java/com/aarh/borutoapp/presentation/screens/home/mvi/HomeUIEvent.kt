@@ -1,4 +1,4 @@
-package com.aarh.borutoapp.presentation.screens.home
+package com.aarh.borutoapp.presentation.screens.home.mvi
 
 sealed interface HomeUIEvent {
     data object OnGeAllHeroes : HomeUIEvent

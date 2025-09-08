@@ -13,7 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.aarh.borutoapp.R
-import com.aarh.borutoapp.presentation.screens.home.HomeUIEvent
+import com.aarh.borutoapp.presentation.screens.home.mvi.HomeUIEvent
 import com.aarh.borutoapp.ui.theme.TopBarBackgroundColor
 import com.aarh.borutoapp.ui.theme.TopBarContentColor
 

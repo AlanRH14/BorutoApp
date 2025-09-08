@@ -15,6 +15,7 @@ import com.aarh.borutoapp.navigation.Search
 import com.aarh.borutoapp.presentation.common.widgets.HeroesListContent
 import com.aarh.borutoapp.presentation.screens.home.mvi.HomeEffect
 import com.aarh.borutoapp.presentation.screens.home.components.HomeTopBar
+import com.aarh.borutoapp.presentation.screens.home.mvi.HomeUIEvent
 import kotlinx.coroutines.flow.collectLatest
 import org.koin.androidx.compose.koinViewModel
 
