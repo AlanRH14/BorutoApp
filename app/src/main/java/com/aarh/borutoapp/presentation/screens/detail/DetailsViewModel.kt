@@ -16,7 +16,6 @@ import kotlinx.coroutines.launch
 
 class DetailsViewModel(
     private val useCases: UseCases,
-    savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
     private val _selectedHero: MutableStateFlow<Hero?> = MutableStateFlow(null)
     val selectedHero: StateFlow<Hero?> get() = _selectedHero
@@ -30,6 +29,10 @@ class DetailsViewModel(
             val heroId = savedStateHandle.get<Int>(DETAILS_ARGUMENT_KEY)
             _selectedHero.value = heroId?.let { id -> useCases.getSelectedHeroUseCase(heroId = id) }
         }
+    }
+
+    fun onEvent(event: DetailsUIe) {
+
     }
 
     fun generateColorPalette() {
