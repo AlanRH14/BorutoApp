@@ -24,7 +24,7 @@ class HomeViewModel(
     fun onEvent(event: HomeUIEvent) {
         when (event) {
             is HomeUIEvent.OnGeAllHeroes -> getAlHeroes()
-            is HomeUIEvent.OnClickHeroItem -> navigateToDetail(heroID = event.heroID)
+            is HomeUIEvent.OnHeroItemClicked -> navigateToDetail(heroID = event.heroID)
             is HomeUIEvent.OnSearchClicked -> navigateToSearch()
         }
     }

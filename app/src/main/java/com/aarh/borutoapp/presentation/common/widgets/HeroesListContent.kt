@@ -35,7 +35,7 @@ fun HeroesListContent(
                 heroes[index]?.let { hero ->
                     HeroItem(
                         hero = hero,
-                        onClickHeroItem = { onEvent(HomeUIEvent.OnClickHeroItem(heroID = it)) },
+                        onClickHeroItem = { onEvent(HomeUIEvent.OnHeroItemClicked(heroID = it)) },
                     )
                 }
             }
