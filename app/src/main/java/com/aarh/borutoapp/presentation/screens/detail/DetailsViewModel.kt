@@ -38,6 +38,12 @@ class DetailsViewModel(
         }
     }
 
+    private fun getSelectedHero(heroID: Int) {
+        viewModelScope.launch(Dispatchers.IO) {
+            useCases.getSelectedHeroUseCase(heroID = heroID)
+        }
+    }
+
     fun generateColorPalette() {
         viewModelScope.launch {
             _uiEvent.emit(UIEvent.GenerateColorPalette)
