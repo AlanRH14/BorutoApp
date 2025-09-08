@@ -3,7 +3,6 @@ package com.aarh.borutoapp.presentation.screens.welcome
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.aarh.borutoapp.domain.use_case.UseCases
-import com.aarh.borutoapp.presentation.screens.WelcomeState
 import com.aarh.borutoapp.presentation.screens.welcome.mvi.WelcomeEffect
 import com.aarh.borutoapp.presentation.screens.welcome.mvi.WelcomeUIEvent
 import kotlinx.coroutines.Dispatchers
