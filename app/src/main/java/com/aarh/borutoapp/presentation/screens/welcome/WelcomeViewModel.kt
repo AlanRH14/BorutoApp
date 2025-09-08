@@ -10,6 +10,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class WelcomeViewModel(
@@ -31,6 +32,14 @@ class WelcomeViewModel(
     private fun saveOnBoardingState(completed: Boolean) {
         viewModelScope.launch(Dispatchers.IO) {
             useCases.saveOnBoardingUseCase(completed = completed)
+        }
+    }
+
+    private fun getOnBoardingState() {
+        viewModelScope.launch(Dispatchers.IO) {
+            useCases.readOnBoardingUseCase().collect { state ->
+                _state.update { it.copy(isCompleted = state) }
+            }
         }
     }
 
