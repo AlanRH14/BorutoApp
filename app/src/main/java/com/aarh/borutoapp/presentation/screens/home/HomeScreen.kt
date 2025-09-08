@@ -11,7 +11,6 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.aarh.borutoapp.navigation.Details
-import com.aarh.borutoapp.navigation.NavRoutes
 import com.aarh.borutoapp.navigation.Search
 import com.aarh.borutoapp.presentation.common.widgets.HeroesListContent
 import com.aarh.borutoapp.presentation.screens.home.components.HomeTopBar
@@ -43,7 +42,7 @@ fun HomeScreen(
 
     Scaffold(
         topBar = {
-            HomeTopBar( on)
+            HomeTopBar(onEvent = homeViewModel::onEvent)
         },
         content = { paddingValues ->
             Column(
