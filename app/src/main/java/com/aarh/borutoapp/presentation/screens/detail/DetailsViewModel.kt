@@ -3,6 +3,7 @@ package com.aarh.borutoapp.presentation.screens.detail
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.aarh.borutoapp.domain.use_case.UseCases
+import com.aarh.borutoapp.presentation.screens.detail.mvi.DetailUIEvent
 import com.aarh.borutoapp.presentation.screens.detail.mvi.DetailsEffect
 import com.aarh.borutoapp.presentation.screens.detail.mvi.DetailsState
 import kotlinx.coroutines.Dispatchers

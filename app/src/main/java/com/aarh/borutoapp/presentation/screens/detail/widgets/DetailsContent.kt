@@ -16,7 +16,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 import com.aarh.borutoapp.domain.entity.Hero
-import com.aarh.borutoapp.presentation.screens.detail.DetailUIEvent
+import com.aarh.borutoapp.presentation.screens.detail.mvi.DetailUIEvent
 import com.aarh.borutoapp.ui.theme.EXPANDED_RADIUS_LEVEL
 import com.aarh.borutoapp.ui.theme.EXTRA_LARGE_PADDING
 import com.aarh.borutoapp.ui.theme.MIN_SHEET_HEIGHT

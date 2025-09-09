@@ -1,4 +1,4 @@
-package com.aarh.borutoapp.presentation.screens.detail
+package com.aarh.borutoapp.presentation.screens.detail.mvi
 
 sealed interface DetailUIEvent {
     data object OnBackClicked: DetailUIEvent
