@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import com.aarh.borutoapp.R
 import com.aarh.borutoapp.ui.theme.GraySystemUIColor
 import com.aarh.borutoapp.ui.theme.ICON_SIZE
@@ -32,20 +33,27 @@ fun HeaderBottomSheet(
     ) {
         Icon(
             modifier = Modifier
-                .size(ICON_SIZE)
-                .weight(2F),
+                .size(ICON_SIZE),
             painter = painterResource(R.drawable.ic_logo),
             contentDescription = stringResource(R.string.app_logo),
             tint = contentColor,
         )
 
         Text(
-            modifier = Modifier
-                .weight(8F),
+            modifier = Modifier.padding(start = MEDIUM_PADDING),
             text = name,
             color = contentColor,
             fontSize = MaterialTheme.typography.displaySmall.fontSize,
             fontWeight = FontWeight.Bold
         )
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun HeaderBottomSheetPreview() {
+    HeaderBottomSheet(
+        name = "Sasuke",
+        contentColor = GraySystemUIColor,
+    )
 }
