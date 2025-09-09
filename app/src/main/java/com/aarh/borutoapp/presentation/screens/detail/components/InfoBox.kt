@@ -25,7 +25,6 @@ import com.aarh.borutoapp.ui.theme.EXTRA_SMALL_PADDING
 import com.aarh.borutoapp.ui.theme.GraySystemUIColor
 import com.aarh.borutoapp.ui.theme.ICON_SIZE
 import com.aarh.borutoapp.ui.theme.MIN_PADDING
-import com.aarh.borutoapp.ui.theme.SMALL_PADDING
 
 @Composable
 fun InfoBox(
@@ -44,12 +43,14 @@ fun InfoBox(
                 .padding(horizontal = MIN_PADDING)
                 .size(ICON_SIZE),
             painter = icon,
+            tint = iconColor,
             contentDescription = stringResource(R.string.info_icon_description),
-            tint = iconColor
         )
+
         Column(
             modifier = Modifier
-                .padding(start = EXTRA_SMALL_PADDING)
+                .padding(horizontal = EXTRA_SMALL_PADDING),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
                 text = bigText,
