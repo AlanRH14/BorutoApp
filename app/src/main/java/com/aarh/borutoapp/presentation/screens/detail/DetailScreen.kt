@@ -47,7 +47,6 @@ fun DetailScreen(
                 }
 
                 is DetailsEffect.NavigateToBack -> {
-                    Toast.makeText(mContext, "Effect", Toast.LENGTH_SHORT).show()
                     navController.popBackStack()
                 }
             }
