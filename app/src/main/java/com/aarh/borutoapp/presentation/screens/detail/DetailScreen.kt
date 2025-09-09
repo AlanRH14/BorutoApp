@@ -56,6 +56,6 @@ fun DetailScreen(
             onEvent = detailsViewModel::onEvent
         )
     } else {
-        detailsViewModel.generateColorPalette()
+        detailsViewModel.onEvent(DetailUIEvent.OnGenerateColorPalette)
     }
 }
