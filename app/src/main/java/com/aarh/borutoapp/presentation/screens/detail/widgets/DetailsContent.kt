@@ -1,6 +1,5 @@
 package com.aarh.borutoapp.presentation.screens.detail.widgets
 
-import android.annotation.SuppressLint
 import android.graphics.Color.parseColor
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.shape.RoundedCornerShape
