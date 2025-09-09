@@ -7,7 +7,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.aarh.borutoapp.presentation.screens.detail.mvi.DetailUIEvent
 import com.aarh.borutoapp.presentation.screens.detail.mvi.DetailsEffect
-import com.aarh.borutoapp.presentation.screens.detail.mvi.UIEvent
 import com.aarh.borutoapp.presentation.screens.detail.widgets.DetailsContent
 import com.aarh.borutoapp.util.Constants.BASE_URL
 import com.aarh.borutoapp.util.PaletteGenerator.convertImageUrlToBitMap
