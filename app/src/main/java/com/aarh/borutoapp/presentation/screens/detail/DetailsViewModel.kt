@@ -51,7 +51,7 @@ class DetailsViewModel(
         }
     }
 
-    fun setColorPalette(colors: Map<String, String>) {
+    private fun setColorPalette(colors: Map<String, String>) {
         _state.update { it.copy(colorPalette = colors) }
     }
 
