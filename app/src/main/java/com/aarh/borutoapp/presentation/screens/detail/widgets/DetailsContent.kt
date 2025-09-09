@@ -69,7 +69,7 @@ fun DetailsContent(
             selectedHero?.let { hero ->
                 BottomSheetContent(
                     selectedHero = hero,
-                    infoBoxIconColor = Color(parseColor(vibrant)),
+                    infoBoxIconColor = Color(vibrant.toColorInt()),
                     sheetBackgroundColor = Color(parseColor(darkVibrant)),
                     contentColor = Color(parseColor(onDarkVibrant))
                 )
