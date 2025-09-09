@@ -1,6 +1,5 @@
 package com.aarh.borutoapp.presentation.screens.detail.widgets
 
-import android.graphics.Color.parseColor
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.BottomSheetScaffold
@@ -16,7 +15,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 import com.aarh.borutoapp.domain.entity.Hero
-import com.aarh.borutoapp.presentation.screens.detail.DetailUIEvent
+import com.aarh.borutoapp.presentation.screens.detail.mvi.DetailUIEvent
 import com.aarh.borutoapp.ui.theme.EXPANDED_RADIUS_LEVEL
 import com.aarh.borutoapp.ui.theme.EXTRA_LARGE_PADDING
 import com.aarh.borutoapp.ui.theme.MIN_SHEET_HEIGHT
@@ -25,6 +24,7 @@ import com.aarh.borutoapp.util.Constants.MIN_BACKGROUND_IMAGE_HEIGHT
 import com.aarh.borutoapp.util.Constants.ON_DARK_VIBRANT_COLOR
 import com.aarh.borutoapp.util.Constants.VIBRANT_COLOR
 import com.aarh.borutoapp.util.currentSheetFraction
+import androidx.core.graphics.toColorInt
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -62,15 +62,15 @@ fun DetailsContent(
         ),
         scaffoldState = scaffoldState,
         sheetPeekHeight = MIN_SHEET_HEIGHT,
-        sheetContainerColor = Color(parseColor(darkVibrant)),
+        sheetContainerColor = Color(darkVibrant.toColorInt()),
         sheetDragHandle = {},
         sheetContent = {
             selectedHero?.let { hero ->
                 BottomSheetContent(
                     selectedHero = hero,
-                    infoBoxIconColor = Color(parseColor(vibrant)),
-                    sheetBackgroundColor = Color(parseColor(darkVibrant)),
-                    contentColor = Color(parseColor(onDarkVibrant))
+                    infoBoxIconColor = Color(vibrant.toColorInt()),
+                    sheetBackgroundColor = Color(darkVibrant.toColorInt()),
+                    contentColor = Color(onDarkVibrant.toColorInt())
                 )
             }
         },
@@ -79,7 +79,7 @@ fun DetailsContent(
                 BackgroundContent(
                     heroImage = hero,
                     imageFraction = currentSheetFraction + MIN_BACKGROUND_IMAGE_HEIGHT,
-                    backgroundColor = Color(parseColor(darkVibrant)),
+                    backgroundColor = Color(darkVibrant.toColorInt()),
                     onCloseClicked = { onEvent(DetailUIEvent.OnBackClicked) }
                 )
             }

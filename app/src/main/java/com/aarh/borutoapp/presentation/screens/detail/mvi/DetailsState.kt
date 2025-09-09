@@ -1,4 +1,4 @@
-package com.aarh.borutoapp.presentation.screens.detail
+package com.aarh.borutoapp.presentation.screens.detail.mvi
 
 import com.aarh.borutoapp.domain.entity.Hero
 

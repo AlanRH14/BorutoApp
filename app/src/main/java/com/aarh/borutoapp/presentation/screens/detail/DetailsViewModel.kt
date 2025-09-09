@@ -3,10 +3,12 @@ package com.aarh.borutoapp.presentation.screens.detail
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.aarh.borutoapp.domain.use_case.UseCases
+import com.aarh.borutoapp.presentation.screens.detail.mvi.DetailUIEvent
+import com.aarh.borutoapp.presentation.screens.detail.mvi.DetailsEffect
+import com.aarh.borutoapp.presentation.screens.detail.mvi.DetailsState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
@@ -22,14 +24,11 @@ class DetailsViewModel(
     private val _effect = MutableSharedFlow<DetailsEffect>()
     val effect = _effect.asSharedFlow()
 
-    private val _uiEvent = MutableSharedFlow<UIEvent>()
-    val uiEvent: SharedFlow<UIEvent> get() = _uiEvent.asSharedFlow()
-
-
     fun onEvent(event: DetailUIEvent) {
         when (event) {
             is DetailUIEvent.OnGetSelectedHero -> getSelectedHero(heroID = event.heroID)
-            is DetailUIEvent.OnBackClicked -> Unit
+            is DetailUIEvent.OnGenerateColorPalette -> generateColorPalette()
+            is DetailUIEvent.OnBackClicked -> navigateToBack()
         }
     }
 
@@ -46,13 +45,19 @@ class DetailsViewModel(
         }
     }
 
-    fun generateColorPalette() {
+    private fun generateColorPalette() {
         viewModelScope.launch {
-            _uiEvent.emit(UIEvent.GenerateColorPalette)
+            _effect.emit(DetailsEffect.GenerateColorPalette)
         }
     }
 
     fun setColorPalette(colors: Map<String, String>) {
         _state.update { it.copy(colorPalette = colors) }
+    }
+
+    private fun navigateToBack() {
+        viewModelScope.launch {
+            _effect.emit(DetailsEffect.NavigateToBack)
+        }
     }
 }
