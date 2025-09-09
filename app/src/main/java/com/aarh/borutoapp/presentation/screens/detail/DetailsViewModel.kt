@@ -26,9 +26,6 @@ class DetailsViewModel(
     private val _effect = MutableSharedFlow<DetailsEffect>()
     val effect = _effect.asSharedFlow()
 
-    private val _uiEvent = MutableSharedFlow<UIEvent>()
-    val uiEvent: SharedFlow<UIEvent> get() = _uiEvent.asSharedFlow()
-
     fun onEvent(event: DetailUIEvent) {
         when (event) {
             is DetailUIEvent.OnGetSelectedHero -> getSelectedHero(heroID = event.heroID)
