@@ -45,7 +45,7 @@ class DetailsViewModel(
         }
     }
 
-    fun generateColorPalette() {
+    private fun generateColorPalette() {
         viewModelScope.launch {
             _effect.emit(DetailsEffect.GenerateColorPalette)
         }
