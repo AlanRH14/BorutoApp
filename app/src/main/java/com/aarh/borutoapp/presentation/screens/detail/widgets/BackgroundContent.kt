@@ -24,7 +24,9 @@ import coil3.request.ImageRequest
 import coil3.request.error
 import coil3.request.placeholder
 import com.aarh.borutoapp.R
+import com.aarh.borutoapp.ui.theme.EXTRA_LARGE_PADDING
 import com.aarh.borutoapp.ui.theme.ICON_SIZE
+import com.aarh.borutoapp.ui.theme.MIN_LARGE_PADDING
 import com.aarh.borutoapp.ui.theme.SMALL_PADDING
 import com.aarh.borutoapp.util.Constants.BASE_URL
 
@@ -59,7 +61,7 @@ fun BackgroundContent(
 
         IconButton(
             modifier = Modifier
-                .padding(all = SMALL_PADDING)
+                .padding(all = MIN_LARGE_PADDING)
                 .align(Alignment.TopEnd),
             onClick = onCloseClicked
         ) {
