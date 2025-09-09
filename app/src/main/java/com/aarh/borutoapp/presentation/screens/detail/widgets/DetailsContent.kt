@@ -1,5 +1,6 @@
 package com.aarh.borutoapp.presentation.screens.detail.widgets
 
+import android.annotation.SuppressLint
 import android.graphics.Color.parseColor
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -25,6 +26,7 @@ import com.aarh.borutoapp.util.Constants.MIN_BACKGROUND_IMAGE_HEIGHT
 import com.aarh.borutoapp.util.Constants.ON_DARK_VIBRANT_COLOR
 import com.aarh.borutoapp.util.Constants.VIBRANT_COLOR
 import com.aarh.borutoapp.util.currentSheetFraction
+import androidx.core.graphics.toColorInt
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -62,7 +64,7 @@ fun DetailsContent(
         ),
         scaffoldState = scaffoldState,
         sheetPeekHeight = MIN_SHEET_HEIGHT,
-        sheetContainerColor = Color(parseColor(darkVibrant)),
+        sheetContainerColor = Color(darkVibrant.toColorInt()),
         sheetDragHandle = {},
         sheetContent = {
             selectedHero?.let { hero ->
