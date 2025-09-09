@@ -18,7 +18,6 @@ import com.aarh.borutoapp.presentation.screens.detail.components.HeaderBottomShe
 import com.aarh.borutoapp.ui.theme.GraySystemUIColor
 import com.aarh.borutoapp.ui.theme.MEDIUM_PADDING
 import com.aarh.borutoapp.ui.theme.MIN_LARGE_PADDING
-import com.aarh.borutoapp.ui.theme.SMALL_PADDING
 
 @Composable
 fun BottomSheetContent(
