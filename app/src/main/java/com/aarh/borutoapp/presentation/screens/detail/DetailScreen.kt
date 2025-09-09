@@ -1,6 +1,5 @@
 package com.aarh.borutoapp.presentation.screens.detail
 
-import android.widget.Toast
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -36,16 +35,17 @@ fun DetailScreen(
                     )
 
                     if (bitMap != null) {
-                        detailsViewModel.setColorPalette(
-                            colors = extractColorsFromBitmap(
-                                bitmap = bitMap
+                        detailsViewModel.onEvent(
+                            DetailUIEvent.OnSetColorPalette(
+                                colors = extractColorsFromBitmap(
+                                    bitmap = bitMap
+                                )
                             )
                         )
                     }
                 }
 
                 is DetailsEffect.NavigateToBack -> {
-                    Toast.makeText(mContext, "Effect", Toast.LENGTH_SHORT).show()
                     navController.popBackStack()
                 }
             }

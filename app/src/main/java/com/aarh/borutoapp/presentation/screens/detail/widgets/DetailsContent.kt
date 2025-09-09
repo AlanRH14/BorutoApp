@@ -1,6 +1,7 @@
 package com.aarh.borutoapp.presentation.screens.detail.widgets
 
 import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.BottomSheetScaffold
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -13,7 +14,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import com.aarh.borutoapp.domain.entity.Hero
 import com.aarh.borutoapp.presentation.screens.detail.mvi.DetailUIEvent
 import com.aarh.borutoapp.ui.theme.EXPANDED_RADIUS_LEVEL
@@ -77,6 +80,7 @@ fun DetailsContent(
         content = {
             selectedHero?.image?.let { hero ->
                 BackgroundContent(
+                    modifier = Modifier.padding(0.dp),
                     heroImage = hero,
                     imageFraction = currentSheetFraction + MIN_BACKGROUND_IMAGE_HEIGHT,
                     backgroundColor = Color(darkVibrant.toColorInt()),

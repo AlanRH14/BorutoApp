@@ -2,7 +2,6 @@ package com.aarh.borutoapp.presentation.screens.detail.widgets
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -17,6 +16,7 @@ import com.aarh.borutoapp.presentation.screens.detail.components.InfoHero
 import com.aarh.borutoapp.presentation.screens.detail.components.HeaderBottomSheet
 import com.aarh.borutoapp.ui.theme.GraySystemUIColor
 import com.aarh.borutoapp.ui.theme.MIN_LARGE_PADDING
+import com.aarh.borutoapp.ui.theme.MIN_MEDIUM_PADDING
 
 @Composable
 fun BottomSheetContent(
@@ -28,7 +28,10 @@ fun BottomSheetContent(
     Column(
         modifier = Modifier
             .background(sheetBackgroundColor)
-            .padding(all = MIN_LARGE_PADDING)
+            .padding(
+                vertical = MIN_MEDIUM_PADDING,
+                horizontal = MIN_LARGE_PADDING,
+            )
     ) {
         HeaderBottomSheet(
             name = selectedHero.name,

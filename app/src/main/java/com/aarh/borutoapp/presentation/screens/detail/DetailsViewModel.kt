@@ -28,6 +28,7 @@ class DetailsViewModel(
         when (event) {
             is DetailUIEvent.OnGetSelectedHero -> getSelectedHero(heroID = event.heroID)
             is DetailUIEvent.OnGenerateColorPalette -> generateColorPalette()
+            is DetailUIEvent.OnSetColorPalette -> setColorPalette(event.colors)
             is DetailUIEvent.OnBackClicked -> navigateToBack()
         }
     }
@@ -51,7 +52,7 @@ class DetailsViewModel(
         }
     }
 
-    fun setColorPalette(colors: Map<String, String>) {
+    private fun setColorPalette(colors: Map<String, String>) {
         _state.update { it.copy(colorPalette = colors) }
     }
 
