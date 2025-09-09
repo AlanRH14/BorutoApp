@@ -30,6 +30,7 @@ import com.aarh.borutoapp.util.Constants.BASE_URL
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BackgroundContent(
+    modifier: Modifier,
     heroImage: String,
     imageFraction: Float = 1F,
     backgroundColor: Color = MaterialTheme.colorScheme.surface,
@@ -38,7 +39,7 @@ fun BackgroundContent(
     val imageUrl = "$BASE_URL$heroImage"
     val mContext = LocalContext.current
     Box(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .background(backgroundColor)
     ) {

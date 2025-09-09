@@ -17,6 +17,7 @@ import com.aarh.borutoapp.presentation.screens.detail.components.HeaderBottomShe
 import com.aarh.borutoapp.ui.theme.GraySystemUIColor
 import com.aarh.borutoapp.ui.theme.MEDIUM_PADDING
 import com.aarh.borutoapp.ui.theme.MIN_LARGE_PADDING
+import com.aarh.borutoapp.ui.theme.MIN_MEDIUM_PADDING
 
 @Composable
 fun BottomSheetContent(
@@ -29,7 +30,7 @@ fun BottomSheetContent(
         modifier = Modifier
             .background(sheetBackgroundColor)
             .padding(
-                vertical = MEDIUM_PADDING,
+                vertical = MIN_MEDIUM_PADDING,
                 horizontal = MIN_LARGE_PADDING,
             )
     ) {
