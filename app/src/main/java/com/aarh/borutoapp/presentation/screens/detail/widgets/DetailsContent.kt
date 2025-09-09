@@ -80,7 +80,7 @@ fun DetailsContent(
                 BackgroundContent(
                     heroImage = hero,
                     imageFraction = currentSheetFraction + MIN_BACKGROUND_IMAGE_HEIGHT,
-                    backgroundColor = Color(parseColor(darkVibrant)),
+                    backgroundColor = Color(darkVibrant.toColorInt()),
                     onCloseClicked = { onEvent(DetailUIEvent.OnBackClicked) }
                 )
             }
