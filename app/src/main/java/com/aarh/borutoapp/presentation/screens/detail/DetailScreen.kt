@@ -44,7 +44,7 @@ fun DetailScreen(
                 }
 
                 is DetailsEffect.NavigateToBack -> {
-
+                    navController.popBackStack()
                 }
             }
         }
