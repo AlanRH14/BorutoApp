@@ -35,7 +35,10 @@ fun SetupNavGraph(
 
         composable<Details> { heroID ->
             val heroID = heroID.toRoute<Details>().heroID
-            DetailScreen(heroID = heroID)
+            DetailScreen(
+                heroID = heroID,
+                navController = navController
+            )
         }
 
         composable<Search> {

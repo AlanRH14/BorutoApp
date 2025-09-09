@@ -5,6 +5,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.navigation.NavHostController
 import com.aarh.borutoapp.presentation.screens.detail.mvi.DetailUIEvent
 import com.aarh.borutoapp.presentation.screens.detail.mvi.DetailsEffect
 import com.aarh.borutoapp.presentation.screens.detail.widgets.DetailsContent
@@ -18,6 +19,7 @@ import org.koin.androidx.compose.koinViewModel
 fun DetailScreen(
     heroID: Int,
     detailsViewModel: DetailsViewModel = koinViewModel(),
+    navController: NavHostController,
 ) {
     val state by detailsViewModel.state.collectAsStateWithLifecycle()
     val mContext = LocalContext.current
