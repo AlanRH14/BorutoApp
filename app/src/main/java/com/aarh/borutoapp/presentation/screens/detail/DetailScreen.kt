@@ -36,9 +36,11 @@ fun DetailScreen(
                     )
 
                     if (bitMap != null) {
-                        detailsViewModel.setColorPalette(
-                            colors = extractColorsFromBitmap(
-                                bitmap = bitMap
+                        detailsViewModel.onEvent(
+                            DetailUIEvent.OnSetColorPalette(
+                                colors = extractColorsFromBitmap(
+                                    bitmap = bitMap
+                                )
                             )
                         )
                     }
