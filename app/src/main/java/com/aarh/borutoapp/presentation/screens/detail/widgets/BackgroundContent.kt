@@ -70,8 +70,6 @@ fun BackgroundContent(
             actions = {
                 IconButton(onClick = onCloseClicked) {
                     Icon(
-                        modifier = Modifier
-                            .size(ICON_SIZE),
                         imageVector = Icons.Default.Close,
                         contentDescription = stringResource(R.string.close_icon),
                         tint = Color.White
