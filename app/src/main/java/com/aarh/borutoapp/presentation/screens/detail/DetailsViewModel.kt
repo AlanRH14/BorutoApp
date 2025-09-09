@@ -28,6 +28,7 @@ class DetailsViewModel(
         when (event) {
             is DetailUIEvent.OnGetSelectedHero -> getSelectedHero(heroID = event.heroID)
             is DetailUIEvent.OnGenerateColorPalette -> generateColorPalette()
+            is DetailUIEvent.OnSetColorPalette -> setColorPalette(event.colors)
             is DetailUIEvent.OnBackClicked -> navigateToBack()
         }
     }
