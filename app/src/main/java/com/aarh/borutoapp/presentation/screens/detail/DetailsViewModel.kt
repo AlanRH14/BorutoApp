@@ -33,6 +33,7 @@ class DetailsViewModel(
     fun onEvent(event: DetailUIEvent) {
         when (event) {
             is DetailUIEvent.OnGetSelectedHero -> getSelectedHero(heroID = event.heroID)
+            is DetailUIEvent.OnGenerateColorPalette -> generateColorPalette()
             is DetailUIEvent.OnBackClicked -> Unit
         }
     }
