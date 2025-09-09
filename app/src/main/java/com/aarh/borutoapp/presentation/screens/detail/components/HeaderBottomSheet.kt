@@ -3,7 +3,6 @@ package com.aarh.borutoapp.presentation.screens.detail.components
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -17,7 +16,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import com.aarh.borutoapp.R
 import com.aarh.borutoapp.ui.theme.GraySystemUIColor
-import com.aarh.borutoapp.ui.theme.ICON_SIZE
 import com.aarh.borutoapp.ui.theme.MEDIUM_PADDING
 
 @Composable
