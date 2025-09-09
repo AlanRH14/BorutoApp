@@ -32,9 +32,7 @@ fun HeaderBottomSheet(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Icon(
-            modifier = Modifier
-                .size(ICON_SIZE),
-            painter = painterResource(R.drawable.ic_logo),
+            painter = painterResource(R.drawable.ic_logo_short),
             contentDescription = stringResource(R.string.app_logo),
             tint = contentColor,
         )
