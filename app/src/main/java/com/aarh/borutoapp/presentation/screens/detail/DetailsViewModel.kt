@@ -55,7 +55,7 @@ class DetailsViewModel(
         _state.update { it.copy(colorPalette = colors) }
     }
 
-    fun navigateToBack() {
+    private fun navigateToBack() {
         viewModelScope.launch {
             _effect.emit(DetailsEffect.NavigateToBack)
         }
