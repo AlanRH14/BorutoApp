@@ -16,7 +16,9 @@ import com.aarh.borutoapp.presentation.screens.detail.components.FamilyHero
 import com.aarh.borutoapp.presentation.screens.detail.components.InfoHero
 import com.aarh.borutoapp.presentation.screens.detail.components.HeaderBottomSheet
 import com.aarh.borutoapp.ui.theme.GraySystemUIColor
+import com.aarh.borutoapp.ui.theme.MEDIUM_PADDING
 import com.aarh.borutoapp.ui.theme.MIN_LARGE_PADDING
+import com.aarh.borutoapp.ui.theme.SMALL_PADDING
 
 @Composable
 fun BottomSheetContent(
@@ -28,7 +30,10 @@ fun BottomSheetContent(
     Column(
         modifier = Modifier
             .background(sheetBackgroundColor)
-            .padding(all = MIN_LARGE_PADDING)
+            .padding(
+                vertical = MEDIUM_PADDING,
+                horizontal = MIN_LARGE_PADDING,
+            )
     ) {
         HeaderBottomSheet(
             name = selectedHero.name,
