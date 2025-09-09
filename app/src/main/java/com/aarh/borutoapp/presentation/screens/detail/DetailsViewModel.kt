@@ -29,12 +29,11 @@ class DetailsViewModel(
     private val _uiEvent = MutableSharedFlow<UIEvent>()
     val uiEvent: SharedFlow<UIEvent> get() = _uiEvent.asSharedFlow()
 
-
     fun onEvent(event: DetailUIEvent) {
         when (event) {
             is DetailUIEvent.OnGetSelectedHero -> getSelectedHero(heroID = event.heroID)
             is DetailUIEvent.OnGenerateColorPalette -> generateColorPalette()
-            is DetailUIEvent.OnBackClicked -> Unit
+            is DetailUIEvent.OnBackClicked -> navigateToBack()
         }
     }
 
@@ -53,11 +52,17 @@ class DetailsViewModel(
 
     fun generateColorPalette() {
         viewModelScope.launch {
-            _uiEvent.emit(UIEvent.GenerateColorPalette)
+            _effect.emit(DetailsEffect.GenerateColorPalette)
         }
     }
 
     fun setColorPalette(colors: Map<String, String>) {
         _state.update { it.copy(colorPalette = colors) }
+    }
+
+    fun navigateToBack() {
+        viewModelScope.launch {
+            _effect.emit(DetailsEffect.NavigateToBack)
+        }
     }
 }
