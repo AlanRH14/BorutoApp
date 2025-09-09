@@ -61,7 +61,7 @@ fun BackgroundContent(
             modifier = Modifier
                 .padding(all = SMALL_PADDING)
                 .align(Alignment.TopEnd),
-            onClick = { onCloseClicked() }
+            onClick = onCloseClicked
         ) {
             Icon(
                 modifier = Modifier

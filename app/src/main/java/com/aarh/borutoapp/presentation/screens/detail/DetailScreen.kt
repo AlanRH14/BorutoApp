@@ -1,5 +1,6 @@
 package com.aarh.borutoapp.presentation.screens.detail
 
+import android.widget.Toast
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -26,8 +27,8 @@ fun DetailScreen(
 
     LaunchedEffect(key1 = true) {
         detailsViewModel.onEvent(DetailUIEvent.OnGetSelectedHero(heroID = heroID))
-        detailsViewModel.effect.collectLatest { uiEvent ->
-            when (uiEvent) {
+        detailsViewModel.effect.collectLatest { effect ->
+            when (effect) {
                 is DetailsEffect.GenerateColorPalette -> {
                     val bitMap = convertImageUrlToBitMap(
                         imageUrl = "$BASE_URL${state.selectedHero?.image}",
@@ -44,6 +45,7 @@ fun DetailScreen(
                 }
 
                 is DetailsEffect.NavigateToBack -> {
+                    Toast.makeText(mContext, "Effect", Toast.LENGTH_SHORT).show()
                     navController.popBackStack()
                 }
             }
