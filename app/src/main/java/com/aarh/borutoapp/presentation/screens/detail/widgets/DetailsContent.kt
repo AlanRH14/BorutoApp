@@ -71,7 +71,7 @@ fun DetailsContent(
                     selectedHero = hero,
                     infoBoxIconColor = Color(vibrant.toColorInt()),
                     sheetBackgroundColor = Color(darkVibrant.toColorInt()),
-                    contentColor = Color(parseColor(onDarkVibrant))
+                    contentColor = Color(onDarkVibrant.toColorInt())
                 )
             }
         },
