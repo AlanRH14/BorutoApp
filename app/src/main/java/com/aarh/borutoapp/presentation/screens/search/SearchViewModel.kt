@@ -7,8 +7,10 @@ import androidx.paging.cachedIn
 import com.aarh.borutoapp.domain.entity.Hero
 import com.aarh.borutoapp.domain.use_case.UseCases
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -18,6 +20,9 @@ class SearchViewModel(
 ) : ViewModel() {
     private val _state = MutableStateFlow(SearchState())
     val state = _state.asStateFlow()
+
+    private val _effect = MutableSharedFlow<SearchEffect>()
+    val effect = _effect.asSharedFlow()
 
     private val _searchHeroes = MutableStateFlow<PagingData<Hero>>(PagingData.empty())
     val searchHeroes: StateFlow<PagingData<Hero>> get() = _searchHeroes
