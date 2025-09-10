@@ -17,13 +17,13 @@ fun SearchScreen(
     navController: NavHostController,
     searchViewModel: SearchViewModel = koinViewModel()
 ) {
-    val searchQuery by searchViewModel.searchQuery.collectAsStateWithLifecycle()
-    val heroes = searchViewModel.searchHeroes.collectAsLazyPagingItems()
+    val state by searchViewModel.state.collectAsStateWithLifecycle()
+    val heroes = state.heroes.collectAsLazyPagingItems()
 
     Scaffold(
         topBar = {
             SearchTopBar(
-                search = searchQuery,
+                search = state,
                 onTextChange = {
                     searchViewModel.updateSearchQuery(query = it)
                 },
