@@ -6,7 +6,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
-import com.aarh.borutoapp.presentation.screens.detail.mvi.DetailUIEvent
+import com.aarh.borutoapp.presentation.screens.detail.mvi.DetailsUIEvent
 import com.aarh.borutoapp.presentation.screens.detail.mvi.DetailsEffect
 import com.aarh.borutoapp.presentation.screens.detail.widgets.DetailsContent
 import com.aarh.borutoapp.util.Constants.BASE_URL
@@ -25,7 +25,7 @@ fun DetailScreen(
     val mContext = LocalContext.current
 
     LaunchedEffect(key1 = true) {
-        detailsViewModel.onEvent(DetailUIEvent.OnGetSelectedHero(heroID = heroID))
+        detailsViewModel.onEvent(DetailsUIEvent.OnGetSelectedHero(heroID = heroID))
         detailsViewModel.effect.collectLatest { effect ->
             when (effect) {
                 is DetailsEffect.GenerateColorPalette -> {
@@ -36,7 +36,7 @@ fun DetailScreen(
 
                     if (bitMap != null) {
                         detailsViewModel.onEvent(
-                            DetailUIEvent.OnSetColorPalette(
+                            DetailsUIEvent.OnSetColorPalette(
                                 colors = extractColorsFromBitmap(
                                     bitmap = bitMap
                                 )
@@ -59,6 +59,6 @@ fun DetailScreen(
             onEvent = detailsViewModel::onEvent
         )
     } else {
-        detailsViewModel.onEvent(DetailUIEvent.OnGenerateColorPalette)
+        detailsViewModel.onEvent(DetailsUIEvent.OnGenerateColorPalette)
     }
 }

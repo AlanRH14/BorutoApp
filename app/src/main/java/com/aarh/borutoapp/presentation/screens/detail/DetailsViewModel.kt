@@ -3,7 +3,7 @@ package com.aarh.borutoapp.presentation.screens.detail
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.aarh.borutoapp.domain.use_case.UseCases
-import com.aarh.borutoapp.presentation.screens.detail.mvi.DetailUIEvent
+import com.aarh.borutoapp.presentation.screens.detail.mvi.DetailsUIEvent
 import com.aarh.borutoapp.presentation.screens.detail.mvi.DetailsEffect
 import com.aarh.borutoapp.presentation.screens.detail.mvi.DetailsState
 import kotlinx.coroutines.Dispatchers
@@ -24,12 +24,12 @@ class DetailsViewModel(
     private val _effect = MutableSharedFlow<DetailsEffect>()
     val effect = _effect.asSharedFlow()
 
-    fun onEvent(event: DetailUIEvent) {
+    fun onEvent(event: DetailsUIEvent) {
         when (event) {
-            is DetailUIEvent.OnGetSelectedHero -> getSelectedHero(heroID = event.heroID)
-            is DetailUIEvent.OnGenerateColorPalette -> generateColorPalette()
-            is DetailUIEvent.OnSetColorPalette -> setColorPalette(event.colors)
-            is DetailUIEvent.OnBackClicked -> navigateToBack()
+            is DetailsUIEvent.OnGetSelectedHero -> getSelectedHero(heroID = event.heroID)
+            is DetailsUIEvent.OnGenerateColorPalette -> generateColorPalette()
+            is DetailsUIEvent.OnSetColorPalette -> setColorPalette(event.colors)
+            is DetailsUIEvent.OnBackClicked -> navigateToBack()
         }
     }
 

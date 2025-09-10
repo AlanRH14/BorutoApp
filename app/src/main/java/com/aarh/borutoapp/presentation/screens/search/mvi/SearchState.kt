@@ -1,4 +1,4 @@
-package com.aarh.borutoapp.presentation.screens.search
+package com.aarh.borutoapp.presentation.screens.search.mvi
 
 import androidx.paging.PagingData
 import com.aarh.borutoapp.domain.entity.Hero

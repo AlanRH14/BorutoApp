@@ -3,7 +3,7 @@ package com.aarh.borutoapp.presentation.screens.search.components
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.room.util.query
-import com.aarh.borutoapp.presentation.screens.search.SearchUIEvent
+import com.aarh.borutoapp.presentation.screens.search.mvi.SearchUIEvent
 import com.aarh.borutoapp.presentation.screens.search.widgets.SearchWidget
 
 @Composable

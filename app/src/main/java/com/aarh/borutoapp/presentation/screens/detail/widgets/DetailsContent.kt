@@ -18,7 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.aarh.borutoapp.domain.entity.Hero
-import com.aarh.borutoapp.presentation.screens.detail.mvi.DetailUIEvent
+import com.aarh.borutoapp.presentation.screens.detail.mvi.DetailsUIEvent
 import com.aarh.borutoapp.ui.theme.EXPANDED_RADIUS_LEVEL
 import com.aarh.borutoapp.ui.theme.EXTRA_LARGE_PADDING
 import com.aarh.borutoapp.ui.theme.MIN_SHEET_HEIGHT
@@ -32,7 +32,7 @@ import androidx.core.graphics.toColorInt
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DetailsContent(
-    onEvent: (DetailUIEvent) -> Unit,
+    onEvent: (DetailsUIEvent) -> Unit,
     selectedHero: Hero?,
     colors: Map<String, String>,
 ) {
@@ -84,7 +84,7 @@ fun DetailsContent(
                     heroImage = hero,
                     imageFraction = currentSheetFraction + MIN_BACKGROUND_IMAGE_HEIGHT,
                     backgroundColor = Color(darkVibrant.toColorInt()),
-                    onCloseClicked = { onEvent(DetailUIEvent.OnBackClicked) }
+                    onCloseClicked = { onEvent(DetailsUIEvent.OnBackClicked) }
                 )
             }
         }
