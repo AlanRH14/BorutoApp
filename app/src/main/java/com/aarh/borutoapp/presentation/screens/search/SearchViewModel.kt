@@ -2,33 +2,57 @@ package com.aarh.borutoapp.presentation.screens.search
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.paging.PagingData
 import androidx.paging.cachedIn
-import com.aarh.borutoapp.domain.entity.Hero
 import com.aarh.borutoapp.domain.use_case.UseCases
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class SearchViewModel(
     private val useCases: UseCases,
 ) : ViewModel() {
-    private val _searchQuery = MutableStateFlow("")
-    val searchQuery: StateFlow<String> get() = _searchQuery
+    private val _state = MutableStateFlow(SearchState())
+    val state = _state.asStateFlow()
 
-    private val _searchHeroes = MutableStateFlow<PagingData<Hero>>(PagingData.empty())
-    val searchHeroes: StateFlow<PagingData<Hero>> get() = _searchHeroes
+    private val _effect = MutableSharedFlow<SearchEffect>()
+    val effect = _effect.asSharedFlow()
 
-    fun updateSearchQuery(query: String) {
-        _searchQuery.value = query
+    fun onEvent(event: SearchUIEvent) {
+        when (event) {
+            is SearchUIEvent.OnUpdateSearchQuery -> updateSearchQuery(query = event.query)
+            is SearchUIEvent.OnSearchClicked -> searchHeroes(query = event.query)
+            is SearchUIEvent.OnHeroItemClicked -> navigateToDetail(heroID = event.heroID)
+            is SearchUIEvent.OnCloseClicked -> navigateToBack()
+        }
     }
 
-    fun searchHeroes(query: String) {
+    private fun updateSearchQuery(query: String) {
+        _state.update { it.copy(query = query) }
+    }
+
+    private fun searchHeroes(query: String) {
         viewModelScope.launch(Dispatchers.IO) {
-            useCases.searchHeroesUseCase.invoke(query).cachedIn(viewModelScope).collect { hero ->
-                _searchHeroes.value = hero
+            _state.update {
+                it.copy(
+                    heroes = useCases.searchHeroesUseCase.invoke(query).cachedIn(viewModelScope)
+                )
             }
+        }
+    }
+
+    private fun navigateToDetail(heroID: Int) {
+        viewModelScope.launch {
+            _effect.emit(SearchEffect.NavigateToDetail(heroID = heroID))
+        }
+    }
+
+    private fun navigateToBack() {
+        viewModelScope.launch {
+            _effect.emit(SearchEffect.NavigateToBack)
         }
     }
 }
