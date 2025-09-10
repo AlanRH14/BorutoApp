@@ -13,6 +13,7 @@ import com.aarh.borutoapp.navigation.Details
 import com.aarh.borutoapp.presentation.common.widgets.HeroesListContent
 import com.aarh.borutoapp.presentation.screens.home.mvi.HomeUIEvent
 import com.aarh.borutoapp.presentation.screens.search.components.SearchTopBar
+import com.aarh.borutoapp.presentation.screens.search.mvi.SearchEffect
 import kotlinx.coroutines.flow.collectLatest
 import org.koin.androidx.compose.koinViewModel
 
