@@ -25,7 +25,7 @@ class SearchViewModel(
         when (event) {
             is SearchUIEvent.OnUpdateSearchQuery -> updateSearchQuery(query = event.query)
             is SearchUIEvent.OnSearchClicked -> searchHeroes(query = event.query)
-            is SearchUIEvent.OnCloseClicked -> Unit
+            is SearchUIEvent.OnCloseClicked -> navigateToBack()
         }
     }
 
@@ -45,7 +45,7 @@ class SearchViewModel(
 
     private fun navigateToBack() {
         viewModelScope.launch {
-            _effect.emit(Searc)
+            _effect.emit(SearchEffect.NavigateToBack)
         }
     }
 }
