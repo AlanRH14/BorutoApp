@@ -21,10 +21,11 @@ class SearchViewModel(
     private val _effect = MutableSharedFlow<SearchEffect>()
     val effect = _effect.asSharedFlow()
 
-    private fun onEvent(event: SearchUIEvent) {
+    fun onEvent(event: SearchUIEvent) {
         when (event) {
             is SearchUIEvent.OnUpdateSearchQuery -> updateSearchQuery(query = event.query)
             is SearchUIEvent.OnSearchClicked -> searchHeroes(query = event.query)
+            is SearchUIEvent.OnCloseClicked -> Unit
         }
     }
 
@@ -39,6 +40,12 @@ class SearchViewModel(
                     heroes = useCases.searchHeroesUseCase.invoke(query).cachedIn(viewModelScope)
                 )
             }
+        }
+    }
+
+    private fun navigateToBack() {
+        viewModelScope.launch {
+            _effect.emit(Searc)
         }
     }
 }

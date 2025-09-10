@@ -39,9 +39,7 @@ fun SearchScreen(
             HeroesListContent(
                 modifier = Modifier.padding(paddingValues),
                 heroes = heroes,
-                onEvent = {
-                    //navController
-                }
+                onEvent = searchViewModel::onEvent
             )
         }
     )
