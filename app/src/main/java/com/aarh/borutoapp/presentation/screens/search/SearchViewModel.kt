@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
+import androidx.room.util.query
 import com.aarh.borutoapp.domain.entity.Hero
 import com.aarh.borutoapp.domain.use_case.UseCases
 import kotlinx.coroutines.Dispatchers
@@ -26,7 +27,8 @@ class SearchViewModel(
 
     private fun onEvent(event: SearchUIEvent) {
         when (event) {
-            is SearchUIEvent.
+            is SearchUIEvent.OnUpdateSearchQuery -> updateSearchQuery(query = event.query)
+            is SearchUIEvent.OnSearchHeroes -> searchHeroes(query = event.query)
         }
     }
 
