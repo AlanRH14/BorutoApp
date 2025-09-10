@@ -25,6 +25,7 @@ class SearchViewModel(
         when (event) {
             is SearchUIEvent.OnUpdateSearchQuery -> updateSearchQuery(query = event.query)
             is SearchUIEvent.OnSearchClicked -> searchHeroes(query = event.query)
+            is SearchUIEvent.OnHeroItemClicked -> Unit
             is SearchUIEvent.OnCloseClicked -> navigateToBack()
         }
     }
@@ -40,6 +41,12 @@ class SearchViewModel(
                     heroes = useCases.searchHeroesUseCase.invoke(query).cachedIn(viewModelScope)
                 )
             }
+        }
+    }
+
+    private fun navigateToDetail(heroID: Int) {
+        viewModelScope.launch {
+            _effect.emit(SearchEffect)
         }
     }
 
