@@ -23,8 +23,8 @@ fun SearchScreen(
     Scaffold(
         topBar = {
             SearchTopBar(
-                search = state,
-                onTextChange = {
+                search = state.query,
+                ONe = {
                     searchViewModel.updateSearchQuery(query = it)
                 },
                 onSearchClicked = {
