@@ -9,6 +9,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.aarh.borutoapp.presentation.common.widgets.HeroesListContent
+import com.aarh.borutoapp.presentation.screens.home.mvi.HomeUIEvent
 import com.aarh.borutoapp.presentation.screens.search.components.SearchTopBar
 import org.koin.androidx.compose.koinViewModel
 
@@ -24,22 +25,20 @@ fun SearchScreen(
         topBar = {
             SearchTopBar(
                 search = state.query,
-                ONe = {
-                    searchViewModel.updateSearchQuery(query = it)
-                },
-                onSearchClicked = {
-                    searchViewModel.searchHeroes(query = it)
-                },
-                onClose = {
-                    navController.popBackStack()
-                }
+                onEvent = searchViewModel::onEvent
             )
         },
         content = { paddingValues ->
             HeroesListContent(
                 modifier = Modifier.padding(paddingValues),
                 heroes = heroes,
-                onEvent = searchViewModel::onEvent
+                onEvent = {
+                    when (it) {
+                        is HomeUIEvent.OnHeroItemClicked -> {
+                            searchViewModel.onEvent(it.heroID)
+                        }
+                    }
+                }
             )
         }
     )
