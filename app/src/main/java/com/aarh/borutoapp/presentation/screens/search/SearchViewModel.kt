@@ -24,8 +24,11 @@ class SearchViewModel(
     private val _effect = MutableSharedFlow<SearchEffect>()
     val effect = _effect.asSharedFlow()
 
-    private val _searchHeroes = MutableStateFlow<PagingData<Hero>>(PagingData.empty())
-    val searchHeroes: StateFlow<PagingData<Hero>> get() = _searchHeroes
+    private fun onEvent(event: SearchUIEvent) {
+        when (event) {
+            is SearchUIEvent.
+        }
+    }
 
     private fun updateSearchQuery(query: String) {
         _state.update { it.copy(query = query) }
@@ -34,7 +37,7 @@ class SearchViewModel(
     private fun searchHeroes(query: String) {
         viewModelScope.launch(Dispatchers.IO) {
             useCases.searchHeroesUseCase.invoke(query).cachedIn(viewModelScope).collect { hero ->
-                _searchHeroes.value = hero
+                _state.update { it.copy(heroes = hero) }
             }
         }
     }
