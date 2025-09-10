@@ -24,7 +24,7 @@ class SearchViewModel(
     private fun onEvent(event: SearchUIEvent) {
         when (event) {
             is SearchUIEvent.OnUpdateSearchQuery -> updateSearchQuery(query = event.query)
-            is SearchUIEvent.OnSearchHeroes -> searchHeroes(query = event.query)
+            is SearchUIEvent.OnSearchClicked -> searchHeroes(query = event.query)
         }
     }
 
