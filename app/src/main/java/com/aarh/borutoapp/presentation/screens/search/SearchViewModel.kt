@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.aarh.borutoapp.domain.use_case.UseCases
 import com.aarh.borutoapp.presentation.screens.search.mvi.SearchEffect
 import com.aarh.borutoapp.presentation.screens.search.mvi.SearchState
+import com.aarh.borutoapp.presentation.screens.search.mvi.SearchUIEvent
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow

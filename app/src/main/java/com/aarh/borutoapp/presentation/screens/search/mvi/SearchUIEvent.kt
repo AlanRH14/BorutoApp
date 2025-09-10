@@ -1,4 +1,4 @@
-package com.aarh.borutoapp.presentation.screens.search
+package com.aarh.borutoapp.presentation.screens.search.mvi
 
 sealed interface SearchUIEvent {
     data class OnSearchClicked(val query: String) : SearchUIEvent
