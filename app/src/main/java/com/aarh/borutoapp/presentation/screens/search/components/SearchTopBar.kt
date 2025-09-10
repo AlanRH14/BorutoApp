@@ -16,7 +16,7 @@ fun SearchTopBar(
         modifier = modifier,
         text = search,
         onTextChange = { onEvent(SearchUIEvent.OnUpdateSearchQuery(query = it)) },
-        onSearchClicked = onSearchClicked,
+        onSearchClicked = { onEvent(SearchUIEvent.OnSearchClicked(query = it)) },
         onCloseClicked = onClose
     )
 }
