@@ -2,7 +2,6 @@ package com.aarh.borutoapp.presentation.screens.search
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.paging.cachedIn
 import com.aarh.borutoapp.domain.use_case.UseCases
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -38,7 +37,7 @@ class SearchViewModel(
         viewModelScope.launch(Dispatchers.IO) {
             _state.update {
                 it.copy(
-                    heroes = useCases.searchHeroesUseCase.invoke(query).cachedIn(viewModelScope)
+                    heroes = useCases.searchHeroesUseCase.invoke(query)
                 )
             }
         }
