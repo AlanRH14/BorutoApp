@@ -20,7 +20,7 @@ koinAndroid = "4.1.0"
 retrofit = "3.0.0"
 loggingInterceptor = "5.1.0"
 
-roomVersion = "2.7.2"
+roomVersion = "2.8.0"
 
 coilVersion = "3.3.0"
 
