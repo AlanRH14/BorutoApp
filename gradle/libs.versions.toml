@@ -15,7 +15,7 @@ coreSplashscreen = "1.0.1"
 
 kspVersion = "2.1.21-2.0.1"
 
-koinAndroid = "4.1.0"
+koinAndroid = "4.1.1"
 
 retrofit = "3.0.0"
 loggingInterceptor = "5.1.0"
