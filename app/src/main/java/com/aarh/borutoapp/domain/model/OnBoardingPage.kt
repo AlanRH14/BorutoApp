@@ -1,10 +1,8 @@
 package com.aarh.borutoapp.domain.model
 
-import androidx.annotation.DrawableRes
 import com.aarh.borutoapp.R
 
 sealed class OnBoardingPage(
-    @DrawableRes
     val image: Int,
     val title: String,
     val description: String,
