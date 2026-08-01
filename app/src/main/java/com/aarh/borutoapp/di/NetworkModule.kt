@@ -2,7 +2,6 @@ package com.aarh.borutoapp.di
 
 import androidx.paging.ExperimentalPagingApi
 import com.aarh.borutoapp.data.remote.BorutoApi
-import com.aarh.borutoapp.data.repository.RemoteDataSourceImpl
 import com.aarh.borutoapp.util.Constants.BASE_URL
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType

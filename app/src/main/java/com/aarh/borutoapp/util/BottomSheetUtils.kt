@@ -11,15 +11,11 @@ val BottomSheetScaffoldState.currentSheetFraction: Float
         val targetValue = bottomSheetState.targetValue
         val currentValue = bottomSheetState.currentValue
 
-        return when {
-            currentValue == SheetValue.Hidden && targetValue == SheetValue.Hidden -> 1F
-
-            currentValue == SheetValue.Expanded && targetValue == SheetValue.Expanded -> 0F
-
-            currentValue == SheetValue.Hidden && targetValue == SheetValue.Expanded -> 1F
-
-            currentValue == SheetValue.Expanded && targetValue == SheetValue.Hidden -> 0F
-
+        return when (currentValue) {
+            SheetValue.Hidden if targetValue == SheetValue.Hidden -> 1F
+            SheetValue.Expanded if targetValue == SheetValue.Expanded -> 0F
+            SheetValue.Hidden if targetValue == SheetValue.Expanded -> 1F
+            SheetValue.Expanded if targetValue == SheetValue.Hidden -> 0F
             else -> 1F
         }
     }

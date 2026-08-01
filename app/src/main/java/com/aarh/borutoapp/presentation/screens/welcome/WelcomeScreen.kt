@@ -1,6 +1,5 @@
 package com.aarh.borutoapp.presentation.screens.welcome
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,7 +10,6 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import com.aarh.borutoapp.navigation.Home
-import com.aarh.borutoapp.navigation.NavRoutes
 import com.aarh.borutoapp.presentation.screens.welcome.components.FinishButton
 import com.aarh.borutoapp.presentation.screens.welcome.components.HorizontalPagerIndicator
 import com.aarh.borutoapp.presentation.screens.welcome.mvi.WelcomeEffect
@@ -22,7 +20,6 @@ import com.aarh.borutoapp.util.Constants.WELCOME_PAGES_DATA
 import kotlinx.coroutines.flow.collectLatest
 import org.koin.androidx.compose.koinViewModel
 
-@ExperimentalFoundationApi
 @Composable
 fun WelcomeScreen(
     modifier: Modifier = Modifier,

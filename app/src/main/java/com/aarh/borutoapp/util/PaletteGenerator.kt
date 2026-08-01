@@ -45,7 +45,7 @@ object PaletteGenerator {
     private fun parseColorSwatch(color: Palette.Swatch?): String {
         return if (color != null) {
             val parsedColor = Integer.toHexString(color.rgb)
-            return "#$parsedColor"
+            "#$parsedColor"
         } else {
             "#000000"
         }
