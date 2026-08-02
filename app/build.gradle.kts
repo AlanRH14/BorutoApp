@@ -1,5 +1,3 @@
-import org.gradle.internal.impldep.com.jcraft.jsch.ConfigRepository.defaultConfig
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -10,7 +8,7 @@ plugins {
 
 android {
     namespace = "com.aarh.borutoapp"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "com.aarh.borutoapp"
