@@ -15,15 +15,10 @@ koinAndroid = "4.1.1"
 retrofit = "3.0.0"
 loggingInterceptor = "5.1.0"
 roomVersion = "2.8.1"
-
 coilVersion = "3.3.0"
-
 paletteVersion = "1.0.0"
-
 kotlinxSerialization = "1.9.0"
-
 pagingVersion = "3.3.6"
-
 dataStoreVersion = "1.1.7"
 
 [libraries]
