@@ -1,7 +1,6 @@
 package com.aarh.borutoapp.presentation.screens.welcome.components
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -26,7 +25,6 @@ import com.aarh.borutoapp.ui.theme.InactiveIndicatorColor
 import com.aarh.borutoapp.ui.theme.SMALL_PADDING
 import com.aarh.borutoapp.util.Constants.WELCOME_PAGES_DATA
 
-@ExperimentalFoundationApi
 @Composable
 fun HorizontalPagerIndicator(
     modifier: Modifier = Modifier,
@@ -61,7 +59,6 @@ fun HorizontalPagerIndicator(
     }
 }
 
-@ExperimentalFoundationApi
 @Composable
 @Preview(showBackground = true)
 fun HorizontalPagerIndicatorPreview() {
@@ -69,7 +66,6 @@ fun HorizontalPagerIndicatorPreview() {
     HorizontalPagerIndicator(pagerState = pagerState)
 }
 
-@ExperimentalFoundationApi
 @Composable
 @Preview(
     uiMode = UI_MODE_NIGHT_YES,
