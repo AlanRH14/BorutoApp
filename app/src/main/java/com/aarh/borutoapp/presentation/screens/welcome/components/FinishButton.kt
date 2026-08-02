@@ -1,7 +1,6 @@
 package com.aarh.borutoapp.presentation.screens.welcome.components
 
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -21,7 +20,6 @@ import com.aarh.borutoapp.ui.theme.PurpleUIModeColor
 import com.aarh.borutoapp.ui.theme.EXTRA_LARGE_PADDING
 import com.aarh.borutoapp.ui.theme.SMALL_PADDING
 
-@ExperimentalFoundationApi
 @Composable
 fun FinishButton(
     modifier: Modifier = Modifier,
