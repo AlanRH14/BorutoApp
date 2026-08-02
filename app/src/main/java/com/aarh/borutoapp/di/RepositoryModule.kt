@@ -1,7 +1,5 @@
 package com.aarh.borutoapp.di
 
-import com.aarh.borutoapp.data.repository.DataStoreHandleImpl
-import com.aarh.borutoapp.domain.repository.DataStoreHandle
 import com.aarh.borutoapp.domain.repository.RemoteDataSource
 import com.aarh.borutoapp.domain.use_case.UseCases
 import com.aarh.borutoapp.domain.use_case.get_all_heroes.GetAllHeroesUseCase
